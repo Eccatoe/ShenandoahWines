@@ -1,50 +1,33 @@
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 
-function Map() {
-  const [selectedWinery, setSelectedWinery] = useState(null);
-  const [wineries, setWineries] = useState([]);
-  const [viewport, setViewport] = useState({
-    latitude: 38.35,
-    longitude: -78.612,
-    zoom:  7.4,
-    height: "100vh",
-    width: "50vw",
-  });
-
-
-  useEffect(() => {
-    fetch("/wineries")
-      .then((r) => r.json())
-      .then((data) => setWineries(data));
-  }, []);
-
-  const wineryButton = wineries.map((winery) => (
-    <button value={winery.name} onClick={focusWine}>
-        {winery.name}
-      </button>
-  ))
-
-  function focusWine(e) {
-    const focus=wineries.find(winery=>(
-      winery.name===e.target.value
-    ))
-      setSelectedWinery(focus)
+function Map({
+  selectedWinery,
+  setSelectedWinery,
+  searchList,
+  viewport,
+  setViewport,
+  searchView,
+  setSearchView,
+}) {
+  const navigate=useNavigate()
+  function handleClose() {
+    setSearchView(viewport);
+    setSelectedWinery(null);
   }
 
   return (
-    <div>
-      {wineryButton}
-
+    <div id="map">
       <ReactMapGL
-        {...viewport}
+        {...searchView}
         mapboxApiAccessToken={process.env.REACT_APP_MAP_KEY}
         onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
         mapStyle="mapbox://styles/eccatoe2517/cl1kwb7rz003i15qmly0oyid5"
       >
-        {wineries.map((winery) => (
+        {searchList.map((winery) => (
           <Marker
             key={winery.name}
             latitude={winery.latitude}
@@ -67,9 +50,16 @@ function Map() {
           <Popup
             latitude={selectedWinery.latitude}
             longitude={selectedWinery.longitude}
-            onClose={() => setSelectedWinery(null)}
+            onClose={() => handleClose()}
+            // onClick={()=>navigate(`/winery/${selectedWinery.id}`)}
           >
+            <div className="popupContent">
             {selectedWinery.name}
+            {console.log(selectedWinery)}
+            <a href={selectedWinery.link}>Visit</a>
+            <img src={selectedWinery.image}/>
+            </div>
+
           </Popup>
         ) : null}
       </ReactMapGL>

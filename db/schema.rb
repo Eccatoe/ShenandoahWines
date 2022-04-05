@@ -14,7 +14,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_193323) do
   create_table "wineries", force: :cascade do |t|
     t.string "name"
     t.string "link"
+    t.string "image"
     t.string "address"
+    t.text "varietals"
     t.text "description"
     t.float "latitude"
     t.float "longitude"

@@ -1,326 +1,4 @@
-[
-  {
-    "winery": "Bluestone Vineyard",
-    "winery_url": "http://www.bluestonevineyard.com",
-    "phone": "540-828-0099",
-    "address": "4828 Spring Creek Road Bridgewater, VA 22812 ",
-    "region": "Region: Shenandoah Valley",
-    "description": "Located in the western Shenandoah Valley, Bluestone Vineyard offers impressive views of the mountains and surrounding farm land.  Enjoy the view of our hillside vineyard from our tasting room as you taste our wines and experience a little of the Valley's atmosphere and friendliness.Parties of 8 or more must schedule an appointment for tastings with a deposit of their tasting fee.Dogs on a leash are always welcome at Bluestone Vineyard.  Due to a policy set by the Virginia Department of Agriculture and Consumer Service we cannot allow dogs inside the Tasting Room.  We are sorry for any inconveniences this may cause, but would love for your dog to enjoy the patio and other outdoor areas on the property.",
-    "wines": [
-      {
-        "name": "2015 Chardonnay",
-        "varietal": "Chardonnay"
-      },
-      {
-        "name": "2017 Stainless Steel Chardonnay",
-        "varietal": "Chardonnay"
-      },
-      {
-        "name": "2016 Petit Manseng",
-        "varietal": "Petit Manseng"
-      },
-      {
-        "name": "2014 Estate Grown Blue Ice",
-        "varietal": "Traminette"
-      },
-      {
-        "name": "2017 Traminette",
-        "varietal": "Traminette"
-      },
-      {
-        "name": "2016 Estate Grown Vidal Blanc",
-        "varietal": "Vidal Blanc"
-      },
-      {
-        "name": "2015 Viognier",
-        "varietal": "Viognier"
-      },
-      {
-        "name": "Beau",
-        "varietal": "Blend"
-      },
-      {
-        "name": "2017 Rosé",
-        "varietal": "Chambourcin"
-      },
-      {
-        "name": "2014 Cabernet Franc",
-        "varietal": "Cabernet Franc"
-      },
-      {
-        "name": "2014 Cabernet Sauvignon",
-        "varietal": "Cabernet Sauvignon"
-      },
-      {
-        "name": "2015 The Steep Face",
-        "varietal": "Chambourcin"
-      },
-      {
-        "name": "2014 Merlot",
-        "varietal": "Merlot"
-      },
-      {
-        "name": "2014 Dry Dock",
-        "varietal": "Norton"
-      },
-      {
-        "name": "2014 Petit Verdot",
-        "varietal": "Petit Verdot"
-      },
-      {
-        "name": "Crooked and Weedy",
-        "varietal": "Blend"
-      },
-      {
-        "name": "2013 Houndstooth",
-        "varietal": "Blend"
-      },
-      {
-        "name": "2014 Cadenza",
-        "varietal": "Blend"
-      },
-      {
-        "name": "2017 Moscato",
-        "varietal": "Moscato"
-      }
-    ]
-  },
-  {
-    "winery": "612 Vineyard",
-    "winery_url": "http://www.612vineyard.com/",
-    "phone": "540-535-6689",
-    "address": "864 Shepherds Mill Road Berryville, Virginia 22611 ",
-    "region": "Region: Shenandoah Valley",
-    "description": "612 Vineyard welcomes you to unwind, sit back, savor enticing wine and enjoy our relaxing views at our petit vineyard nestled up against the northwest side of the Blue Ridge Mountains in beautiful Clarke County, Virginia.Delight on our wondrous enticing wines – from a lightly sweet Rose to a dry velvety Chambourcin, along with everything in between.Lisa Adams, Owner and Founder, fell in love with Northern Virginia and the Blue Ridge Mountains when relocating to Clarke County in 1996. Her passion for the importance of family and friends gathering together inspired the establishment of 612 Vineyard.Lisa shares her homestead as a place to congregate and relish with family and friends. She warmly invites you to 612 Vineyard to unwind your attitude as you embrace the mountainous views and surrounding farmlands. Leave your stresses behind and escape from the hustle and bustle of your everyday life. Relax with friends and family, reconnecting your kindred spirits, while enjoying our variety of wines the earth creates. It is a reminder of the good things the earth can give us.Feel at home in our tasting areas that are cozy and cool in the summer, and toasty in the winter with two fireplaces. Stroll onto our 75 ft. long scenic view porch, tasting room or take a seat under our shaded umbrella in the summer or near the fire pits in cooler weather. Be entertained with an array of music on our small covered stage.Before heading back home, visit the vast array of wine related items and featured works of various independent artists in our gift shop. Don't forget to pick-up a bottle of our enticing wine to enjoy once you return home.",
-    "wines": [
-      {
-        "name": "612 Vineyard Chardonnay",
-        "varietal": "Chardonnay"
-      },
-      {
-        "name": "612 Vineyard Riesling",
-        "varietal": "Riesling"
-      },
-      {
-        "name": "612 Vineyard Traminette",
-        "varietal": "Traminette"
-      },
-      {
-        "name": "612 Vineyard Viognier",
-        "varietal": "Viognier"
-      },
-      {
-        "name": "612 Vineyard Viognier - Barrel Aged",
-        "varietal": "Viognier"
-      },
-      {
-        "name": "My Sweet White Dessert Wine",
-        "varietal": "Viognier"
-      },
-      {
-        "name": "Blushing Rose",
-        "varietal": "Blend"
-      },
-      {
-        "name": "My Sweet Rouge",
-        "varietal": "Blend"
-      },
-      {
-        "name": "612 Vineyard Cabernet Franc",
-        "varietal": "Cabernet Franc"
-      },
-      {
-        "name": "612 Vineyard Chambourcin",
-        "varietal": "Chambourcin"
-      },
-      {
-        "name": "Always N Forever",
-        "varietal": "Blend"
-      },
-      {
-        "name": "Sultry N Red",
-        "varietal": "Blend"
-      }
-    ]
-  },
-  {
-    "winery": "Barren Ridge Vineyards",
-    "winery_url": "http://www.barrenridgevineyards.com",
-    "phone": "540-248-3300",
-    "address": "984 Barren Ridge Road Fishersville, VA 22939 ",
-    "region": "Region: Shenandoah Valley",
-    "description": "Located on the Higgs family's former apple orchard, Barren Ridge Vineyards is now home to Augusta County's premier winery. John and Shelby Higgs cleared the overgrown land and planted it with grapevines that now produce fourteen award-winning wines. They also converted their 1890′s apple barn into a state-of-the-art winery, preserving the original structure and wood beams. The Tasting Room features carefully handcrafted wines that are available daily for tastings. The winery is open seven days a week for complimentary tours, and the patio is always ready for picnics and sunset-viewing.",
-    "wines": [
-      {
-        "name": "2016 Chardonnay",
-        "varietal": "Chardonnay"
-      },
-      {
-        "name": "2016 Traminette",
-        "varietal": "Traminette"
-      },
-      {
-        "name": "2016 Vidal Blanc",
-        "varietal": "Vidal Blanc"
-      },
-      {
-        "name": "2016 Viognier",
-        "varietal": "Viognier"
-      },
-      {
-        "name": "2015 TINKLING SPRING",
-        "varietal": "Blend"
-      },
-      {
-        "name": "2016 HARMONY",
-        "varietal": ""
-      },
-      {
-        "name": "2016 ROSE",
-        "varietal": ""
-      },
-      {
-        "name": "2016 CABERNET FRANC",
-        "varietal": ""
-      },
-      {
-        "name": "2010 MERITAGE",
-        "varietal": ""
-      },
-      {
-        "name": "2015 MERLOT",
-        "varietal": ""
-      },
-      {
-        "name": "2015 PETIT VERDOT",
-        "varietal": ""
-      },
-      {
-        "name": "2015 RED BARREN",
-        "varietal": ""
-      },
-      {
-        "name": "2016 TOURIGA",
-        "varietal": ""
-      },
-      {
-        "name": "2015 CHRISTOF",
-        "varietal": ""
-      }
-    ]
-  },
-  {
-    "winery": "Bluemont Vineyard",
-    "winery_url": "http://BluemontVineyard.com",
-    "phone": "540 554 8439",
-    "address": "18755 Foggy Bottom Road Bluemont, Virginia 20135 ",
-    "region": "Region: Shenandoah Valley",
-    "description": "Bluemont Vineyard was conceived in a love affair between agriculture and wine. Established in 2007, This small country winery is a natural extension of Great Country Farms (CSA) across the street. As a small-run winery, an average of 5000 carefully crafted cases of wine are produced each year. Discover a broad spectrum of wines with an emphasis on quality of product as well as skill, enthusiasm and artistry of the team of people creating each unique vintage.The Stable at Bluemont Vineyard is also available for private meetings, events and weddings.",
-    "wines": [
-      {
-        "name": "2014 Petit Manseng",
-        "varietal": ""
-      },
-      {
-        "name": "2014 951 Estate Petit Manseng, \"The Chicken\"",
-        "varietal": ""
-      },
-      {
-        "name": "2014 2014 Vidal Blanc, \"The Cow\"",
-        "varietal": ""
-      },
-      {
-        "name": "2014 2014 Viognier,  \"The Goat\"",
-        "varietal": ""
-      },
-      {
-        "name": "2014 Farm Table White",
-        "varietal": ""
-      },
-      {
-        "name": "2014 The Donkey",
-        "varietal": ""
-      },
-      {
-        "name": "2010 Cabernet Franc, \"The Horse\"",
-        "varietal": ""
-      },
-      {
-        "name": "2012 Meritage 2012 (S-VGC)",
-        "varietal": ""
-      },
-      {
-        "name": "2013 2013 Merlot, \"The Ram\"",
-        "varietal": ""
-      },
-      {
-        "name": "2012 951 Estate Merlot,  \"The Ram\"",
-        "varietal": ""
-      },
-      {
-        "name": "2010 Merlot \"The Ram\" Reserve",
-        "varietal": ""
-      },
-      {
-        "name": "2013 Norton, \"The Pig\"",
-        "varietal": ""
-      },
-      {
-        "name": "Norton \"The Pig\" non-vintage 2011-2012",
-        "varietal": ""
-      },
-      {
-        "name": "2013 Farm Table Red",
-        "varietal": ""
-      },
-      {
-        "name": "2014 The Peach",
-        "varietal": ""
-      }
-    ]
-  },
-  {
-    "winery": "Blue Ridge Vineyard",
-    "winery_url": "http://www.blueridgevineyard.com",
-    "phone": "(540) 798-7642",
-    "address": "1027 Shiloh Dr. Eagle Rock, VA 24085 ",
-    "region": "Region: Shenandoah Valley",
-    "description": "Located at the head of the Shenandoah Valley with magnificent views in the heart of Blue Ridge Mountain country. Pinot Noir, Riesling, Gewurtztraminer, Cabernet Franc, and Traminette wines are crafted from old growth vines. Enjoy a picnic and walk the mountain trails on the 300-acre farm. Plan your wedding, reunion, or corporate event in our spacious barn.",
-    "wines": [
-      {
-        "name": "Gewurztraminer",
-        "varietal": ""
-      },
-      {
-        "name": "Riesling",
-        "varietal": ""
-      },
-      {
-        "name": "Traminette",
-        "varietal": ""
-      },
-      {
-        "name": "Other White Blends",
-        "varietal": ""
-      },
-      {
-        "name": "Cabernet Franc",
-        "varietal": ""
-      },
-      {
-        "name": "Pinot Noir",
-        "varietal": ""
-      },
-      {
-        "name": "Other Red Blends",
-        "varietal": ""
-      },
-      {
-        "name": "Other",
-        "varietal": ""
-      }
-    ]
-  },
+
   {
     "winery": "Bluestone Vineyard",
     "winery_url": "http://www.bluestonevineyard.com",
@@ -667,7 +345,7 @@
         "varietal": ""
       },
       {
-        "name": "2016 \"Cuvée de la Reine\"",
+        "name": "2016 'Cuvée de la Reine'",
         "varietal": ""
       },
       {
@@ -675,7 +353,7 @@
         "varietal": ""
       },
       {
-        "name": "2016 \"Arrivato 1913 Ameritage\"",
+        "name": "2016 'Arrivato 1913 Ameritage'",
         "varietal": ""
       },
       {
@@ -771,7 +449,7 @@
     "phone": "540-888-4420",
     "address": "1531 Pack Horse Rd Winchester, VA 22603 ",
     "region": "Region: Shenandoah Valley",
-    "description": "Misty Mountain Meadworks is now the oldest Meadery in Virginia. Our specialty is producing the ancient \"Nectar of the Gods\" - Mead, which some people call honey-wine.  The Meadery is owned and operated by the Copeland family and located on a fifteen acre tract in the mountains bordering the Shenandoah Valley near Winchester, VA.",
+    "description": "Misty Mountain Meadworks is now the oldest Meadery in Virginia. Our specialty is producing the ancient 'Nectar of the Gods' - Mead, which some people call honey-wine.  The Meadery is owned and operated by the Copeland family and located on a fifteen acre tract in the mountains bordering the Shenandoah Valley near Winchester, VA.",
     "wines": []
   },
   {
@@ -1082,7 +760,7 @@
     "phone": "202-255-5009/ 540-554-4547",
     "address": "18035 Raven Rocks Rd Bluemont, Virginia 20135 ",
     "region": "Region: Shenandoah Valley",
-    "description": "\"Top of the mountain to you!\" In the early 1900's, Twin Oaks Tavern served as country inn where city people could relax in the cool breezes of the Blue Ridge Mountains. Today our winery and vineyard, located at 1150' altitude in the Bear's Den Historic District, offer breathtaking views and wines to match. Visit our beautiful tasting room and decks and enjoy views of the Shenandoah Valley and spectacular sunsets.Arrange for a tour of our vineyard and wine cellar. Kids and dogs are welcome. Visit www.twinoakstavernwinery.com for weekly and monthly Special Events and and check out Twin Oak Tavern's wine blog.",
+    "description": "'Top of the mountain to you!' In the early 1900's, Twin Oaks Tavern served as country inn where city people could relax in the cool breezes of the Blue Ridge Mountains. Today our winery and vineyard, located at 1150' altitude in the Bear's Den Historic District, offer breathtaking views and wines to match. Visit our beautiful tasting room and decks and enjoy views of the Shenandoah Valley and spectacular sunsets.Arrange for a tour of our vineyard and wine cellar. Kids and dogs are welcome. Visit www.twinoakstavernwinery.com for weekly and monthly Special Events and and check out Twin Oak Tavern's wine blog.",
     "wines": [
       {
         "name": "2014 Twin Oaks Tavern Chardonnay",
@@ -1201,7 +879,7 @@
         "varietal": ""
       },
       {
-        "name": "\"Pink Chicken\" Rosé",
+        "name": "'Pink Chicken' Rosé",
         "varietal": ""
       },
       {
