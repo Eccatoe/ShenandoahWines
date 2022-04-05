@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="Zu8RP0ZC7i2yoPGbR_1u" name="Page-1">
-        <mxGraphModel dx="722" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1331" dy="715" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -20,7 +20,7 @@
                     <mxGeometry x="140" y="290" width="120" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="Catalog&lt;br&gt;-search by name &lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="450" y="290" width="120" height="100" as="geometry"/>
+                    <mxGeometry x="410" y="290" width="120" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="Winery Page&lt;br&gt;-dropdown of wines to add to list" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="620" y="460" width="120" height="60" as="geometry"/>
@@ -30,7 +30,7 @@
                         <mxPoint x="690" y="210" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="10" value="Form&lt;br&gt;-populates when user wants to move a wine to &quot;tried&quot;&lt;br&gt;&amp;nbsp;-review, with photo" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="10" value="Form&lt;br&gt;-populates when user wants to move a wine to &quot;tried&quot;&lt;br&gt;&amp;nbsp;-review, with photo&lt;br&gt;-will user_wine need tried, favorite, to_try attr?" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="720" y="120" width="130" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="4">
@@ -60,9 +60,9 @@
                 <mxCell id="16" value="Map&lt;br&gt;-pins that filter with search" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="440" y="460" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="8" target="9">
+                <mxCell id="17" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="9">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
-                        <mxPoint x="440" y="350" as="sourcePoint"/>
+                        <mxPoint x="400" y="80" as="sourcePoint"/>
                         <mxPoint x="490" y="300" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
@@ -88,7 +88,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="22" value="Splash" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="940" y="10" width="160" height="190" as="geometry"/>
+                    <mxGeometry x="930" y="20" width="160" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" value="Catalog&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
                     <mxGeometry x="1340" y="10" width="160" height="190" as="geometry"/>
@@ -100,7 +100,7 @@
                     <mxGeometry x="1350" y="50" width="50" height="140" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="Home&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
-                    <mxGeometry x="1140" y="10" width="160" height="190" as="geometry"/>
+                    <mxGeometry x="1140" y="20" width="160" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="Va Varietals" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="1150" y="50" width="80" height="40" as="geometry"/>
@@ -198,7 +198,7 @@
                         <mxPoint x="420" y="280" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="60" value="POST user_wine to mylist" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="59">
+                <mxCell id="60" value="POST user_wine" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="59">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="" style="endArrow=classic;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="58" target="7">

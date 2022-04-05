@@ -5,7 +5,6 @@ class CreateWineries < ActiveRecord::Migration[7.0]
       t.string :link
       t.string :image
       t.string :address
-      t.text :varietals
       t.text :description
       t.float :latitude
       t.float :longitude

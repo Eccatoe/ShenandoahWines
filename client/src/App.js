@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Home from './components/Home'
 import Catalog from "./components/Catalog";
 import WineryPage from './components/WineryPage'
+import Varietals from './components/Varietals';
 
 function App() {
     const [wineries, setWineries] = useState([]);
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/home" element={<Home />}></Route>
           <Route exact path="/wineries" element={<Catalog />}></Route>
           <Route exact path="/wineries/:id" element={<WineryPage />}></Route>
+          <Route exact path='/varietals' element={<Varietals/>}></Route>
         </Routes>
       </WineryContext.Provider>
     </div>

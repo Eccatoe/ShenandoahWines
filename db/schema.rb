@@ -10,11 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_05_134319) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_05_185914) do
+  create_table "user_wines", force: :cascade do |t|
+    t.integer "wine_id"
+    t.integer "user_id"
+    t.text "review"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "varietals", force: :cascade do |t|
     t.string "name"
-    t.string "tasting_notes"
+    t.text "tasting_notes"
     t.boolean "native_grape"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -24,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_134319) do
     t.string "link"
     t.string "image"
     t.string "address"
-    t.text "varietals"
+    t.string "varietals"
     t.text "description"
     t.float "latitude"
     t.float "longitude"
@@ -34,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_134319) do
 
   create_table "wines", force: :cascade do |t|
     t.string "name"
-    t.string "varietal"
+    t.integer "varietal_id"
     t.integer "winery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
