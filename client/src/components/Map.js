@@ -5,11 +5,12 @@ import {useNavigate} from 'react-router-dom'
 function Map({
   selectedWinery,
   setSelectedWinery,
-  searchList,
+  userSearchList,
   viewport,
   setViewport,
   searchView,
   setSearchView,
+  varietalSearchList
 }) {
   const navigate=useNavigate()
   function handleClose() {
@@ -27,7 +28,8 @@ function Map({
         }}
         mapStyle="mapbox://styles/eccatoe2517/cl1kwb7rz003i15qmly0oyid5"
       >
-        {searchList.map((winery) => (
+{console.log("map vsl", varietalSearchList)}
+{userSearchList.map((winery) => (
           <Marker
             key={winery.name}
             latitude={winery.latitude}
@@ -45,6 +47,8 @@ function Map({
               />
             </button>
           </Marker>
+
+
         ))}
         {selectedWinery ? (
           <Popup

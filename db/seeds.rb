@@ -448,7 +448,7 @@ description: "The folks at Wolf Gap Vineyard are dedicated to producing perfect 
 
  Wine.create(
      winery_id: Winery.find_by(name: "Barren Ridge Vineyards").id,
-     varietal_id: 31,
+     varietal_id: 12,
      name: "Meritage"
  )
  Wine.create(
@@ -458,7 +458,7 @@ description: "The folks at Wolf Gap Vineyard are dedicated to producing perfect 
  )
  Wine.create(
      winery_id: Winery.find_by(name: "Bluemont Vineyard").id,
-     varietal_id: 23,
+     varietal_id: 12,
      name: "2021 Sauvignon Blanc"
  )
  Wine.create(

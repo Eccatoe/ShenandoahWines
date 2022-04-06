@@ -8,7 +8,7 @@ function Varietals({ setVarietalSearchList }) {
   const { wineries } = useContext(WineryContext);
   const [selectedVarietal, setSelectedVarietal] = useState({});
   const [varietals, setVarietals] = useState([]);
-  const { id, name, tasting_notes, picture } = selectedVarietal;
+  const {name, tasting_notes, picture } = selectedVarietal;
 
   const singleVarietal = varietals?.map((v) => (
     <VarietalItem
@@ -27,7 +27,10 @@ function Varietals({ setVarietalSearchList }) {
 
   function handleFind(e) {
     const match = varietals.find((v) => v.name === e.target.value);
+    console.log("varietals", varietals)
+    console.log("match", match)
     setVarietalSearchList(match.wineries);
+    console.log(match.wineries)
     navigate("/wineries");
   }
   console.log(selectedVarietal);
