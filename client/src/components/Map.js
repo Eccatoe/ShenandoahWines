@@ -1,18 +1,16 @@
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function Map({
   selectedWinery,
   setSelectedWinery,
-  userSearchList,
+  renderedSearchList,
   viewport,
   setViewport,
   searchView,
   setSearchView,
-  varietalSearchList
 }) {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   function handleClose() {
     setSearchView(viewport);
     setSelectedWinery(null);
@@ -28,8 +26,7 @@ function Map({
         }}
         mapStyle="mapbox://styles/eccatoe2517/cl1kwb7rz003i15qmly0oyid5"
       >
-{console.log("map vsl", varietalSearchList)}
-{userSearchList.map((winery) => (
+        {renderedSearchList.map((winery) => (
           <Marker
             key={winery.name}
             latitude={winery.latitude}
@@ -47,8 +44,6 @@ function Map({
               />
             </button>
           </Marker>
-
-
         ))}
         {selectedWinery ? (
           <Popup
@@ -57,13 +52,16 @@ function Map({
             onClose={() => handleClose()}
           >
             <div className="popupContent">
-            {selectedWinery.name}
-            {console.log(selectedWinery)}
-            <a target="_blank" href={selectedWinery.link}>Visit</a>
-            <div onClick={()=>navigate(`/wineries/${selectedWinery.id}`)}>View Details</div>
-            <img src={selectedWinery.image}/>
+              {selectedWinery.name}
+              {console.log(selectedWinery)}
+              <a target="_blank" href={selectedWinery.link}>
+                Visit
+              </a>
+              <div onClick={() => navigate(`/wineries/${selectedWinery.id}`)}>
+                View Details
+              </div>
+              <img src={selectedWinery.image} />
             </div>
-
           </Popup>
         ) : null}
       </ReactMapGL>
