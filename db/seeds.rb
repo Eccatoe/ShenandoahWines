@@ -447,19 +447,24 @@ description: "The folks at Wolf Gap Vineyard are dedicated to producing perfect 
  )
 
  Wine.create(
-     winery_id: Winery.find_by(name: "Bluestone Vineyard").id,
-     varietal_id: 27,
-     name: "Beau"
+     winery_id: Winery.find_by(name: "Barren Ridge Vineyards").id,
+     varietal_id: 31,
+     name: "Meritage"
  )
  Wine.create(
-     winery_id: Winery.find_by(name: "Bluestone Vineyard").id,
-     varietal_id: 27,
-     name: "Beau"
+     winery_id: Winery.find_by(name: "Barren Ridge Vineyards").id,
+     varietal_id: 4,
+     name: "Port"
  )
  Wine.create(
-     winery_id: Winery.find_by(name: "Bluestone Vineyard").id,
-     varietal_id: 27,
-     name: "Beau"
+     winery_id: Winery.find_by(name: "Bluemont Vineyard").id,
+     varietal_id: 23,
+     name: "2021 Sauvignon Blanc"
+ )
+ Wine.create(
+     winery_id: Winery.find_by(name: "Bluemont Vineyard").id,
+     varietal_id: 5,
+     name: "2020 Chardonnay"
  )
 
 
