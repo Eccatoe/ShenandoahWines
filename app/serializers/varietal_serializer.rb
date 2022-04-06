@@ -1,3 +1,4 @@
 class VarietalSerializer < ActiveModel::Serializer
-  attributes :id, :name, :tasting_notes, :image, :native_grape
+  attributes :id, :name, :tasting_notes, :picture, :native_grape
+  has_many :wines
 end

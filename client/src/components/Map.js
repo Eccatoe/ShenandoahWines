@@ -51,12 +51,12 @@ function Map({
             latitude={selectedWinery.latitude}
             longitude={selectedWinery.longitude}
             onClose={() => handleClose()}
-            // onClick={()=>navigate(`/winery/${selectedWinery.id}`)}
           >
             <div className="popupContent">
             {selectedWinery.name}
             {console.log(selectedWinery)}
-            <a href={selectedWinery.link}>Visit</a>
+            <a target="_blank" href={selectedWinery.link}>Visit</a>
+            <div onClick={()=>navigate(`/wineries/${selectedWinery.id}`)}>View Details</div>
             <img src={selectedWinery.image}/>
             </div>
 

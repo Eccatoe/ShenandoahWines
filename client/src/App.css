@@ -29,3 +29,11 @@
    max-width: 20vw;
    height: 100%
  }
+.wineryBlurb{
+  display: flex;
+  flex-direction: column;
+}
+.wineryBlurb img{
+  max-width: 40vw;
+  height: 100%
+}

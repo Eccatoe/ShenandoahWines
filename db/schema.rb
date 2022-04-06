@@ -38,7 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_185914) do
     t.string "link"
     t.string "image"
     t.string "address"
-    t.string "varietals"
     t.text "description"
     t.float "latitude"
     t.float "longitude"

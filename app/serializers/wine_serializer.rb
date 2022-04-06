@@ -1,3 +1,4 @@
 class WineSerializer < ActiveModel::Serializer
-  attributes :name, :varietal
+  attributes :id, :name
+  belongs_to :varietal
 end

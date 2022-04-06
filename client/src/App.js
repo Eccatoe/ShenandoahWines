@@ -10,11 +10,11 @@ import Varietals from './components/Varietals';
 
 function App() {
     const [wineries, setWineries] = useState([]);
-
     useEffect(() => {
         fetch("/wineries")
           .then((r) => r.json())
           .then((data) => setWineries(data));
+          return ()=>{setWineries({})}
       }, []);
 
   return (

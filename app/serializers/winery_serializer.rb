@@ -1,4 +1,4 @@
 class WinerySerializer < ActiveModel::Serializer
-  attributes :name, :link, :longitude, :latitude, :address, :description, :image
+  attributes :id, :name, :link, :longitude, :latitude, :image
   has_many :wines
 end
