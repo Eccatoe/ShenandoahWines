@@ -1,7 +1,7 @@
 import React from 'react'
 
 function WineryItem({winery, focusWine}) {
-    const {name, description, address, link}=winery
+    const {name}=winery
     function handleFocus(e){
         focusWine(e)
     }

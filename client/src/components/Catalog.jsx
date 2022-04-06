@@ -3,13 +3,9 @@ import { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
 import WineryItem from "./WineryItem";
 
-function Catalog() {
+function Catalog({ varietalSearchList }) {
   const { wineries } = useContext(WineryContext);
   const [selectedWinery, setSelectedWinery] = useState(null);
-  const [searchText, setSearchText] = useState("");
-  const searchList = wineries.filter((winery) =>
-    winery.name.toLowerCase().includes(searchText.toLowerCase())
-  );
   const [viewport, setViewport] = useState({
     latitude: 38.35,
     longitude: -78.612,
@@ -18,9 +14,16 @@ function Catalog() {
     width: "60vw",
   });
   const [searchView, setSearchView] = useState({ ...viewport });
+  const [searchText, setSearchText] = useState("");
+  const searchList = wineries.filter((winery) =>
+    winery.name.toLowerCase().includes(searchText.toLowerCase())
+  );
+
   const wineryList = searchList.map((winery) => (
     <WineryItem key={winery.id} winery={winery} focusWine={focusWine} />
   ));
+
+  console.log(varietalSearchList)
 
   function focusWine(e) {
     const focus = wineries.find(
@@ -50,7 +53,7 @@ function Catalog() {
           onChange={(e) => handleSearch(e)}
         ></input>
       </form>
-      <div className="wineryList">{wineryList}</div>
+      <div className="varietalSearchList">{wineryList}</div>
       <Map
         searchList={searchList}
         selectedWinery={selectedWinery}
