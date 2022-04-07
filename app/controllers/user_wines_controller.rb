@@ -11,6 +11,16 @@ class UserWinesController < ApplicationController
         render json: user_wines
     end
 
+    def update
+        user_wine=UserWine.find(params[:id])
+        user_wine.update!(
+            favorite: params[:favorite],
+            tasted: params[:tasted]
+        )
+        render json: user_wine
+        # byebug
+    end
+
     private
 
     def user_wine_params

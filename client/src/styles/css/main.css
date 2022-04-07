@@ -2,12 +2,17 @@ button, .lg-button {
   background: transparent;
   margin: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border: none;
 }
 
 button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.408);
-          transform: scale(0.408);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
 }
 
 a {
@@ -51,12 +56,17 @@ button, .lg-button {
   background: transparent;
   margin: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border: none;
 }
 
 button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.408);
-          transform: scale(0.408);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
 }
 
 a {
@@ -79,12 +89,17 @@ button, .lg-button {
   background: transparent;
   margin: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border: none;
 }
 
 button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.408);
-          transform: scale(0.408);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
 }
 
 a {
@@ -93,23 +108,65 @@ a {
 
 .nav {
   text-decoration: none;
+  height: 100vh;
+  width: 5vw;
+  font-size: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  right: 0;
+}
+
+.nav .test {
   background: #fafdd6;
-  z-index: 4;
-  height: 10vh;
-  font-size: 28px a;
-  font-size-text-decoration: none;
+  height: 100vh;
+  width: 5vw;
+  position: fixed;
+}
+
+.nav .test:hover {
+  -webkit-transform: scaleX(2);
+          transform: scaleX(2);
+  -webkit-transition: 0.70s;
+  transition: 0.70s;
+}
+
+.nav .test .test + a:hover {
+  -webkit-transform: scaleX(1) rotate(0deg);
+          transform: scaleX(1) rotate(0deg);
+}
+
+a {
+  text-decoration: none;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
 }
 
 button, .lg-button {
   background: transparent;
   margin: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border: none;
 }
 
 button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.408);
-          transform: scale(0.408);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
 }
 
 a {
@@ -184,12 +241,17 @@ button, .lg-button {
   background: transparent;
   margin: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border: none;
 }
 
 button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.408);
-          transform: scale(0.408);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
 }
 
 a {
@@ -225,12 +287,46 @@ button, .lg-button {
   background: transparent;
   margin: 10px;
   padding: 3px;
-  border-radius: 10px;
+  border: none;
 }
 
 button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.408);
-          transform: scale(0.408);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.my_list {
+  background: blue;
+}
+
+.my_list .tried {
+  background: white;
+}
+
+button, .lg-button {
+  background: transparent;
+  margin: 10px;
+  padding: 3px;
+  border: none;
+}
+
+button:hover, .lg-button:hover {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
 }
 
 a {

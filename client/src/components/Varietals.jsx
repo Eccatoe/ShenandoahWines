@@ -1,11 +1,9 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { WineryContext } from "./WineryContext";
 import VarietalItem from "./VarietalItem.jsx";
 
-function Varietals({ setVarietalSearchList, varietalSearchList }) {
+function Varietals({ setVarietalSearchList }) {
   const navigate = useNavigate();
-  const { wineries } = useContext(WineryContext);
   const [selectedVarietal, setSelectedVarietal] = useState({});
   const [varietals, setVarietals] = useState([]);
   const {name, tasting_notes, picture } = selectedVarietal;
@@ -30,7 +28,6 @@ function Varietals({ setVarietalSearchList, varietalSearchList }) {
     setVarietalSearchList(match.wineries)
     navigate("/wineries");
   }
-  console.log(varietalSearchList);
   return (
     <div className="varietal">
       <div className="varietal-list">{singleVarietal}</div>

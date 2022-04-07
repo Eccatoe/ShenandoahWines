@@ -16,6 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_185914) do
     t.integer "wine_id"
     t.integer "user_id"
     t.text "review"
+    t.boolean "favorite", default: false
+    t.boolean "tasted", default: false
   end
 
   create_table "users", force: :cascade do |t|

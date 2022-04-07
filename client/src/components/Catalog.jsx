@@ -21,8 +21,7 @@ function Catalog({ varietalSearchList }) {
 
   const renderedSearchList =
     varietalSearchList.length > 0 ? varietalSearchList : userSearchList;
-    const uniqueRenderedList=[...new Set(renderedSearchList)]
-    console.log(uniqueRenderedList)
+  const uniqueRenderedList = [...new Set(renderedSearchList)];
   const wineryListItems = renderedSearchList.map((winery) => (
     <WineryItem key={winery.id} winery={winery} focusWine={focusWine} />
   ));

@@ -1,7 +1,7 @@
 import "./styles/css/main.css";
 import { useEffect, useState } from "react";
 import { WineryContext } from "./components/WineryContext";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Catalog from "./components/Catalog";

@@ -2,11 +2,36 @@
 @import 'utilities';
 .nav{
     text-decoration:none;
+    height: 100vh;
+    width: 5vw;
+    font-size: $title;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-items:center;
+    position:fixed;
+    right:0;
+  .test{
     background: $light;
-    z-index: 4;
-    height: 10vh;
-    font-size: $title
-    a{
-        text-decoration:none;
-    }
+    height: 100vh;
+    width: 5vw;
+    position:fixed;
+    &:hover{
+        transform: scaleX(2);
+        transition: 0.70s;
+      }
+      .test + a:hover{
+        transform: scaleX(1) rotate(0deg)
+      }
+  }
+  
+
+}
+
+a{
+    text-decoration:none;
+    transform:rotate(-90deg);
+}
+a:hover{
+    
 }

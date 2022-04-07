@@ -3,11 +3,16 @@ button{
     background: transparent;
     margin: 10px;
     padding: 3px;
-    border-radius: 10px;
+    border:none;
 
     &:hover {
-        transform: scale(.408)
+        transform: scale(.98)
     }
+}
+
+.icon{
+    width: 15px;
+    height: 15px;
 }
 
 a{

@@ -53,7 +53,6 @@ function Map({
           >
             <div className="popupContent">
               {selectedWinery.name}
-              {console.log(selectedWinery)}
               <a target="_blank" href={selectedWinery.link}>
                 Visit
               </a>
