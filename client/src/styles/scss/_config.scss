@@ -1,0 +1,36 @@
+$peach: rgb(230, 186, 149);
+$light: rgb(250, 253, 214);
+$med: rgb(228, 233, 190);
+$green: rgb(162, 179, 139);
+$title: 28px;
+
+// @function set-text-color($color) {
+//   @if (lightness($color) >70) {
+//     @return #333;
+//   } @else {
+//     @return #fff;
+//   }
+// }
+
+// @mixin set-background($color){
+//     background-color: $color;
+//     color: set-text-color($color);
+// }
+// //needs @include set-background($peach)
+
+// $spaceamounts: (1,2,3,4,5);
+
+// @each $space in $spaceamounts{
+//     .m-#{$space}{
+//         margin: #{$space}rem;
+//     }
+//     .my-#{$space}{
+//         margin: #{$space}rem 0;
+//     }
+//     .p-#{$space}{
+//         padding: #{$space}rem 0;
+//     }
+//     .py-#{$space}{
+//         padding: #{$space}rem 0;
+//     }
+// }

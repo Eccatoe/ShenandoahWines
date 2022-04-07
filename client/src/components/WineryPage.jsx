@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 
 function WineryPage() {
   const [winery, setWinery] = useState([]);
-  const [selectedWines, setSelectedWines] = useState([]);
+  const [selections, setSelections] = useState([]);
+  const [selectionsList, setSelectionsList] = useState([]);
   const { id } = useParams();
   const { name, link, description, image, address, wines } = winery;
 
@@ -15,23 +16,43 @@ function WineryPage() {
   }, []);
 
   function handleSelect(e) {
-    const menuSelections=Array.from(e.target.selectedOptions, (item)=>item.value)
-    const userSelectedWines=winery.wines.filter((wine)=>menuSelections.includes(wine.name))
-    console.log(userSelectedWines)
+    const menuSelections = Array.from(
+      e.target.selectedOptions,
+      (item) => item.value
+    );
+    const userSelections = winery.wines.filter((wine) =>
+      menuSelections.includes(wine.name)
+    );
+    userSelections.forEach((s)=>{setSelections([...selections,
+      {
+        wine_id: s.id,
+        review: "",
+        name: s.name,
+        user_id:1
+      }])
+    })
+    console.log(selections)
+
+
+    // setSelections(userSelections);
   }
+  useEffect(() => {
+    setSelectionsList((selectionsList) =>
+      [...selectionsList, selections].flat().filter((s) => s !== undefined)
+    );
+  }, [selections]);
 
   function handleAddToMyList(e) {
     e.preventDefault();
-    console.log("working")
-    fetch('/user_wines', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(selectedWines)
-      
-    })
-    .then(res=>console.log(res.ok))
+    selectionsList.forEach((selection) => {
+      fetch("/user_wines", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(selection),
+      }).then((res) => console.log(res.ok));
+    });
   }
 
   const wineOptions = wines?.map((wine) => (
@@ -40,7 +61,7 @@ function WineryPage() {
 
   return (
     <>
-      <div className="wineryBlurb">
+      <div className="winery-blurb">
         <h2>{name}</h2>
         <div>{address}</div>
         <a target="_blank" href={link}>
@@ -51,9 +72,9 @@ function WineryPage() {
         Wine Offerings:
         <form onSubmit={handleAddToMyList}>
           <select
-            multiple={true} 
-            onChange={(e)=>handleSelect(e)}
-            value={selectedWines}
+            multiple={true}
+            onChange={(e) => handleSelect(e)}
+            // value={selections}
           >
             {wineOptions}
           </select>

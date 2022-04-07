@@ -18,7 +18,11 @@ function Catalog({ varietalSearchList }) {
   const userSearchList = wineries.filter((winery) =>
     winery.name.toLowerCase().includes(searchText.toLowerCase())
   );
-const renderedSearchList=(varietalSearchList.length>0) ? varietalSearchList : userSearchList
+
+  const renderedSearchList =
+    varietalSearchList.length > 0 ? varietalSearchList : userSearchList;
+    const uniqueRenderedList=[...new Set(renderedSearchList)]
+    console.log(uniqueRenderedList)
   const wineryListItems = renderedSearchList.map((winery) => (
     <WineryItem key={winery.id} winery={winery} focusWine={focusWine} />
   ));
@@ -51,7 +55,7 @@ const renderedSearchList=(varietalSearchList.length>0) ? varietalSearchList : us
           onChange={(e) => handleSearch(e)}
         ></input>
       </form>
-      <div className="varietalSearchList">{wineryListItems}</div>
+      <div className="winery">{wineryListItems}</div>
       <Map
         renderedSearchList={renderedSearchList}
         userSearchList={userSearchList}

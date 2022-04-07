@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/css/main.css";
 import { useEffect, useState } from "react";
 import { WineryContext } from "./components/WineryContext";
 import { Routes, Route } from "react-router-dom";
@@ -41,7 +41,8 @@ function App() {
             exact
             path="/varietals"
             element={
-              <Varietals setVarietalSearchList={setVarietalSearchList} />
+              <Varietals setVarietalSearchList={setVarietalSearchList} varietalSearchList={varietalSearchList}
+              />
             }
           ></Route>
         </Routes>

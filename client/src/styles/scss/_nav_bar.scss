@@ -1,0 +1,12 @@
+@import 'config';
+@import 'utilities';
+.nav{
+    text-decoration:none;
+    background: $light;
+    z-index: 4;
+    height: 10vh;
+    font-size: $title
+    a{
+        text-decoration:none;
+    }
+}

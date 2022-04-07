@@ -1,0 +1,21 @@
+@import 'config';
+@import 'utilities';
+.winery {
+  max-width: 40vw;
+  grid-area: 1 / 1 / 6 / 2;
+  background: $peach;
+
+}
+.winery-blurb {
+  color: $peach;
+  width: 20vw;
+  img {
+    max-width: 40vw;
+    height: 100%;
+  }
+}
+select {
+  width: 50vw;
+  height: 60vh;
+}
+

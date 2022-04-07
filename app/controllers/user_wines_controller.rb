@@ -1,7 +1,7 @@
 class UserWinesController < ApplicationController
 
     def create
-        user_wine=UserWine.create!(user_id: 1, user_wine_params)
+        user_wine=UserWine.create!(user_wine_params)
         render json: user_wine
     end
 
