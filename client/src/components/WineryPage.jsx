@@ -23,36 +23,29 @@ function WineryPage() {
     const userSelections = winery.wines.filter((wine) =>
       menuSelections.includes(wine.name)
     );
-    userSelections.forEach((s)=>{setSelections([...selections,
-      {
-        wine_id: s.id,
-        review: "",
-        name: s.name,
-        user_id:1
-      }])
-    })
-    console.log(selections)
-
-
-    // setSelections(userSelections);
+    userSelections.forEach((s) => {
+      setSelections([
+        ...selections,
+        {
+          wine_id: s.id,
+        },
+      ]);
+    });
   }
+
   useEffect(() => {
-    setSelectionsList((selectionsList) =>
-      [...selectionsList, selections].flat().filter((s) => s !== undefined)
-    );
+    setSelectionsList([selections].flat().filter((s) => s !== undefined));
   }, [selections]);
 
   function handleAddToMyList(e) {
     e.preventDefault();
-    selectionsList.forEach((selection) => {
-      fetch("/user_wines", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(selection),
-      }).then((res) => console.log(res.ok));
-    });
+    fetch("/user_wines", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({selections, user_id: 1}),
+    }).then((res) => console.log(res.ok));
   }
 
   const wineOptions = wines?.map((wine) => (
@@ -67,6 +60,7 @@ function WineryPage() {
         <a target="_blank" href={link}>
           Go to {name}
         </a>
+        <br />
         <strong>From the winemaker:</strong> {description}
         <img src={image}></img>
         Wine Offerings:

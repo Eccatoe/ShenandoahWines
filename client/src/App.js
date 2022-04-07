@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Catalog from "./components/Catalog";
 import WineryPage from "./components/WineryPage";
 import Varietals from "./components/Varietals";
+import MyList from "./components/MyList";
 
 function App() {
   const [wineries, setWineries] = useState([]);
@@ -41,10 +42,13 @@ function App() {
             exact
             path="/varietals"
             element={
-              <Varietals setVarietalSearchList={setVarietalSearchList} varietalSearchList={varietalSearchList}
+              <Varietals
+                setVarietalSearchList={setVarietalSearchList}
+                varietalSearchList={varietalSearchList}
               />
             }
           ></Route>
+          <Route exact path="/my_list" element={<MyList />}></Route>
         </Routes>
       </WineryContext.Provider>
     </div>

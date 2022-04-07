@@ -1,5 +1,5 @@
 class UserWineSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :user
-  has_one :wine
+  attributes :id,:review
+  belongs_to :user
+  belongs_to :wine
 end

@@ -2,6 +2,7 @@ puts "destroying all"
 Winery.destroy_all
 Wine.destroy_all
 Varietal.destroy_all
+User.destroy_all
 
 puts "seeding"
 images=[
@@ -1330,3 +1331,4 @@ varietal_id: 24)
 Wine.create( name: "Beaujolais Little Brother",
 winery_id: 7,
 varietal_id: 6)
+User.create(username: "liz", id: 1)

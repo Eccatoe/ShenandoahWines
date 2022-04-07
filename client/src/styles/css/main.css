@@ -63,6 +63,34 @@ a {
   text-decoration: none;
 }
 
+.catalog {
+  max-width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5] !important;
+      grid-template-columns: repeat(5, 1fr) !important;
+  -ms-grid-rows: (1fr)[5] !important;
+      grid-template-rows: repeat(5, 1fr) !important;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+button, .lg-button {
+  background: transparent;
+  margin: 10px;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+button:hover, .lg-button:hover {
+  -webkit-transform: scale(0.408);
+          transform: scale(0.408);
+}
+
+a {
+  text-decoration: none;
+}
+
 .nav {
   text-decoration: none;
   background: #fafdd6;
@@ -150,6 +178,47 @@ a {
 .home-links div-3 {
   -ms-flex-item-align: start;
       align-self: flex-start;
+}
+
+button, .lg-button {
+  background: transparent;
+  margin: 10px;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+button:hover, .lg-button:hover {
+  -webkit-transform: scale(0.408);
+          transform: scale(0.408);
+}
+
+a {
+  text-decoration: none;
+}
+
+.winery {
+  max-width: 40vw;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 1 / 6 / 2;
+  background: #e6ba95;
+}
+
+.winery-blurb {
+  color: #e6ba95;
+  width: 20vw;
+}
+
+.winery-blurb img {
+  max-width: 40vw;
+  height: 100%;
+}
+
+.winery-blurb select {
+  width: 50vw;
+  height: 60vh;
 }
 
 button, .lg-button {

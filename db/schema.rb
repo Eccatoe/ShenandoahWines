@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_05_185914) do
   create_table "user_wines", force: :cascade do |t|
+    t.string "name"
     t.integer "wine_id"
     t.integer "user_id"
     t.text "review"
@@ -27,7 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_05_185914) do
   create_table "varietals", force: :cascade do |t|
     t.string "name"
     t.text "tasting_notes"
-    t.boolean "native_grape"
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
