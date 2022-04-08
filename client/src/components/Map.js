@@ -50,6 +50,7 @@ function Map({
             latitude={selectedWinery.latitude}
             longitude={selectedWinery.longitude}
             onClose={() => handleClose()}
+
           >
             <div className="popupContent">
               {selectedWinery.name}

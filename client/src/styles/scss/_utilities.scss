@@ -1,14 +1,4 @@
 @import 'config';
-button{
-    background: transparent;
-    margin: 10px;
-    padding: 3px;
-    border:none;
-
-    &:hover {
-        transform: scale(.98)
-    }
-}
 
 .icon{
     width: 15px;
@@ -19,7 +9,8 @@ a{
     text-decoration:none;
 }
 
-.lg-button{
-    @extend button;
-    
-}
+
+%head {
+    font-weight: 500px;
+    color: $deep;
+  }

@@ -4,14 +4,14 @@ function VarietalItem({varietal, varietals, setSelectedVarietal}) {
     const {name}=varietal
     function handleVarietalSelect(e){
         const userSelectedVarietal=varietals.find((v)=>(
-            v.name===e.target.value
+            v.name===e.target.textContent
         ))
         setSelectedVarietal(userSelectedVarietal)
     }
   return (
-    <button value={name} onClick={(e)=>handleVarietalSelect(e)}>
+    <div onClick={(e)=>handleVarietalSelect(e)}>
         {name}
-    </button>
+    </div>
   )
 }
 

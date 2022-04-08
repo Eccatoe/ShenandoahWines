@@ -18,7 +18,11 @@ class UserWinesController < ApplicationController
             tasted: params[:tasted]
         )
         render json: user_wine
-        # byebug
+    end
+
+    def delete
+        user_wine=UserWine.find(params[:id])
+        user_wine.destroy
     end
 
     private

@@ -1,69 +1,15 @@
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
-}
-
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
-}
-
-.icon {
-  width: 15px;
-  height: 15px;
-}
-
-a {
-  text-decoration: none;
-}
-
-.varietal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.varietal-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.varietal-info {
-  width: 60vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  /* background: url('https://northernvirginiamag.com/wp-content/uploads/2019/09/norton.jpg'); */
-}
-
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
-}
-
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;500&display=swap");
 .icon {
   width: 15px;
   height: 15px;
@@ -85,18 +31,6 @@ a {
   grid-row-gap: 0px;
 }
 
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
-}
-
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
-}
-
 .icon {
   width: 15px;
   height: 15px;
@@ -107,10 +41,15 @@ a {
 }
 
 .nav {
-  text-decoration: none;
+  right: 0;
+  position: fixed;
+  background: #CDD5D1;
+  margin-left: 0px;
+}
+
+.nav-bar {
   height: 100vh;
-  width: 5vw;
-  font-size: 28px;
+  width: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -118,50 +57,54 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: fixed;
-  right: 0;
-}
-
-.nav .test {
-  background: #fafdd6;
-  height: 100vh;
-  width: 5vw;
-  position: fixed;
-}
-
-.nav .test:hover {
-  -webkit-transform: scaleX(2);
-          transform: scaleX(2);
-  -webkit-transition: 0.70s;
-  transition: 0.70s;
-}
-
-.nav .test .test + a:hover {
-  -webkit-transform: scaleX(1) rotate(0deg);
-          transform: scaleX(1) rotate(0deg);
-}
-
-a {
   text-decoration: none;
+  font-size: 28px;
+  pointer-events: none;
+}
+
+.nav-bar > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: auto;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+  -webkit-transition: 400ms;
+  transition: 400ms;
 }
 
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
+.nav-bar:hover > * {
+  opacity: 0.5;
+  letter-spacing: -2px;
 }
 
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
+.nav-bar:hover > *:hover {
+  visibility: visible;
+  letter-spacing: 10px;
+  right: 50px;
+  opacity: 1;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: #615055;
 }
 
 .icon {
@@ -237,18 +180,6 @@ a {
       align-self: flex-start;
 }
 
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
-}
-
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
-}
-
 .icon {
   width: 15px;
   height: 15px;
@@ -283,16 +214,12 @@ a {
   height: 60vh;
 }
 
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
+.mapboxgl-popup-content {
+  color: red;
 }
 
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
+.mapboxgl-popup {
+  background: red;
 }
 
 .icon {
@@ -304,24 +231,8 @@ a {
   text-decoration: none;
 }
 
-.my_list {
-  background: blue;
-}
-
 .my_list .tried {
   background: white;
-}
-
-button, .lg-button {
-  background: transparent;
-  margin: 10px;
-  padding: 3px;
-  border: none;
-}
-
-button:hover, .lg-button:hover {
-  -webkit-transform: scale(0.98);
-          transform: scale(0.98);
 }
 
 .icon {
@@ -334,9 +245,9 @@ a {
 }
 
 * {
-  margin: 0%;
+  margin: 0;
   padding: 0;
-  font-family: 'Hind', sans-serif;
+  font-family: "Cormorant Infant", serif;
 }
 
 #map {

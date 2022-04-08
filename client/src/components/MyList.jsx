@@ -1,38 +1,35 @@
-import React, { useEffect, useState, useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import MyListItem from "./MyListItem";
-
 
 function MyList() {
   const [drinkList, setDrinkList] = useState([]);
+  const [toTryList, setToTryList] = useState([]);
+  const [triedList, setTriedList] = useState([]);
   const [favorite, setFavorite] = useState(false);
   const [tried, setTried] = useState(false);
 
   useEffect(() => {
     fetch("./user_wines")
       .then((r) => r.json())
-      .then((r) => setDrinkList(r));
-  }, []);
+      .then((drink) => setDrinkList(drink));
+  }, [tried]);
 
+  useEffect(() => {
+    setToTryList(drinkList.filter((d) => d.tasted === false));
+  }, [drinkList, tried]);
 
-  function groupBy(array, property){
-    const group={}
-    for (let i=0; i<array.length; i++){
-      const propVal=array[i][property]
-      if(!group[propVal]){group[propVal]=[]}
-      group[propVal].push(array[i])
-    }
-    return group
-  }
-  const list=groupBy(drinkList, 'tasted')
-console.log(list.true)
+  useEffect(() => {
+    setTriedList(drinkList.filter((d) => d.tasted === true));
+  }, [drinkList, tried]);
 
-  function handlePatch(d, e) {
+  function handlePatch(drink, e) {
+    console.log(drink);
     if (e.currentTarget.value === "fave") {
       setFavorite((favorite) => !favorite);
     } else if (e.currentTarget.value === "move") {
       setTried((tried) => !tried);
     }
-    fetch(`/user_wines/${d.id}`, {
+    fetch(`/user_wines/${drink.id}`, {
       method: "PATCH",
       body: JSON.stringify({
         favorite,
@@ -41,20 +38,22 @@ console.log(list.true)
       headers: {
         "Content-type": "application/json",
       },
-    })
-      .then((r) => r.json())
-      .then(r=>console.log(r))
+    }).then((r) => console.log(r.ok));
   }
-  
 
-  const toTryListItem= list.true?.map((d) =>
-      <MyListItem key={d.id} drink={d} handlePatch={handlePatch}/>
-
-  )
+  const toTryListItem = toTryList?.map((d) => (
+    <MyListItem key={d.id} drink={d} handlePatch={handlePatch} />
+  ));
+  const triedListItem = triedList?.map((d) => (
+    <MyListItem key={d.id} drink={d} handlePatch={handlePatch} />
+  ));
 
   return (
     <div className="my_list">
-{toTryListItem}
+      <h1>To Try</h1>
+      {toTryListItem}
+      <h1>Have Tried</h1>
+      {triedListItem}
     </div>
   );
 }

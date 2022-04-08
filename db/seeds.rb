@@ -34,11 +34,10 @@ images=[
 "https://images.unsplash.com/photo-1456295198429-05d2315cfebb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fHdpbmVyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 "https://images.unsplash.com/photo-1561955147-e9083536e573?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ2fHx3aW5lcnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"]
 
-
-white="https://www.wine-searcher.com/images/grape/viognier-535-1-4.jpg?width=300&height=250&fit=crop"
-red="https://www.wine-searcher.com/images/grape/carmine-845-1-1.jpg?width=300&height=250&fit=crop"
-blend="https://www.wine-searcher.com/images/grp_default_1.jpg?width=265&height=120&fit=crop"
-fruit="https://images.unsplash.com/photo-1634326634601-03af4cebfe30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVhY2glMjBhcHBsZSUyMGJlcnJ5JTIwZnJ1aXR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
+blend=""
+white="https://i.imgur.com/nidunZF.jpg"
+red="https://i.imgur.com/56wiQ0r.jpeg"
+fruit="https://i.imgur.com/HlFZiYo.jpeg"
 Varietal.create(
 id: 1,
 picture: red,
@@ -110,7 +109,7 @@ tasting_notes: "Merlot is loved for it's boisterous black cherry flavors, supple
 Varietal.create(
 picture: white,
 id: 12,
-name:  "Moscato Bianco(Muscat Blanc à Petits Grains)", 
+name:  "Moscato Bianco", 
 tasting_notes: "An ancient aromatic white variety originally from Greece that's available in many styles, from dry to sweet to still, sparkling, and fortified. Dry varietal wines show a range of citrus, floral and spice aromas, with a full, dry palate. Sparkling and slightly sparkling examples are typically sweeter and tend towards melon flavors, with sweet, grapey smells. Dessert wines are typically produced as vins doux naturels."
 )
 
