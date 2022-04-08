@@ -8,6 +8,7 @@ import Catalog from "./components/Catalog";
 import WineryPage from "./components/WineryPage";
 import Varietals from "./components/Varietals";
 import MyList from "./components/MyList";
+import TrailLaunch from "./components/TrailLaunch";
 
 function App() {
   const [wineries, setWineries] = useState([]);
@@ -48,6 +49,8 @@ function App() {
               />
             }
           ></Route>
+          <Route exact path='/trails' element={<TrailLaunch/>}></Route>
+
           <Route exact path="/my_list" element={<MyList />}></Route>
         </Routes>
       </WineryContext.Provider>

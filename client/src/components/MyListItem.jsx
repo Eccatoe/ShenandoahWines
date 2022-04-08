@@ -3,14 +3,17 @@ import { WineryContext } from "./WineryContext";
 import heart from "../assets/heart-outline.svg";
 import add from "../assets/add-outline.svg";
 
-function MyListItem({ drink, handlePatch,  }) {
+function MyListItem({ drink, handlePatch, setTried, tried, setFavorite }) {
   const { wineries } = useContext(WineryContext);
   const { wine, user_id, tasted, favorite } = drink;
   const [show, setShow] = useState(true);
 
   function moveListItem(drink, e) {
-  setShow(false)
-  console.log(e.currentTarget)
+    if (e.currentTarget.value === "fave") {
+      setFavorite((favorite) => !favorite);
+    } else if (e.currentTarget.value === "move") {
+      setTried(tried=>!tried);
+    }
     handlePatch(drink, e);
   }
   const listBlock = (

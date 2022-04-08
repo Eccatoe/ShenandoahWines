@@ -13,22 +13,15 @@ function MyList() {
       .then((r) => r.json())
       .then((drink) => setDrinkList(drink));
   }, [tried]);
-
   useEffect(() => {
     setToTryList(drinkList.filter((d) => d.tasted === false));
   }, [drinkList, tried]);
-
+  console.log(toTryList);
   useEffect(() => {
     setTriedList(drinkList.filter((d) => d.tasted === true));
   }, [drinkList, tried]);
 
   function handlePatch(drink, e) {
-    console.log(drink);
-    if (e.currentTarget.value === "fave") {
-      setFavorite((favorite) => !favorite);
-    } else if (e.currentTarget.value === "move") {
-      setTried((tried) => !tried);
-    }
     fetch(`/user_wines/${drink.id}`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -38,14 +31,31 @@ function MyList() {
       headers: {
         "Content-type": "application/json",
       },
-    }).then((r) => console.log(r.ok));
+    }).then((r) => r.json());
+    // .then(data=>(data));
   }
 
   const toTryListItem = toTryList?.map((d) => (
-    <MyListItem key={d.id} drink={d} handlePatch={handlePatch} />
+    <MyListItem
+      key={d.id}
+      drink={d}
+      handlePatch={handlePatch}
+      tried={tried}
+      setTried={setTried}
+      favorite={favorite}
+      setFavorite={setFavorite}
+    />
   ));
   const triedListItem = triedList?.map((d) => (
-    <MyListItem key={d.id} drink={d} handlePatch={handlePatch} />
+    <MyListItem
+      key={d.id}
+      drink={d}
+      handlePatch={handlePatch}
+      tried={tried}
+      setTried={setTried}
+      favorite={favorite}
+      setFavorite={setFavorite}
+    />
   ));
 
   return (

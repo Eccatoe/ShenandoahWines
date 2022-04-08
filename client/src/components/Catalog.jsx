@@ -1,7 +1,8 @@
 import Map from "./Map";
 import { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
-import WineryItem from "./WineryItem";
+import WineryList from "./WineryList";
+import TrailLaunch from "./TrailLaunch";
 
 function Catalog({ varietalSearchList }) {
   const { wineries } = useContext(WineryContext);
@@ -15,6 +16,7 @@ function Catalog({ varietalSearchList }) {
   });
   const [searchView, setSearchView] = useState({ ...viewport });
   const [searchText, setSearchText] = useState("");
+  const [togglePage, setTogglePage] = useState(false);
   const userSearchList = wineries.filter((winery) =>
     winery.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -22,7 +24,7 @@ function Catalog({ varietalSearchList }) {
   const renderedSearchList =
     varietalSearchList.length > 0 ? varietalSearchList : userSearchList;
   const wineryListItems = renderedSearchList.map((winery) => (
-    <WineryItem key={winery.id} winery={winery} focusWine={focusWine} />
+    <WineryList key={winery.id} winery={winery} focusWine={focusWine} />
   ));
 
   function focusWine(e) {
@@ -44,6 +46,9 @@ function Catalog({ varietalSearchList }) {
     setSelectedWinery(null);
   }
 
+  function handleTrailClick() {
+    setTogglePage((togglePage) => !togglePage);
+  }
   return (
     <div className="catalog">
       <form>
@@ -54,9 +59,9 @@ function Catalog({ varietalSearchList }) {
         ></input>
       </form>
       <div className="winery">{wineryListItems}</div>
+
       <Map
         renderedSearchList={renderedSearchList}
-        userSearchList={userSearchList}
         selectedWinery={selectedWinery}
         setSelectedWinery={setSelectedWinery}
         viewport={viewport}
