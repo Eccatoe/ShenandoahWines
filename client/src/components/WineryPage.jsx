@@ -14,7 +14,6 @@ function WineryPage() {
       .then((data) => setWinery(data));
     return () => setWinery({});
   }, []);
-
   function handleSelect(e) {
     const menuSelections = Array.from(
       e.target.selectedOptions,

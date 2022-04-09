@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :varietals
   resources :wineries
   resources :wines
+  get '/rose', to: 'wines#rose'
  
 end

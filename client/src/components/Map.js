@@ -1,5 +1,7 @@
-import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import ReactMapGL, { Source, Layer, Marker, Popup } from "react-map-gl";
 import { useNavigate } from "react-router-dom";
+import { WineryContext } from "./WineryContext";
+import { useContext, useEffect, useState } from "react";
 
 function Map({
   selectedWinery,
@@ -11,10 +13,41 @@ function Map({
   setSearchView,
 }) {
   const navigate = useNavigate();
+  const [rose, setRose]=useState([])
+
+ useEffect(()=>{
+  fetch('/rose')
+  .then(r=>r.json())
+  .then(r=>setRose(r))
+ },[]) 
+
+  console.log(rose)
+
   function handleClose() {
     setSearchView(viewport);
     setSelectedWinery(null);
   }
+
+  const newLayer = {
+    id: "rose_trail",
+    type: "line",
+  };
+  const geojson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [-78.22913631587828, 38.840224786386315],
+            [-78.23071314655078, 39.125878355285714],
+            [-79.24127481590128, 37.94223864623973],
+          ],
+        },
+      },
+    ],
+  };
 
   return (
     <div id="map">
@@ -50,7 +83,6 @@ function Map({
             latitude={selectedWinery.latitude}
             longitude={selectedWinery.longitude}
             onClose={() => handleClose()}
-
           >
             <div className="popupContent">
               {selectedWinery.name}
@@ -64,9 +96,11 @@ function Map({
             </div>
           </Popup>
         ) : null}
+        <Source id="trail" type="geojson" data={geojson}>
+          <Layer {...newLayer} />
+        </Source>
       </ReactMapGL>
     </div>
   );
 }
-
 export default Map;

@@ -8,4 +8,6 @@ class WineriesController < ApplicationController
         winery=Winery.find(params[:id])
         render json: winery, include: "wines.varietal"
     end
+
+
 end

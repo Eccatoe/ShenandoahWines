@@ -1,11 +1,5 @@
 fix keeping popups in frame
 
-fix routing from selected varietal page
-
-
-do i need:
-let user search by varietal?
-
 General
 clean up unnecessary routes and serializer things
 adapters
@@ -21,3 +15,6 @@ fix zoom on map
 WineryPage
 Clean up selected state
 GREY OUT OPTIONS IF ALREADY SELECTED
+
+the list, still
+rose routing

@@ -334,7 +334,6 @@ Winery.create(name: "Glen Manor Vineyards",
     id: 9,
 link: "http://www.glenmanorvineyards.com",
 image: images.sample,
-
 longitude: -78.22913631587828,
 latitude: 38.840224786386315, 
 address: "2244 Browntown Road Front Royal, Virginia 22630 ",

@@ -8,7 +8,7 @@ import Catalog from "./components/Catalog";
 import WineryPage from "./components/WineryPage";
 import Varietals from "./components/Varietals";
 import MyList from "./components/MyList";
-import TrailLaunch from "./components/TrailLaunch";
+import TrailLaunch from "./components/LaunchForm";
 
 function App() {
   const [wineries, setWineries] = useState([]);

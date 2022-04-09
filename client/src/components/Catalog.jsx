@@ -1,12 +1,13 @@
 import Map from "./Map";
 import { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
+import LaunchForm from "./LaunchForm";
 import WineryList from "./WineryList";
-import TrailLaunch from "./TrailLaunch";
 
 function Catalog({ varietalSearchList }) {
   const { wineries } = useContext(WineryContext);
   const [selectedWinery, setSelectedWinery] = useState(null);
+  const [displayForm, setDisplayForm] = useState(false);
   const [viewport, setViewport] = useState({
     latitude: 38.35,
     longitude: -78.612,
@@ -16,16 +17,12 @@ function Catalog({ varietalSearchList }) {
   });
   const [searchView, setSearchView] = useState({ ...viewport });
   const [searchText, setSearchText] = useState("");
-  const [togglePage, setTogglePage] = useState(false);
   const userSearchList = wineries.filter((winery) =>
     winery.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
   const renderedSearchList =
     varietalSearchList.length > 0 ? varietalSearchList : userSearchList;
-  const wineryListItems = renderedSearchList.map((winery) => (
-    <WineryList key={winery.id} winery={winery} focusWine={focusWine} />
-  ));
 
   function focusWine(e) {
     const focus = wineries.find(
@@ -46,10 +43,11 @@ function Catalog({ varietalSearchList }) {
     setSelectedWinery(null);
   }
 
-  function handleTrailClick() {
-    setTogglePage((togglePage) => !togglePage);
+  function handleToggle() {
+    setDisplayForm((displayForm) => !displayForm);
   }
   return (
+
     <div className="catalog">
       <form>
         <input
@@ -58,8 +56,20 @@ function Catalog({ varietalSearchList }) {
           onChange={(e) => handleSearch(e)}
         ></input>
       </form>
-      <div className="winery">{wineryListItems}</div>
-
+      <div className="winery">
+        <button onClick={handleToggle}>
+          {displayForm ? "Back" : "Start Your Own Wine Tour!"}
+        </button>
+        <div style={{ display: displayForm ? "block" : "none" }}>
+          <LaunchForm />
+        </div>
+        <div style={{ display: displayForm ? "none":  "block"}}>
+        <WineryList
+          focusWine={focusWine}
+          renderedSearchList={renderedSearchList}
+        />
+        </div>
+      </div>
       <Map
         renderedSearchList={renderedSearchList}
         selectedWinery={selectedWinery}
@@ -70,6 +80,7 @@ function Catalog({ varietalSearchList }) {
         setSearchView={setSearchView}
       />
     </div>
+
   );
 }
 
