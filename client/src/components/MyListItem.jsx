@@ -1,20 +1,16 @@
 import React, { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
-// import ReviewForm from "./ReviewForm";
 import heart from "../assets/heart-outline.svg";
 import add from "../assets/add-outline.svg";
 import star from "../assets/star.svg";
 
-function MyListItem({ drink, handlePatch, setTried, setFavorite }) {
+function MyListItem({ drink, handlePatch, setTried, setFavorite, userReview, setUserReview}) {
   const { wineries } = useContext(WineryContext);
   const { wine, review } = drink;
   const [show, setShow] = useState(true);
   const [displayForm, setDisplayForm] = useState(false);
-  const [userReview, setUserReview] = useState([]);
-  const [addData, setAddData]=useState(" ")
-  const [addedData, showData]=useState(0)
+  // const [userReview, setUserReview] = useState([]);
 
-  // const [convertedText, setConvertedText]=useState("")
 
   function moveListItem(drink, e) {
     if (e.currentTarget.value === "fave") {
@@ -33,6 +29,7 @@ function MyListItem({ drink, handlePatch, setTried, setFavorite }) {
     console.log(29, drink)
     handlePatch(drink, userReview)
     setDisplayForm(false)
+    console.log("userReview 34", userReview)
     }
 
   const listBlock = (
@@ -61,12 +58,11 @@ function MyListItem({ drink, handlePatch, setTried, setFavorite }) {
             Jot down some Notes!
             <br />
             <form onSubmit={(e)=>handleReview(drink, e)}>
-            <textarea
-            value={review}
+            <input type="textarea"
+            value={userReview}
             onChange={(e)=>setUserReview(e.target.value)}
-            
-             />
-            <input type="submit"></input>
+
+             /><input type="submit"></input>
             </form>
           </div>
         </div>
