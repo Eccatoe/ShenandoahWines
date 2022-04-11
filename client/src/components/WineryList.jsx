@@ -1,24 +1,24 @@
 import { useState } from "react";
-import TrailLaunch from "./LaunchForm";
+// import TrailLaunch from "./LaunchForm";
 
 function WineryList({ renderedSearchList, focusWine }) {
   const [togglePage, setTogglePage] = useState(false);
   const wineryListItems = renderedSearchList.map((winery) => (
-    <div key={winery.id}>{winery.name}</div>
+    <>
+      <div className="winery-list-item" key={winery.id}>
+        {winery.name}<br/>
+      </div>
+    </>
   ));
 
   function handleFocus(e) {
     focusWine(e);
   }
-  function handleTrailClick() {
-    setTogglePage((togglePage) => !togglePage);
-  }
 
   return (
     <>
       <div onClick={(e) => handleFocus(e)}>{wineryListItems}</div>
-
-      <button onClick={handleTrailClick} className="trailButton"></button>
+ 
     </>
   );
 }

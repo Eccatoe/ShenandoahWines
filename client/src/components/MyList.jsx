@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState} from "react";
 import MyListItem from "./MyListItem";
+import Share from './Share'
 
 function MyList() {
   const [drinkList, setDrinkList] = useState([]);
@@ -11,30 +12,33 @@ function MyList() {
   useEffect(() => {
     fetch("./user_wines")
       .then((r) => r.json())
-      .then((drink) => setDrinkList(drink));
+      .then((drinks) => setDrinkList(drinks));
   }, [tried]);
   useEffect(() => {
-    setToTryList(drinkList.filter((d) => d.tasted === false));
+    setToTryList(drinkList?.filter((d) => d.tasted === false));
   }, [drinkList, tried]);
-  console.log(toTryList);
   useEffect(() => {
-    setTriedList(drinkList.filter((d) => d.tasted === true));
+    setTriedList(drinkList?.filter((d) => d.tasted === true));
   }, [drinkList, tried]);
 
-  function handlePatch(drink, e) {
+  function handlePatch(drink, review) {
+    console.log("25 drink", drink)
+    console.log("26 review",review)
     fetch(`/user_wines/${drink.id}`, {
       method: "PATCH",
       body: JSON.stringify({
         favorite,
         tasted: tried,
+        review
       }),
       headers: {
         "Content-type": "application/json",
       },
-    }).then((r) => r.json());
+    })
+    .then((r) => r.json())
     // .then(data=>(data));
+    .then((r) => console.log(r))
   }
-
   const toTryListItem = toTryList?.map((d) => (
     <MyListItem
       key={d.id}
@@ -64,6 +68,7 @@ function MyList() {
       {toTryListItem}
       <h1>Have Tried</h1>
       {triedListItem}
+      <Share/>
     </div>
   );
 }

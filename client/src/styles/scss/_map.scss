@@ -1,6 +1,32 @@
-.mapboxgl-popup-content{
-    color:red;
+.mapboxgl-popup-content {
+  
+  background: transparent;
+  img {
+    width: 400px;
+    margin-top: 15px;
+    border-radius: 5px;
+  }
+  button {
+    display:none;
+  }
+  p{
+      width: 70%;
+      margin:auto;
+  }
 }
-.mapboxgl-popup{
-    background:red;
+.mapboxgl-popup {
+  background: $peach;
+  border-radius: 5px;
+  text-align:center;
+
+}
+#map {
+  margin-right: 50px;
+  button {
+    background: rgba(148, 110, 131, 0.6);
+    border-radius: 5px;
+    padding: 2px;
+    border: none;
+    box-shadow: 0px 0px 4px rgb(39, 6, 21);
+  }
 }

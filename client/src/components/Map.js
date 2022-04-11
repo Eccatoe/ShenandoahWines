@@ -1,6 +1,6 @@
 import ReactMapGL, { Source, Layer, Marker, Popup } from "react-map-gl";
 import { useNavigate } from "react-router-dom";
-import { WineryContext } from "./WineryContext";
+import grape from "../assets/grape.svg";
 import { useContext, useEffect, useState } from "react";
 
 function Map({
@@ -13,15 +13,15 @@ function Map({
   setSearchView,
 }) {
   const navigate = useNavigate();
-  const [rose, setRose]=useState([])
+  // const [rose, setRose] = useState([]);
 
- useEffect(()=>{
-  fetch('/rose')
-  .then(r=>r.json())
-  .then(r=>setRose(r))
- },[]) 
+  // useEffect(() => {
+  //   fetch("/rose")
+  //     .then((r) => r.json())
+  //     .then((r) => setRose(r));
+  // }, []);
 
-  console.log(rose)
+  // console.log(rose);
 
   function handleClose() {
     setSearchView(viewport);
@@ -57,7 +57,7 @@ function Map({
         onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
-        mapStyle="mapbox://styles/eccatoe2517/cl1kwb7rz003i15qmly0oyid5"
+        mapStyle="mapbox://styles/eccatoe2517/cl1qzczwl000b14p3hvnruo4h"
       >
         {renderedSearchList.map((winery) => (
           <Marker
@@ -71,10 +71,7 @@ function Map({
                 setSelectedWinery(winery);
               }}
             >
-              <img
-                style={{ height: "20px", width: "20px" }}
-                src="https://cdn-icons.flaticon.com/png/128/3083/premium/3083651.png?token=exp=1649094765~hmac=27a9cf966b596f9c10fd65c77ce7750f"
-              />
+              <img style={{ height: "20px", width: "20px" }} src={grape} />
             </button>
           </Marker>
         ))}
@@ -85,14 +82,13 @@ function Map({
             onClose={() => handleClose()}
           >
             <div className="popupContent">
-              {selectedWinery.name}
-              <a target="_blank" href={selectedWinery.link}>
-                Visit
-              </a>
-              <div onClick={() => navigate(`/wineries/${selectedWinery.id}`)}>
-                View Details
+              <p>{selectedWinery.name}</p>
+              <div
+                className="popupContent"
+                onClick={() => navigate(`/wineries/${selectedWinery.id}`)}
+              >
+                <img src={selectedWinery.image} />
               </div>
-              <img src={selectedWinery.image} />
             </div>
           </Popup>
         ) : null}
