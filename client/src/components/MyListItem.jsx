@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
-
 // import ReviewForm from "./ReviewForm";
 import heart from "../assets/heart-outline.svg";
 import add from "../assets/add-outline.svg";
@@ -62,7 +61,11 @@ function MyListItem({ drink, handlePatch, setTried, setFavorite }) {
             Jot down some Notes!
             <br />
             <form onSubmit={(e)=>handleReview(drink, e)}>
-              <textarea/>
+            <textarea
+            value={review}
+            onChange={(e)=>setUserReview(e.target.value)}
+            
+             />
             <input type="submit"></input>
             </form>
           </div>
