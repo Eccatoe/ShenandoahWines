@@ -43,7 +43,7 @@ function WineryPage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({selections, user_id: 1}),
+      body: JSON.stringify({ selections, user_id: 1 }),
     }).then((res) => console.log(res.ok));
   }
 
@@ -53,26 +53,30 @@ function WineryPage() {
 
   return (
     <>
-      <div className="winery-blurb">
-        <h2>{name}</h2>
-        <div>{address}</div>
-        <a target="_blank" href={link}>
-          Go to {name}
-        </a>
-        <br />
-        <strong>From the winemaker:</strong> {description}
-        <img src={image}></img>
-        Wine Offerings:
-        <form onSubmit={handleAddToMyList}>
-          <select
-            multiple={true}
-            onChange={(e) => handleSelect(e)}
-            // value={selections}
-          >
-            {wineOptions}
-          </select>
-          <input type="submit" value="Add to My List"></input>
-        </form>
+      <div style={{ backgroundImage: `url(${image})` }} className="winery-page">
+        <div className="winery-blurb">
+          <div className="green-div">
+            <h2>{name}</h2>
+            <div>{address}</div>
+            <a target="_blank" href={link}>
+              Go to {name}
+            </a>
+            <br />
+            <strong>From the winemaker:</strong> {description}
+            Wine Offerings:
+            <form onSubmit={handleAddToMyList}>
+              <select
+                multiple={true}
+                onChange={(e) => handleSelect(e)}
+                // value={selections}
+              >
+                {wineOptions}
+              </select>
+              <br />
+              <input type="submit" value="Add to My List"></input>
+            </form>
+          </div>
+        </div>
       </div>
     </>
   );

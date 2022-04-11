@@ -1,7 +1,7 @@
 import Map from "./Map";
 import { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
-import LaunchForm from "./LaunchForm";
+// import LaunchForm from "./LaunchForm";
 import WineryList from "./WineryList";
 
 function Catalog({ varietalSearchList }) {
@@ -47,29 +47,40 @@ function Catalog({ varietalSearchList }) {
     setDisplayForm((displayForm) => !displayForm);
   }
   return (
-
-    <div className="catalog">
-      <form>
-        <input
-          placeholder="Search"
-          value={searchText}
-          onChange={(e) => handleSearch(e)}
-        ></input>
-      </form>
-      <div className="winery">
+    <div className="winery">
+      <div className="winery-box">
+        <div className="winery-list">
+          <h3>Virginia Vineyards</h3>
+          <div className="push">
+          <div
+            className="winery-list-items"
+            style={{ display: displayForm ? "none" : "block" }}
+          >
+            <WineryList
+              focusWine={focusWine}
+              renderedSearchList={renderedSearchList}
+            />
+          </div>
+          </div>
+        </div>
+        <div className="launchForm" >
+        <div style={{ display: displayForm ? "block" : "none" }}>
+          {/* <LaunchForm /> */}
+        </div>
         <button onClick={handleToggle}>
           {displayForm ? "Back" : "Start Your Own Wine Tour!"}
         </button>
-        <div style={{ display: displayForm ? "block" : "none" }}>
-          <LaunchForm />
+        
         </div>
-        <div style={{ display: displayForm ? "none":  "block"}}>
-        <WineryList
-          focusWine={focusWine}
-          renderedSearchList={renderedSearchList}
-        />
-        </div>
+        <form>
+          <input
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => handleSearch(e)}
+          ></input>
+        </form>
       </div>
+
       <Map
         renderedSearchList={renderedSearchList}
         selectedWinery={selectedWinery}
@@ -80,7 +91,6 @@ function Catalog({ varietalSearchList }) {
         setSearchView={setSearchView}
       />
     </div>
-
   );
 }
 

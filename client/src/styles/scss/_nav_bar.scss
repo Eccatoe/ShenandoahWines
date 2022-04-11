@@ -5,6 +5,7 @@
   position: fixed;
   background: $blue-gray;
   margin-left:0px;
+  z-index: 4;
 
   &-bar {
     height: 100vh;
