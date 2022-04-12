@@ -14,7 +14,7 @@ function WineryPage() {
       .then((data) => setWinery(data));
     return () => setWinery({});
   }, []);
-  console.log(id)
+  console.log("id 17", id);
   function handleSelect(e) {
     const menuSelections = Array.from(
       e.target.selectedOptions,
@@ -44,7 +44,7 @@ function WineryPage() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ selections, user_id: 1 }),
+      body: JSON.stringify({ selections }),
     }).then((res) => console.log(res.ok));
   }
 

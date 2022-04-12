@@ -6,6 +6,7 @@ class WineriesController < ApplicationController
 
     def show
         winery=Winery.find(params[:id])
+        
         render json: winery, include: "wines.varietal"
     end
 

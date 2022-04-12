@@ -6,36 +6,25 @@ import star from "../assets/star.svg";
 
 function MyListItem({
   drink,
-  handlePatch,
-  tried,
-  setTried,
-  setFavorite,
-  userReview,
-  setUserReview,
+  // handlePatch,
+  // setFavorite,
+  // userReview,
+  // setUserReview,
   newPhoto,
   setNewPhoto,
+  toggleFavorite
 }) {
   // ({ drink, handlePatch, tried, setTried, setFavorite, userReview, setUserReview}) {
   const { wineries } = useContext(WineryContext);
   const { wine, review } = drink;
   const [show, setShow] = useState(true);
+  const [userReview, setUserReview] = useState("");
   const [displayForm, setDisplayForm] = useState(false);
   // const [newPhoto, setNewPhoto] = useState({});
 
-  function moveListItem(drink, e) {
-    if (e.currentTarget.value === "fave") {
-      setFavorite((favorite) => !favorite);
-    } else if (e.currentTarget.value === "move") {
-      console.log("move tried", tried);
-
-      setTried((tried) => !tried);
-    }
-    // console.log("move tried", tried)
+  function moveListItem(e) {
+    toggleFavorite(drink.id)
     handlePatch(drink);
-  }
-
-  function handleShowForm() {
-    setDisplayForm((displayForm) => !displayForm);
   }
 
   function handleReview(drink, e) {
@@ -43,6 +32,29 @@ function MyListItem({
     handlePatch(drink, userReview);
     setDisplayForm(false);
   }
+
+  function handlePatch(drink) {
+    fetch(`/user_wines/${drink.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        favorite: !drink.favorite,
+        tasted: true,
+        review: userReview ? userReview : drink.review,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    }).then((res) => console.log(res.ok));
+    return () => {
+      setUserReview("");
+    };
+  }
+
+  function handleShowForm() {
+    setDisplayForm((displayForm) => !displayForm);
+  }
+
+
 
   // function handleReview(drink, e) {
   //   e.preventDefault()
@@ -83,8 +95,8 @@ function MyListItem({
             {wine.name}, {wineries.find((w) => w.id === wine.winery_id)?.name}
           </p>
           <p>{review}</p>
-          <button value="fave" onClick={(e) => moveListItem(drink, e)}>
-            <img className="icon" src={heart} />
+          <button value="fave" onClick={moveListItem}>
+            <img className="icon" src={heart} style={{background: drink.favorite ? "red" : "blue"}}/>
           </button>
           <button
             value="move"
