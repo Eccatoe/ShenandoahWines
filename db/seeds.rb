@@ -1330,3 +1330,4 @@ Wine.create( name: "Beaujolais Little Brother",
 winery_id: 7,
 varietal_id: 6)
 User.create(username: "liz", id: 1)
+example=UserWine.create(wine_id: 1, user_id: 1)

@@ -13,6 +13,7 @@ class UserWinesController < ApplicationController
 
     def update
         user_wine=UserWine.find(params[:id])
+        user_wine.photo.attach(params[:photo])
         user_wine.update!(user_wine_params)        
         render json: user_wine
     end
@@ -25,6 +26,6 @@ class UserWinesController < ApplicationController
     private
 
     def user_wine_params
-        params.permit(:review, selections: [:wine_id])
+        params.permit(:review, :photo, :tasted, :favorite, selections: [:wine_id])
     end
 end

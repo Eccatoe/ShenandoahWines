@@ -4,33 +4,75 @@ import heart from "../assets/heart-outline.svg";
 import add from "../assets/add-outline.svg";
 import star from "../assets/star.svg";
 
-function MyListItem({ drink, handlePatch, setTried, setFavorite, userReview, setUserReview}) {
+function MyListItem({
+  drink,
+  handlePatch,
+  tried,
+  setTried,
+  setFavorite,
+  userReview,
+  setUserReview,
+  newPhoto,
+  setNewPhoto,
+}) {
+  // ({ drink, handlePatch, tried, setTried, setFavorite, userReview, setUserReview}) {
   const { wineries } = useContext(WineryContext);
   const { wine, review } = drink;
   const [show, setShow] = useState(true);
   const [displayForm, setDisplayForm] = useState(false);
-  // const [userReview, setUserReview] = useState([]);
-
+  // const [newPhoto, setNewPhoto] = useState({});
 
   function moveListItem(drink, e) {
     if (e.currentTarget.value === "fave") {
       setFavorite((favorite) => !favorite);
     } else if (e.currentTarget.value === "move") {
+      console.log("move tried", tried);
+
       setTried((tried) => !tried);
     }
-    handlePatch(drink, e);
+    // console.log("move tried", tried)
+    handlePatch(drink);
   }
 
-  function handleShowForm(){
-    setDisplayForm(displayForm=>!displayForm)
+  function handleShowForm() {
+    setDisplayForm((displayForm) => !displayForm);
   }
+
   function handleReview(drink, e) {
-    e.preventDefault()
-    console.log(29, drink)
-    handlePatch(drink, userReview)
-    setDisplayForm(false)
-    console.log("userReview 34", userReview)
+    e.preventDefault();
+    handlePatch(drink, userReview);
+    setDisplayForm(false);
+  }
+
+  // function handleReview(drink, e) {
+  //   e.preventDefault()
+  //   handlePatch(drink, userReview)
+  //   setDisplayForm(false)
+  //   }
+
+  function handleChange(e) {
+    if (e.target.name === "review") {
+      setUserReview(e.target.value);
     }
+    if (e.target.files){
+      setNewPhoto(e.target.files[0])}
+    // if (e.target.files[0]) {
+    //   setNewPhoto(e.target.files[0]);
+    // } 
+  }
+  
+  function handleSubmit(drink, e) {
+    e.preventDefault();
+
+    if(displayForm){
+      let myForm = document.getElementById('myForm');
+      let formData = new FormData(myForm);
+      handlePatch(drink, formData);
+    }
+    // const formData=new FormData()
+    // formData.append("file", newPhoto)
+    console.log(64, drink)
+  }
 
   const listBlock = (
     <div>
@@ -53,18 +95,39 @@ function MyListItem({ drink, handlePatch, setTried, setFavorite, userReview, set
           <button onClick={() => handleShowForm()}>
             <img className="icon" src={star} />
           </button>
+
+          {/*---------------------------------REVIEW FORM--------------*/}
+
           <div style={{ display: displayForm ? "block" : "none" }}>
-            {/* <ReviewForm handleReview={handleReview} review={review} setReview={setReview}/> */}
             Jot down some Notes!
             <br />
-            <form onSubmit={(e)=>handleReview(drink, e)}>
+            <form id="myForm" onSubmit={(e) => handleSubmit(drink, e)}>
+              <input
+                type="textarea"
+                name="review"
+                value={userReview}
+                onChange={(e) => handleChange(e)}
+              />
+              <input
+                type="file"
+                name="newPhoto"
+                accept="image/png, image/jpeg"
+                onChange={handleChange}
+              />
+              <input type="submit"></input>
+            </form>
+            {/* <form onSubmit={(e)=>handleReview(drink, e)}>
             <input type="textarea"
             value={userReview}
             onChange={(e)=>setUserReview(e.target.value)}
 
-             /><input type="submit"></input>
-            </form>
+             />
+             <input type="file" name="newPhoto" accept="image/png, image/jpeg" onChange={(e)=>handleImageChange(e)}/>
+             <input type="submit"></input>
+            </form> */}
           </div>
+
+          {/*---------------------------------REVIEW FORM--------------*/}
         </div>
       ) : null}
     </div>

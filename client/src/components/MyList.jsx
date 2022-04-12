@@ -1,6 +1,6 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import MyListItem from "./MyListItem";
-import Share from './Share'
+import Share from "./Share";
 
 function MyList() {
   const [drinkList, setDrinkList] = useState([]);
@@ -8,8 +8,8 @@ function MyList() {
   const [triedList, setTriedList] = useState([]);
   const [favorite, setFavorite] = useState(false);
   const [tried, setTried] = useState(false);
-  const [userReview, setUserReview] = useState([]);
-  const [displayForm, setDisplayForm] = useState(false);
+  const [userReview, setUserReview] = useState("");
+  const [newPhoto, setNewPhoto] = useState({});
 
   useEffect(() => {
     fetch("./user_wines")
@@ -23,26 +23,24 @@ function MyList() {
     setTriedList(drinkList?.filter((d) => d.tasted === true));
   }, [drinkList, tried]);
 
-  function handlePatch(drink, userReview) {
-    // console.log("25 drink", drink)
-    // console.log("26 review",userReview)
+  
+  function handlePatch(drink) {
     fetch(`/user_wines/${drink.id}`, {
       method: "PATCH",
       body: JSON.stringify({
         favorite,
         tasted: tried,
-        review: userReview
+        review: userReview,
       }),
       headers: {
         "Content-type": "application/json",
       },
-    })
-    .then((res) => console.log(res.ok))
+    }).then((res) => console.log(res.ok));
     return () => {
       setUserReview("");
     };
+
   }
-  console.log(drinkList)
   const toTryListItem = toTryList?.map((d) => (
     <MyListItem
       key={d.id}
@@ -52,7 +50,10 @@ function MyList() {
       setTried={setTried}
       favorite={favorite}
       setFavorite={setFavorite}
-      userReview={userReview} setUserReview={setUserReview}
+      userReview={userReview}
+      setUserReview={setUserReview}
+      newPhoto={newPhoto}
+      setNewPhoto={setNewPhoto}
     />
   ));
   const triedListItem = triedList?.map((d) => (
@@ -64,7 +65,10 @@ function MyList() {
       setTried={setTried}
       favorite={favorite}
       setFavorite={setFavorite}
-      userReview={userReview} setUserReview={setUserReview}
+      userReview={userReview}
+      setUserReview={setUserReview}
+      newPhoto={newPhoto}
+      setNewPhoto={setNewPhoto}
     />
   ));
 
@@ -74,7 +78,7 @@ function MyList() {
       {toTryListItem}
       <h1>Have Tried</h1>
       {triedListItem}
-      <Share/>
+      <Share />
     </div>
   );
 }
