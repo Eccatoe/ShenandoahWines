@@ -41,6 +41,8 @@ function MyList() {
     };
 
   }
+  console.log("kill me")
+  console.log(drinkList)
   const toTryListItem = toTryList?.map((d) => (
     <MyListItem
       key={d.id}

@@ -11,6 +11,12 @@ class UserWinesController < ApplicationController
         render json: user_wines
     end
 
+    def show
+        user_wine=UserWine.find(params[:id])
+        photo=rails_blob_path(user_wine.photo)
+        render json: user_wine
+    end
+
     def update
         user_wine=UserWine.find(params[:id])
         user_wine.photo.attach(params[:photo])

@@ -54,11 +54,12 @@ function MyListItem({
     if (e.target.name === "review") {
       setUserReview(e.target.value);
     }
-    if (e.target.files){
-      setNewPhoto(e.target.files[0])}
+    if (e.target.name==="newPhoto"){
+      setNewPhoto(e.target.value)}
     // if (e.target.files[0]) {
     //   setNewPhoto(e.target.files[0]);
     // } 
+    console.log(newPhoto)
   }
   
   function handleSubmit(drink, e) {
