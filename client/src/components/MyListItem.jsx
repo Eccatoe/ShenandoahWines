@@ -6,39 +6,38 @@ import star from "../assets/star.svg";
 
 function MyListItem({
   drink,
-  // handlePatch,
-  // setFavorite,
-  // userReview,
-  // setUserReview,
   newPhoto,
   setNewPhoto,
   toggleFavorite
 }) {
-  // ({ drink, handlePatch, tried, setTried, setFavorite, userReview, setUserReview}) {
   const { wineries } = useContext(WineryContext);
   const { wine, review } = drink;
   const [show, setShow] = useState(true);
   const [userReview, setUserReview] = useState("");
   const [displayForm, setDisplayForm] = useState(false);
-  // const [newPhoto, setNewPhoto] = useState({});
 
   function moveListItem(e) {
-    toggleFavorite(drink.id)
-    handlePatch(drink);
+    if(e.currentTarget.value==="fave"){
+      toggleFavorite(drink.id)}
+      console.log("22 drink", drink)
+    handlePatch(e);
   }
 
-  function handleReview(drink, e) {
+  function handleReview(e) {
     e.preventDefault();
-    handlePatch(drink, userReview);
+    handlePatch(e);
     setDisplayForm(false);
   }
 
-  function handlePatch(drink) {
+  function handlePatch(e) {
+    console.log("patch", e.currentTarget.value==="move")
     fetch(`/user_wines/${drink.id}`, {
+      
       method: "PATCH",
+ 
       body: JSON.stringify({
-        favorite: !drink.favorite,
-        tasted: true,
+        favorite: (e.currentTarget.value==="fave"? !drink.favorite : drink.favorite),
+        tasted: (e.currentTarget.value==="move"? true : false),
         review: userReview ? userReview : drink.review,
       }),
       headers: {
@@ -82,8 +81,7 @@ function MyListItem({
       let formData = new FormData(myForm);
       handlePatch(drink, formData);
     }
-    // const formData=new FormData()
-    // formData.append("file", newPhoto)
+
     console.log(64, drink)
   }
 
@@ -100,8 +98,8 @@ function MyListItem({
           </button>
           <button
             value="move"
-            style={{ display: show ? "block" : "none" }}
-            onClick={(e) => moveListItem(drink, e)}
+            style={{ display: drink.tasted? "none" : "block" }}
+            onClick={(e) => moveListItem(e)}
           >
             <img className="icon" src={add}></img>
           </button>
@@ -129,15 +127,7 @@ function MyListItem({
               />
               <input type="submit"></input>
             </form>
-            {/* <form onSubmit={(e)=>handleReview(drink, e)}>
-            <input type="textarea"
-            value={userReview}
-            onChange={(e)=>setUserReview(e.target.value)}
-
-             />
-             <input type="file" name="newPhoto" accept="image/png, image/jpeg" onChange={(e)=>handleImageChange(e)}/>
-             <input type="submit"></input>
-            </form> */}
+         
           </div>
 
           {/*---------------------------------REVIEW FORM--------------*/}
