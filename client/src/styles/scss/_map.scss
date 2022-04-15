@@ -50,4 +50,43 @@
     box-shadow: 0px 0px 9px $light, 0px 0px 11px $light, 0px 0px 5px $light,
       0px 0px 7px $light;
   }
+  &-controls{
+   
+
+
+  }
+  
+}
+.full-control, .nav-control, .geo-control, .scale-control{
+  position: relative;
+  text-align: center;
+
+  span{
+    position: absolute;
+    color: $light;
+    left: 1vw;
+    bottom: -1.9vh;
+  }
+
+}
+.full-control{
+  top: 20px;
+  left: 46vw;
+}
+.nav-control{
+  top: 50px;
+  left: 46vw;
+}
+.geo-control{
+  top: 90px;
+  left: 46vw;
+}
+.scale-control{
+  top: 135px;
+  left: 47vw;
+  span{
+    bottom: .4vh;
+    left: 0vw;
+
+  }
 }

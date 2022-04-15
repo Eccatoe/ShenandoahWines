@@ -622,6 +622,43 @@ h3 {
           box-shadow: 0px 0px 9px #fdf2d4, 0px 0px 11px #fdf2d4, 0px 0px 5px #fdf2d4, 0px 0px 7px #fdf2d4;
 }
 
+.full-control, .nav-control, .geo-control, .scale-control {
+  position: relative;
+  text-align: center;
+}
+
+.full-control span, .nav-control span, .geo-control span, .scale-control span {
+  position: absolute;
+  color: #fdf2d4;
+  left: 1vw;
+  bottom: -1.9vh;
+}
+
+.full-control {
+  top: 20px;
+  left: 46vw;
+}
+
+.nav-control {
+  top: 50px;
+  left: 46vw;
+}
+
+.geo-control {
+  top: 90px;
+  left: 46vw;
+}
+
+.scale-control {
+  top: 135px;
+  left: 47vw;
+}
+
+.scale-control span {
+  bottom: .4vh;
+  left: 0vw;
+}
+
 .icon {
   width: 15px;
   height: 15px;

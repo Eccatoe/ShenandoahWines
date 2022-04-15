@@ -1,4 +1,13 @@
-import ReactMapGL, { Source, Layer, Marker, Popup } from "react-map-gl";
+import ReactMapGL, {
+  FullscreenControl,
+  Source,
+  Layer,
+  Marker,
+  Popup,
+  NavigationControl,
+  ScaleControl,
+  GeolocateControl,
+} from "react-map-gl";
 import { useNavigate } from "react-router-dom";
 import circle from "../assets/circle.svg";
 import { useContext, useEffect, useState, useRef } from "react";
@@ -13,9 +22,21 @@ function Map({
   setSearchView,
 }) {
   const navigate = useNavigate();
+  // const mapContainer = useRef(null);
+  // const map = useRef(null);
+  // const [lng, setLng] = useState(-78.612);
+  // const [lat, setLat] = useState(38.35);
+  // const [zoom, setZoom] = useState(7.4);
 
-
-  
+  // useEffect(()=>{
+  //   if (map.current) return;
+  //   map.current=new mapboxgl.Map({
+  //     container: mapContainer.current,
+  //     style: "mapbox://styles/eccatoe2517/cl1zbrhfv003916l5alc88c87",
+  //     center: [lng, lat],
+  //     zoom: zoom
+  //   })
+  // })
 
   function handleClose() {
     setSearchView(viewport);
@@ -43,9 +64,6 @@ function Map({
     ],
   };
 
-
-
-
   return (
     <div id="map">
       <ReactMapGL
@@ -56,6 +74,22 @@ function Map({
         }}
         mapStyle="mapbox://styles/eccatoe2517/cl1zbrhfv003916l5alc88c87"
       >
+        <div className="map-controls">
+          <div className="full-control">
+            <span>Toggle Full Screen</span>
+            <FullscreenControl />
+          </div>
+          <div className="nav-control"><span>Navigation Control</span>
+            <NavigationControl />
+          </div>
+          <div className="scale-control"><span>Scale Control</span>
+            <ScaleControl />
+          </div>
+          <div className="geo-control"><span>Geo Control</span>
+            <GeolocateControl />
+          </div>
+        </div>
+
         {renderedSearchList.map((winery) => (
           <Marker
             key={winery.name}
