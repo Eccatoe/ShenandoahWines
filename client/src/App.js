@@ -28,6 +28,7 @@ function App() {
       <WineryContext.Provider value={{ wineries, setWineries }}>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
+         
           <Route
             exact
             path="/wineries"

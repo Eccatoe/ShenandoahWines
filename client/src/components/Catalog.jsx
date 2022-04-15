@@ -1,4 +1,4 @@
-import Map from "./Map";
+import MapGL from "./WineryMap";
 import { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
 // import LaunchForm from "./LaunchForm";
@@ -14,6 +14,8 @@ function Catalog({ varietalSearchList }) {
     zoom: 7.4,
     height: "100vh",
     width: "60vw",
+    bearing: 0,
+          pitch: 0
   });
   const [searchView, setSearchView] = useState({ ...viewport });
   const [searchText, setSearchText] = useState("");
@@ -37,12 +39,11 @@ function Catalog({ varietalSearchList }) {
     });
     setViewport(searchView);
   }
-
   function handleSearch(e) {
     setSearchText(e.target.value);
     setSelectedWinery(null);
   }
-
+console.log(process.env)
   function handleToggle() {
     setDisplayForm((displayForm) => !displayForm);
   }
@@ -82,7 +83,7 @@ function Catalog({ varietalSearchList }) {
       </div>
       <div id="fade"></div>
 
-      <Map
+      <MapGL
         renderedSearchList={renderedSearchList}
         selectedWinery={selectedWinery}
         setSelectedWinery={setSelectedWinery}

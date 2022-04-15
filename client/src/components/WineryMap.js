@@ -68,7 +68,7 @@ function Map({
     <div id="map">
       <ReactMapGL
         {...searchView}
-        mapboxApiAccessToken={process.env.REACT_APP_MAP_KEY}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
         onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
