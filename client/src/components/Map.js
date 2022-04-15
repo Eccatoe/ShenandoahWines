@@ -1,7 +1,7 @@
 import ReactMapGL, { Source, Layer, Marker, Popup } from "react-map-gl";
 import { useNavigate } from "react-router-dom";
-import grape from "../assets/grape.svg";
-import { useContext, useEffect, useState } from "react";
+import circle from "../assets/circle.svg";
+import { useContext, useEffect, useState, useRef } from "react";
 
 function Map({
   selectedWinery,
@@ -13,15 +13,9 @@ function Map({
   setSearchView,
 }) {
   const navigate = useNavigate();
-  // const [rose, setRose] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("/rose")
-  //     .then((r) => r.json())
-  //     .then((r) => setRose(r));
-  // }, []);
 
-  // console.log(rose);
+  
 
   function handleClose() {
     setSearchView(viewport);
@@ -49,6 +43,9 @@ function Map({
     ],
   };
 
+
+
+
   return (
     <div id="map">
       <ReactMapGL
@@ -57,7 +54,7 @@ function Map({
         onViewportChange={(viewport) => {
           setViewport(viewport);
         }}
-        mapStyle="mapbox://styles/eccatoe2517/cl1qzczwl000b14p3hvnruo4h"
+        mapStyle="mapbox://styles/eccatoe2517/cl1zbrhfv003916l5alc88c87"
       >
         {renderedSearchList.map((winery) => (
           <Marker
@@ -71,7 +68,7 @@ function Map({
                 setSelectedWinery(winery);
               }}
             >
-              <img style={{ height: "20px", width: "20px" }} src={grape} />
+              {/* <img className="marker" style={{ height: "20px", width: "20px" }} src={circle} /> */}
             </button>
           </Marker>
         ))}
@@ -82,7 +79,7 @@ function Map({
             onClose={() => handleClose()}
           >
             <div className="popupContent">
-              <p>{selectedWinery.name}</p>
+              <p>{selectedWinery.name.toUpperCase()}</p>
               <div
                 className="popupContent"
                 onClick={() => navigate(`/wineries/${selectedWinery.id}`)}

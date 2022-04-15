@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import arrow from '../assets/arrow.svg'
 
 function WineryPage() {
   const [winery, setWinery] = useState([]);
   const [selections, setSelections] = useState([]);
-  const [selectionsList, setSelectionsList] = useState([]);
   const { id } = useParams();
-  const { name, link, description, image, address, wines } = winery;
+  const { name, link, description, image, wines } = winery;
 
   useEffect(() => {
     fetch(`/wineries/${id}`)
@@ -14,28 +14,22 @@ function WineryPage() {
       .then((data) => setWinery(data));
     return () => setWinery({});
   }, []);
-  console.log("id 17", id);
+
   function handleSelect(e) {
     const menuSelections = Array.from(
       e.target.selectedOptions,
       (item) => item.value
     );
+    console.log(22, menuSelections);
     const userSelections = winery.wines.filter((wine) =>
       menuSelections.includes(wine.name)
     );
+
     userSelections.forEach((s) => {
-      setSelections([
-        ...selections,
-        {
-          wine_id: s.id,
-        },
-      ]);
+      setSelections([...selections, { wine_id: s.id }]);
     });
   }
-
-  useEffect(() => {
-    setSelectionsList([selections].flat().filter((s) => s !== undefined));
-  }, [selections]);
+  console.log(winery)
 
   function handleAddToMyList(e) {
     e.preventDefault();
@@ -48,35 +42,38 @@ function WineryPage() {
     }).then((res) => console.log(res.ok));
   }
 
+  const highlight = (e) => {
+    e.target.classList.toggle("sel");
+  };
+
   const wineOptions = wines?.map((wine) => (
-    <option value={wine.name}>{wine.name}</option>
+    <option onClick={(e) => highlight(e)} className="opt" value={wine.name}>
+      {wine.name}
+    </option>
   ));
 
+  const nameArr = name?.split(" ");
+  const nameDiv = nameArr?.map((n) => <h2 className="winery-name">{n.toUpperCase()}</h2>);
   return (
     <>
       <div style={{ backgroundImage: `url(${image})` }} className="winery-page">
+        <div className="winery-page-title">
+          <div className="name-div">{nameDiv}</div>
+          <a target="_blank" href={link}>
+            <img className="winery-page-icon" src={arrow}/>
+            
+          </a>
+        </div>
         <div className="winery-blurb">
-          <div className="green-div">
-            <h2>{name}</h2>
-            <div>{address}</div>
-            <a target="_blank" href={link}>
-              Go to {name}
-            </a>
+        
+         <p>{description}</p>
+          <form onSubmit={handleAddToMyList}>
+            <select multiple={true} onChange={(e) => handleSelect(e)} id="menu">
+              {wineOptions}
+            </select>
             <br />
-            <strong>From the winemaker:</strong> {description}
-            Wine Offerings:
-            <form onSubmit={handleAddToMyList}>
-              <select
-                multiple={true}
-                onChange={(e) => handleSelect(e)}
-                // value={selections}
-              >
-                {wineOptions}
-              </select>
-              <br />
-              <input type="submit" value="Add to My List"></input>
-            </form>
-          </div>
+            <input type="submit" value="Add to My List"></input>
+          </form>
         </div>
       </div>
     </>

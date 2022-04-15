@@ -1,5 +1,5 @@
 class UserWinesController < ApplicationController
-
+    
     def create
         user_wine_array = @user.user_wines.create(user_wine_params[:selections])
         
@@ -7,24 +7,19 @@ class UserWinesController < ApplicationController
     end
 
     def index 
-        user_wines = @user.user_wines
-        
+        user_wines = @user.user_wines.all
         render json: user_wines
     end
 
     def show
         user_wine=UserWine.find(params[:id])
-        photo=rails_blob_path(user_wine.photo)
         render json: user_wine
     end
 
+   
     def update
         user_wine=UserWine.find(params[:id])
-        # user_wine.photo.attach(params[:photo])
         user_wine.update!(user_wine_params)
-
-      
-
         render json: user_wine
     end
 

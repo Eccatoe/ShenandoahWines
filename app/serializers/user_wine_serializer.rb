@@ -1,5 +1,5 @@
 class UserWineSerializer < ActiveModel::Serializer
-  attributes :id, :review, :favorite, :tasted #, :photo
+  attributes :id, :review, :favorite, :tasted
 
   belongs_to :user
   belongs_to :wine

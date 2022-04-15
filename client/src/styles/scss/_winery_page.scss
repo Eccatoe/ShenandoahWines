@@ -7,32 +7,64 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+ 
+  &-title {
+    height: 100vh;
+    .name-div {
+      font-size: 80px;
+      text-shadow: 0px 9px 2px $light;
+      .winery-name{
+        height: 33vh;
+      }
+    
+    }
+  }
   .winery-blurb {
+    width: 40vw;
     color: $dark;
-    width: 35vw;
+    text-align: right;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: $med;
-    .green-div {
-      background: $med;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      h2 {
-        font-size: 60px;
-      }
+    justify-content: space-evenly;
+    background: #ffeb89;
+    padding: 0 60px 10px 20px;
+    // align-items: stretch;
+    p{
+      width: 40vw;
+      color: $dark;
+      border-bottom: 2px solid $dark;
+      margin: 0px 15px 0 0;
+      font-size: 24px;
+      padding-bottom: 20px;
     }
-    select {
-      
-      height: 40vh;
-      border: none;
-      border-radius: 5px;
-      padding: 10px;
+  
+      select {
+        height: 40vh;
+        width: 40vw;
+        border: none;
+        padding: 10px;
+        background: transparent;
+        backdrop-filter: blur(5px);
+        font-weight: 400px;
+        font-size: 20px;
+        color: $dark;
+     
+        &:focus {
+          outline: none !important;
+        }
     }
+    
+    .sel {
+      background: blue;
+}
+  }
+  &-icon{
+    width: 125px;
+    margin-left: 30%;
+    position: absolute;
+    top: 84vh;
+   right: 60vw
   }
 }

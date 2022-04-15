@@ -1,88 +1,53 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { WineryContext } from "./WineryContext";
 import heart from "../assets/heart-outline.svg";
-import add from "../assets/add-outline.svg";
 import star from "../assets/star.svg";
+import bottle from "../assets/bottle.svg";
+import cheers from "../assets/cheers.svg";
 
-function MyListItem({
-  drink,
-  newPhoto,
-  setNewPhoto,
-  toggleFavorite
-}) {
+function MyListItem({ drink, toggleFavorite, toggleTasted }) {
+  const navigate=useNavigate()
+
   const { wineries } = useContext(WineryContext);
-  const { wine, review } = drink;
-  const [show, setShow] = useState(true);
+  const { wine, review} = drink;
   const [userReview, setUserReview] = useState("");
   const [displayForm, setDisplayForm] = useState(false);
 
   function moveListItem(e) {
-    if(e.currentTarget.value==="fave"){
-      toggleFavorite(drink.id)}
-      console.log("22 drink", drink)
+    if (e.currentTarget.value === "fave") {
+      toggleFavorite(drink.id);
+    } else if (e.currentTarget.value === "move") {
+      toggleTasted(drink.id);
+    }
     handlePatch(e);
-  }
-
-  function handleReview(e) {
-    e.preventDefault();
-    handlePatch(e);
-    setDisplayForm(false);
-  }
-
-  function handlePatch(e) {
-    console.log("patch", e.currentTarget.value==="move")
-    fetch(`/user_wines/${drink.id}`, {
-      
-      method: "PATCH",
- 
-      body: JSON.stringify({
-        favorite: (e.currentTarget.value==="fave"? !drink.favorite : drink.favorite),
-        tasted: (e.currentTarget.value==="move"? true : false),
-        review: userReview ? userReview : drink.review,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    }).then((res) => console.log(res.ok));
-    return () => {
-      setUserReview("");
-    };
   }
 
   function handleShowForm() {
     setDisplayForm((displayForm) => !displayForm);
   }
 
-
-
-  // function handleReview(drink, e) {
-  //   e.preventDefault()
-  //   handlePatch(drink, userReview)
-  //   setDisplayForm(false)
-  //   }
-
   function handleChange(e) {
-    if (e.target.name === "review") {
-      setUserReview(e.target.value);
-    }
-    if (e.target.name==="newPhoto"){
-      setNewPhoto(e.target.value)}
-    // if (e.target.files[0]) {
-    //   setNewPhoto(e.target.files[0]);
-    // } 
-    console.log(newPhoto)
+    setUserReview(e.target.value);
   }
-  
-  function handleSubmit(drink, e) {
+
+  function handlePatch(e) {
     e.preventDefault();
-
-    if(displayForm){
-      let myForm = document.getElementById('myForm');
-      let formData = new FormData(myForm);
-      handlePatch(drink, formData);
-    }
-
-    console.log(64, drink)
+    setDisplayForm(false);
+    fetch(`/user_wines/${drink.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        favorite:
+          e.currentTarget.value === "fave" ? !drink.favorite : drink.favorite,
+        tasted: e.currentTarget.value === "move" ? !drink.tasted : drink.tasted,
+        review: userReview ? userReview : drink.review,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => console.log("RES", res));
   }
 
   const listBlock = (
@@ -90,47 +55,55 @@ function MyListItem({
       {wine ? (
         <div>
           <p>
-            {wine.name}, {wineries.find((w) => w.id === wine.winery_id)?.name}
+            {wine.name}</p><p onClick={()=>{navigate(`/wineries/${wineries.find((w) => w.id === wine.winery_id).id}`)}}> {wineries.find((w) => w.id === wine.winery_id)?.name}
           </p>
-          <p>{review}</p>
-          <button value="fave" onClick={moveListItem}>
-            <img className="icon" src={heart} style={{background: drink.favorite ? "red" : "blue"}}/>
+          <div style={{ display: displayForm ? "none" : "block" }}>
+            <p>{userReview}</p>
+          </div>
+
+          <div>
+            <button
+              value="move"
+              style={{ display: drink.tasted ? "none" : "block" }}
+              onClick={(e) => moveListItem(e)}
+            >
+             Been There<img className="icon" src={bottle}></img>
+            </button>
+          </div>
+
+
+          <button value="fave" onClick={(e) => moveListItem(e)}>
+           Loved That<img
+              className="icon"
+              src={cheers}
+              style={{ background: drink.favorite ? "red" : "blue" }}
+            />
           </button>
-          <button
-            value="move"
-            style={{ display: drink.tasted? "none" : "block" }}
-            onClick={(e) => moveListItem(e)}
-          >
-            <img className="icon" src={add}></img>
-          </button>
+
           <button onClick={() => handleShowForm()}>
             <img className="icon" src={star} />
           </button>
-
-          {/*---------------------------------REVIEW FORM--------------*/}
-
           <div style={{ display: displayForm ? "block" : "none" }}>
             Jot down some Notes!
             <br />
-            <form id="myForm" onSubmit={(e) => handleSubmit(drink, e)}>
+            <form onSubmit={(e) => handlePatch(e)}>
               <input
-                type="textarea"
+                type="text"
                 name="review"
                 value={userReview}
                 onChange={(e) => handleChange(e)}
               />
-              <input
-                type="file"
-                name="newPhoto"
-                accept="image/png, image/jpeg"
-                onChange={handleChange}
-              />
               <input type="submit"></input>
             </form>
-         
           </div>
+          
+          <button value="trash">
+            <img
+              className="icon"
+              src={heart}
+            />
+          </button>
 
-          {/*---------------------------------REVIEW FORM--------------*/}
         </div>
       ) : null}
     </div>

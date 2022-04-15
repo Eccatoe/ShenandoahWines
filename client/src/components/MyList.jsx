@@ -4,7 +4,6 @@ import Share from "./Share";
 
 function MyList() {
   const [drinkList, setDrinkList] = useState([]);
-  const [newPhoto, setNewPhoto] = useState({});
 
   useEffect(() => {
     fetch("/user_wines")
@@ -20,7 +19,17 @@ function MyList() {
         return drink;
       }
     });
+    setDrinkList(updatedList);
+  }
 
+  function toggleTasted(drinkId) {
+    const updatedList = drinkList.map((drink) => {
+      if (drink.id === drinkId) {
+        return { ...drink, tasted: true };
+      } else {
+        return drink;
+      }
+    });
     setDrinkList(updatedList);
   }
 
@@ -31,18 +40,16 @@ function MyList() {
     <MyListItem
       key={d.id}
       drink={d}
-      newPhoto={newPhoto}
-      setNewPhoto={setNewPhoto}
       toggleFavorite={toggleFavorite}
+      toggleTasted={toggleTasted}
     />
   ));
   const triedListItem = triedList?.map((d) => (
     <MyListItem
       key={d.id}
       drink={d}
-      newPhoto={newPhoto}
-      setNewPhoto={setNewPhoto}
       toggleFavorite={toggleFavorite}
+      toggleTasted={toggleTasted}
     />
   ));
 

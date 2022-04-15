@@ -4,11 +4,11 @@ function NavBar() {
   return (
     <div className="nav">
       <div className="nav-bar">
-        <Link to="/wineries">Wineries</Link>
-        <Link to="/home">Home</Link>
-        <Link to="/varietals">Varietals</Link>
-        <Link to="/my_list">List</Link>
-        <Link to='/trails'>Trails</Link>
+        <Link to="/wineries">WINERIES</Link>
+        <Link to="/">HOME</Link>
+        <Link to="/varietals">VARIETALS</Link>
+        <Link to="/my_list">LIST</Link>
+        <Link to='/trails'>TRAILS</Link>
       </div>
     </div>
   );

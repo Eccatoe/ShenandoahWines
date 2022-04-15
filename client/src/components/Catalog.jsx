@@ -50,11 +50,11 @@ function Catalog({ varietalSearchList }) {
     <div className="winery">
       <div className="winery-box">
         <div className="winery-list">
-          <h3>Virginia Vineyards</h3>
+          <h3><span>SHENANDOAH</span> <span>VINEYARDS</span></h3>
           <div className="push">
           <div
-            className="winery-list-items"
             style={{ display: displayForm ? "none" : "block" }}
+             className="winery-list-items"
           >
             <WineryList
               focusWine={focusWine}
@@ -67,9 +67,9 @@ function Catalog({ varietalSearchList }) {
         <div style={{ display: displayForm ? "block" : "none" }}>
           {/* <LaunchForm /> */}
         </div>
-        <button onClick={handleToggle}>
+        {/* <button onClick={handleToggle}>
           {displayForm ? "Back" : "Start Your Own Wine Tour!"}
-        </button>
+        </button> */}
         
         </div>
         <form>
@@ -80,6 +80,7 @@ function Catalog({ varietalSearchList }) {
           ></input>
         </form>
       </div>
+      <div id="fade"></div>
 
       <Map
         renderedSearchList={renderedSearchList}

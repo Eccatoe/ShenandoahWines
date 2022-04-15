@@ -1,32 +1,53 @@
 .mapboxgl-popup-content {
-  
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 4;
+
   background: transparent;
   img {
-    width: 400px;
+    width: 600px;
     margin-top: 15px;
     border-radius: 5px;
+    border: 3px solid $light;
   }
   button {
-    display:none;
+    display: none;
   }
-  p{
-      width: 70%;
-      margin:auto;
+  p {
+    width: 500px;
+    margin: auto;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: auto;
   }
 }
 .mapboxgl-popup {
-  background: $peach;
+  background: transparent;
   border-radius: 5px;
-  text-align:center;
-
+  text-align: center;
+  color: white;
+  width: 20%;
+  font-size: 20px;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: transparent;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+  border-bottom-color: transparent;
 }
 #map {
   margin-right: 50px;
+  width: 57vw;
+
   button {
-    background: rgba(148, 110, 131, 0.6);
-    border-radius: 5px;
-    padding: 2px;
+    background: $light;
+    padding: 0px;
     border: none;
-    box-shadow: 0px 0px 4px rgb(39, 6, 21);
+    height: 10px;
+    width: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 0px 9px $light, 0px 0px 11px $light, 0px 0px 5px $light,
+      0px 0px 7px $light;
   }
 }
