@@ -1,8 +1,4 @@
-import { useState } from "react";
-// import TrailLaunch from "./LaunchForm";
-
 function WineryList({ renderedSearchList, focusWine }) {
-  const [togglePage, setTogglePage] = useState(false);
   const wineryListItems = renderedSearchList.map((winery) => (
     <div>
       <div className="winery-list-item" key={winery.id}>
@@ -13,6 +9,7 @@ function WineryList({ renderedSearchList, focusWine }) {
   ));
 
   function handleFocus(e) {
+    e.target.classList.toggle("clicked")
     focusWine(e);
   }
 

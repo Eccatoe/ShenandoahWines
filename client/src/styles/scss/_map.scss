@@ -3,8 +3,6 @@
   align-items: center;
   position: relative;
   z-index: 4;
-
-  background: transparent;
   img {
     width: 600px;
     margin-top: 15px;
@@ -36,11 +34,14 @@
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
   border-bottom-color: transparent;
 }
+.mapboxgl-map {
+  background: transparent;
+}
 #map {
   margin-right: 50px;
   width: 57vw;
 
-  button {
+  .pin {
     background: $light;
     padding: 0px;
     border: none;
@@ -50,43 +51,17 @@
     box-shadow: 0px 0px 9px $light, 0px 0px 11px $light, 0px 0px 5px $light,
       0px 0px 7px $light;
   }
-  &-controls{
-   
-
-
-  }
-  
-}
-.full-control, .nav-control, .geo-control, .scale-control{
-  position: relative;
-  text-align: center;
-
-  span{
-    position: absolute;
-    color: $light;
-    left: 1vw;
-    bottom: -1.9vh;
-  }
 
 }
-.full-control{
-  top: 20px;
-  left: 46vw;
-}
-.nav-control{
-  top: 50px;
-  left: 46vw;
-}
-.geo-control{
-  top: 90px;
-  left: 46vw;
-}
-.scale-control{
-  top: 135px;
-  left: 47vw;
-  span{
-    bottom: .4vh;
-    left: 0vw;
 
-  }
+.mapboxgl-ctrl-group > button {
+
+position: relative !important;  padding: 0;
+
+}
+.mapboxgl-ctrl-icon,
+.mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow {
+   position: absolute !important;
+   top: -4px;
+   left: -4px;
 }

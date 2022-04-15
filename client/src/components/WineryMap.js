@@ -1,4 +1,4 @@
-import ReactMapGL, {
+import Map, {
   FullscreenControl,
   Source,
   Layer,
@@ -6,42 +6,59 @@ import ReactMapGL, {
   Popup,
   NavigationControl,
   ScaleControl,
-  GeolocateControl,
+  useMap,
 } from "react-map-gl";
 import { useNavigate } from "react-router-dom";
-import circle from "../assets/circle.svg";
-import { useContext, useEffect, useState, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
+import "mapbox-gl/dist/mapbox-gl.css";
 
-function Map({
+function WineryMap({
   selectedWinery,
   setSelectedWinery,
   renderedSearchList,
-  viewport,
-  setViewport,
-  searchView,
-  setSearchView,
+  handleClose,
 }) {
   const navigate = useNavigate();
-  // const mapContainer = useRef(null);
-  // const map = useRef(null);
-  // const [lng, setLng] = useState(-78.612);
-  // const [lat, setLat] = useState(38.35);
-  // const [zoom, setZoom] = useState(7.4);
+  const { mymap } = useMap();
+  const [inputValue, setInputValue] = useState("");
+  const [hasError, setError] = useState(false);
 
-  // useEffect(()=>{
-  //   if (map.current) return;
-  //   map.current=new mapboxgl.Map({
-  //     container: mapContainer.current,
-  //     style: "mapbox://styles/eccatoe2517/cl1zbrhfv003916l5alc88c87",
-  //     center: [lng, lat],
-  //     zoom: zoom
-  //   })
-  // })
+  useEffect(() => {
+    if (!mymap) {
+      return undefined;
+    }
 
-  function handleClose() {
-    setSearchView(viewport);
-    setSelectedWinery(null);
-  }
+    const onMove = () => {
+      const { lng, lat } = mymap.getCenter();
+      setInputValue(`${lng.toFixed(3)}, ${lat.toFixed(3)}`);
+      setError(false);
+    };
+    mymap.on("move", onMove);
+    onMove();
+
+    return () => {
+      mymap.off("move", onMove);
+    };
+  }, [mymap]);
+
+  const onChange = useCallback((e) => {
+    setInputValue(e.target.value);
+  }, []);
+
+  const onSubmit = useCallback(() => {
+    const [lng, lat] = inputValue.split(",").map(Number);
+    if (Math.abs(lng) <= 180 && Math.abs(lat) <= 85) {
+      mymap.easeTo({
+        center: [lng, lat],
+        duration: 1000,
+      });
+    } else {
+      setError(true);
+    }
+  }, [mymap, inputValue]);
+
+  //----------------------------------------------------------
+
 
   const newLayer = {
     id: "rose_trail",
@@ -63,54 +80,56 @@ function Map({
       },
     ],
   };
-
   return (
     <div id="map">
-      <ReactMapGL
-        {...searchView}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-        onViewportChange={(viewport) => {
-          setViewport(viewport);
+      <Map
+        id="mymap"
+        initialViewState={{
+          latitude: 38.35,
+          longitude: -78.612,
+          zoom: 7.4,
         }}
+        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+       
         mapStyle="mapbox://styles/eccatoe2517/cl1zbrhfv003916l5alc88c87"
       >
-        <div className="map-controls">
-          <div className="full-control">
-            <span>Toggle Full Screen</span>
-            <FullscreenControl />
-          </div>
-          <div className="nav-control"><span>Navigation Control</span>
-            <NavigationControl />
-          </div>
-          <div className="scale-control"><span>Scale Control</span>
-            <ScaleControl />
-          </div>
-          <div className="geo-control"><span>Geo Control</span>
-            <GeolocateControl />
-          </div>
+        <div
+          style={{
+            padding: 12,
+            fontFamily: "sans-serif",
+            position: "absolute",
+          }}
+        >
+          <span>MAP CENTER: </span>
+          <input type="text" value={inputValue} onChange={onChange} 
+                  style={{color: hasError ? 'red' : 'black'}}
+ />
+          <button onClick={onSubmit}>GO</button>
         </div>
-
+            <FullscreenControl/>
+            <NavigationControl/>
+        
+            <ScaleControl />
         {renderedSearchList.map((winery) => (
           <Marker
             key={winery.name}
             latitude={winery.latitude}
             longitude={winery.longitude}
           >
-            <button
+            <button className="pin"
               onClick={(e) => {
                 e.preventDefault();
                 setSelectedWinery(winery);
               }}
             >
-              {/* <img className="marker" style={{ height: "20px", width: "20px" }} src={circle} /> */}
             </button>
           </Marker>
         ))}
-        {selectedWinery ? (
+        {selectedWinery !==null ? (
           <Popup
             latitude={selectedWinery.latitude}
             longitude={selectedWinery.longitude}
-            onClose={() => handleClose()}
+            onClose={handleClose}
           >
             <div className="popupContent">
               <p>{selectedWinery.name.toUpperCase()}</p>
@@ -123,11 +142,11 @@ function Map({
             </div>
           </Popup>
         ) : null}
-        <Source id="trail" type="geojson" data={geojson}>
-          <Layer {...newLayer} />
-        </Source>
-      </ReactMapGL>
+        {/* <Source id="trail" type="geojson" data={geojson}> */}
+        {/* <Layer {...newLayer} /> */}
+        {/* </Source> */}
+      </Map>
     </div>
   );
 }
-export default Map;
+export default WineryMap;
