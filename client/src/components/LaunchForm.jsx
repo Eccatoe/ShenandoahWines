@@ -1,40 +1,49 @@
-// import React, { useEffect } from "react";
-// import { WineryContext } from "./WineryContext";
-// import { useContext, useState } from "react";
+import React, { useEffect } from "react";
+import { WineryContext } from "./WineryContext";
+import { useContext, useState } from "react";
 
-// function LaunchForm() {
-//   const { wineries } = useContext(WineryContext);
-//   const [tourCoords, setTourCoords]=useState([])
-//   const [geo, setGeo]=useState([])
-//   console.log(wineries)
-//   const optionList = wineries.map((winery) => (
-//     <option key={winery.id} value={winery.id}>
-//       {winery.name}
-//     </option>
-//   ))
-//   useEffect(()=>{
-//       fetch('/static/media/tours.dd3cf7d9eaf52b6626f7.geoJSON')
-//       .then(r=>r.json())
-//       .then(data=>setGeo(data))
-//   },[])
+function LaunchForm({coords, setCoords, geojson}) {
+  const { wineries } = useContext(WineryContext);
+  const [selection, setSelection]=useState([])
+  const optionList = wineries.map((winery) => (
+    <option key={winery.id} value={winery.name}>
+      {winery.name}
+    </option>
+  ))
 
-// console.log(geo)
-//   return (
-//     <div>
-//       <div>Choose a Tour</div>
-//       <button>Rose</button>
-//       <button>Historic</button>
-//       <button>Randomize</button>
-//       <br />
-//       <span>or</span>
-//       <div>Make Your Own</div>
-//       <label></label>
-//       <select>
-//         <option value="">Choose a Starting Point</option>
-//         {optionList}
-//       </select>
-//     </div>
-//   );
-// }
+function handleChange(e){
+    setSelection(e.target.value)
+}
+function handleSubmit(e){
+e.preventDefault()
+const winery=wineries.find((w)=>
+    w.name===selection
+)
+const wineryCoords=[winery.longitude, winery.latitude]
+setCoords([...coords, wineryCoords])
 
-// export default LaunchForm;
+console.log("reg coords", coords)
+console.log("geojson", geojson)
+}
+
+  return (
+    <div className="tour-form">
+      <div>Choose a Tour</div>
+      <button>Rose</button>
+      <button>Historic</button>
+      <button>Randomize</button>
+      <br />
+      <span>or</span>
+      <div>Make Your Own</div>
+      <form onSubmit={(e)=> handleSubmit(e)}>
+      <select value={selection} onChange={handleChange}>
+        <option value="">Choose a Starting Point</option>
+        {optionList}
+      </select>
+      <input type="submit" placeholder="Add a Stop"/>
+      </form>
+    </div>
+  );
+}
+
+export default LaunchForm;

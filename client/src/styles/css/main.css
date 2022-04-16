@@ -182,6 +182,7 @@ h3 {
   grid-row-gap: 0px;
   background-image: url("https://images.unsplash.com/photo-1464638681273-0962e9b53566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   color: #fdf2d4;
+  overflow: hidden;
 }
 
 .winery-box {
@@ -196,6 +197,12 @@ h3 {
       -ms-flex-align: center;
           align-items: center;
   height: 100vh;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: 1 / 1/ 6 / 3;
+  position: absolute;
 }
 
 .winery-box button {
@@ -207,7 +214,7 @@ h3 {
   border-radius: 3px;
 }
 
-.winery-box input {
+.winery-box .search {
   background: transparent;
   position: fixed;
   top: 5vh;
@@ -223,7 +230,7 @@ h3 {
   color: #fdf2d4;
 }
 
-.winery-box input:focus {
+.winery-box .search:focus {
   outline: none !important;
   -webkit-box-shadow: inset 2px 2px 1px #fdf2d4, inset -2px -2px 1px #fdf2d4;
           box-shadow: inset 2px 2px 1px #fdf2d4, inset -2px -2px 1px #fdf2d4;
@@ -238,13 +245,14 @@ h3 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 30px 130px 30px 20px;
+  margin: 30px 130px 0px 20px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 80vh;
+  height: 90vh;
   font-size: 26px;
+  overflow: scroll;
   width: 25vw;
   cursor: pointer;
 }
@@ -263,8 +271,14 @@ h3 {
           flex-direction: column;
 }
 
+.winery-list .start {
+  position: fixed;
+  top: 20vh;
+  width: 30vw;
+}
+
 .winery-list .push {
-  margin-top: 130px;
+  margin-top: 160px;
 }
 
 .winery-list-items:first-child {
@@ -284,8 +298,13 @@ h3 {
   width: 2vw;
   background: #213414;
   position: relative;
-  z-index: 2;
-  left: 30px;
+  left: 18vw;
+  z-index: 3;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 1 / 2/ 6 / 3;
   -webkit-box-shadow: 0px -20px 20px #213414, 0px -20px 30px #213414, 0px 20px 20px #213414, -20px 20px 30px #213414;
           box-shadow: 0px -20px 20px #213414, 0px -20px 30px #213414, 0px 20px 20px #213414, -20px 20px 30px #213414;
 }
@@ -614,7 +633,7 @@ h3 {
   width: 57vw;
 }
 
-#map .pin {
+.pin {
   background: #fdf2d4;
   padding: 0px;
   border: none;

@@ -41,19 +41,19 @@
   margin-right: 50px;
   width: 57vw;
 
-  .pin {
-    background: $light;
-    padding: 0px;
-    border: none;
-    height: 10px;
-    width: 10px;
-    border-radius: 25px;
-    box-shadow: 0px 0px 9px $light, 0px 0px 11px $light, 0px 0px 5px $light,
-      0px 0px 7px $light;
-  }
+ 
 
 }
-
+.pin {
+  background: $light;
+  padding: 0px;
+  border: none;
+  height: 10px;
+  width: 10px;
+  border-radius: 25px;
+  box-shadow: 0px 0px 9px $light, 0px 0px 11px $light, 0px 0px 5px $light,
+    0px 0px 7px $light;
+}
 .mapboxgl-ctrl-group > button {
 
 position: relative !important;  padding: 0;

@@ -1,6 +1,5 @@
 import Map, { Source, Layer, Marker, Popup } from "react-map-gl";
 import { useNavigate } from "react-router-dom";
-import {useState} from 'react'
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapControls from "./MapControls.jsx";
 
@@ -9,37 +8,21 @@ function WineryMap({
   setSelectedWinery,
   renderedSearchList,
   handleClose,
-}) {
+  coords,
+geojson}) {
   const navigate = useNavigate();
-  const geojson = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "LineString",
-          coordinates: [
-            [-78.22913631587828, 38.840224786386315],
-            [-78.23071314655078, 39.125878355285714],
-            [-79.24127481590128, 37.94223864623973],
-          ],
-        },
-      },
-    ],
-  };
-  const [coords, setCoords]=useState(geojson.features[0].geometry.coordinates)
-
 
   
+ 
   const newLayer = {
     id: "rose",
     type: "line",
   };
 
+  
 
-console.log("features", geojson.features[0].geometry.coordinates)
 
-
+  console.log("features", geojson.features[0].geometry.coordinates);
 
   return (
     <div id="map">
@@ -86,9 +69,9 @@ console.log("features", geojson.features[0].geometry.coordinates)
             </div>
           </Popup>
         ) : null}
-        {/* <Source id="trail" type="geojson" data={geojson}> */}
-        {/* <Layer {...newLayer} /> */}
-        {/* </Source> */}
+        <Source id="trail" type="geojson" data={geojson}>
+        <Layer {...newLayer} />
+        </Source>
       </Map>
     </div>
   );

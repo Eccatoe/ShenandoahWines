@@ -10,7 +10,6 @@ function MapControls() {
   const { mymap } = useMap();
   const [inputValue, setInputValue] = useState("");
   const [hasError, setError] = useState(false);
-  console.log(mymap)
 
   useEffect(() => {
     if (!mymap) {

@@ -10,12 +10,15 @@
   grid-row-gap: 0px;
   background-image: url('https://images.unsplash.com/photo-1464638681273-0962e9b53566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
   color: $light;
+  overflow: hidden;
 
   &-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    grid-area: 1 / 1/ 6 / 3;
+    position: absolute;
     button {
       width: 90%;
       height: 50px;
@@ -24,7 +27,7 @@
       border: 1px solid gray;
       border-radius: 3px;
     }
-    input {
+    .search {
       background: transparent;
       position: fixed;
       top: 5vh;
@@ -52,11 +55,11 @@
   &-list {
     width: 35%;
     display: flex;
-    margin: 30px 130px 30px 20px;
+    margin: 30px 130px 0px 20px;
     flex-direction: column;
-    height: 80vh;
+    height: 90vh;
     font-size: 26px;
-    // overflow: scroll;
+    overflow: scroll;
     width: 25vw;
     cursor: pointer;
     h3 {
@@ -67,8 +70,13 @@
       display: flex;
       flex-direction: column;
     }
+    .start{
+      position: fixed;
+      top: 20vh;
+      width: 30vw;
+    }
     .push {
-      margin-top: 130px;
+      margin-top: 160px;
     }
     &-items:first-child {
       margin-top: 30px;
@@ -88,8 +96,10 @@
   width: 2vw;
   background: $map-color;
   position: relative;
-  z-index: 2;
-  left: 30px;
+  left: 18vw;
+  z-index: 3;
+    grid-area: 1 / 2/ 6 / 3;
+
   box-shadow: 0px -20px 20px $map-color
   , 0px -20px 30px $map-color,
     0px 20px 20px $map-color, -20px 20px 30px $map-color

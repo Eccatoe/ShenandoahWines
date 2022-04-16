@@ -20,7 +20,6 @@ function WineryPage() {
       e.target.selectedOptions,
       (item) => item.value
     );
-    console.log(22, menuSelections);
     const userSelections = winery.wines.filter((wine) =>
       menuSelections.includes(wine.name)
     );

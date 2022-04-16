@@ -1,7 +1,7 @@
 import WineryMap from "./WineryMap";
 import { useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
-// import LaunchForm from "./LaunchForm";
+import LaunchForm from "./LaunchForm";
 import WineryList from "./WineryList";
 import { useMap } from "react-map-gl";
 
@@ -10,7 +10,19 @@ function Catalog({ varietalSearchList }) {
   const { mymap } = useMap();
   const [selectedWinery, setSelectedWinery] = useState(null);
   const [searchText, setSearchText] = useState("");
-  const [trailMode, setTrailMode]=useState(false)
+  const [trailMode, setTrailMode] = useState(false);
+  const [coords, setCoords] = useState([]);
+  const geojson = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: { type: "LineString", coordinates: coords },
+      },
+    ],
+  }
+
+
   const userSearchList = wineries.filter((winery) =>
     winery.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -36,7 +48,6 @@ function Catalog({ varietalSearchList }) {
   function handleClose() {
     mymap.easeTo({ center: [-78.612, 38.35], duration: 1000 });
     setSelectedWinery(null);
-
   }
 
   function handleSearch(e) {
@@ -44,8 +55,8 @@ function Catalog({ varietalSearchList }) {
     setSelectedWinery(null);
   }
 
-  function toggleTrail(){
-    setTrailMode(trailMode=>!trailMode)
+  function toggleTrail() {
+    setTrailMode((trailMode) => !trailMode);
   }
 
   return (
@@ -55,20 +66,31 @@ function Catalog({ varietalSearchList }) {
           <h3>
             <span>SHENANDOAH</span> <span>VINEYARDS</span>
           </h3>
+          <button className="start" onClick={() => toggleTrail()}>
+            Start a Trail
+          </button>
+
           <div className="push">
-            <button onClick={()=>toggleTrail()}>Start a Trail</button>
             <div className="winery-list-items">
-              <WineryList
-                focusWine={focusWine}
-                renderedSearchList={renderedSearchList}
-              /> 
-             
+              {trailMode ? (
+                <LaunchForm
+                  geojson={geojson}
+                  coords={coords}
+                  setCoords={setCoords}
+                />
+              ) : (
+                <WineryList
+                  focusWine={focusWine}
+                  renderedSearchList={renderedSearchList}
+                />
+              )}
             </div>
           </div>
         </div>
 
         <form>
           <input
+            className="search"
             placeholder="Search"
             value={searchText}
             onChange={(e) => handleSearch(e)}
@@ -82,6 +104,9 @@ function Catalog({ varietalSearchList }) {
         selectedWinery={selectedWinery}
         setSelectedWinery={setSelectedWinery}
         handleClose={handleClose}
+        coords={coords}
+        geojson={geojson}
+        setCoords={setCoords}
       />
     </div>
   );
