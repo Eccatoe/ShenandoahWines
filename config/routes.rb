@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :trail_stops
+  resources :trails
   resources :users
   resources :user_wines
   resources :varietals

@@ -2,7 +2,6 @@ import Map, { Source, Layer, Marker, Popup, useMap} from "react-map-gl";
 import { useNavigate } from "react-router-dom";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapControls from "./MapControls.jsx";
-import mapboxgl from 'mapbox-gl';
 import Directions from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 
 
@@ -16,13 +15,7 @@ function WineryMap({
 }) {
   const navigate = useNavigate();
   const {mymap}=useMap()
-  const directions = new Directions({
-    accessToken: process.env.REACT_APP_MAPBOX_ACCESS_TOKEN,
-    unit: 'metric',
-    profile: 'cycling'
-  });
-  console.log(directions.actions)
-//  mymap.addControl(directions, 'top-right')
+ 
   const newLayer = {
     id: "rose",
     type: "line",

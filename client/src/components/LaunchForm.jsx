@@ -33,6 +33,7 @@ setCoords([...coords, wineryCoords])
       <span>or</span>
       <div>Make Your Own</div>
       <form onSubmit={(e)=> handleSubmit(e)}>
+          <div>{selection}</div>
       <select value={selection} onChange={handleChange}>
         <option value="">Choose a Starting Point</option>
         {optionList}
