@@ -21,9 +21,6 @@ const winery=wineries.find((w)=>
 )
 const wineryCoords=[winery.longitude, winery.latitude]
 setCoords([...coords, wineryCoords])
-
-console.log("reg coords", coords)
-console.log("geojson", geojson)
 }
 
   return (

@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3000",
   "dependencies": {
+    "@mapbox/mapbox-gl-directions": "^4.1.0",
     "activestorage": "^5.2.7",
     "ckeditor4-react": "^3.0.0",
     "react": "^17.0.2",
