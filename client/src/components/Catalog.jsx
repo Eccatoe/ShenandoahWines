@@ -10,6 +10,7 @@ function Catalog({ varietalSearchList }) {
   const { mymap } = useMap();
   const [selectedWinery, setSelectedWinery] = useState(null);
   const [searchText, setSearchText] = useState("");
+  const [trailMode, setTrailMode]=useState(false)
   const userSearchList = wineries.filter((winery) =>
     winery.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -31,7 +32,6 @@ function Catalog({ varietalSearchList }) {
       handleClose();
     }
   }
-  console.log(selectedWinery);
 
   function handleClose() {
     mymap.easeTo({ center: [-78.612, 38.35], duration: 1000 });
@@ -44,6 +44,10 @@ function Catalog({ varietalSearchList }) {
     setSelectedWinery(null);
   }
 
+  function toggleTrail(){
+    setTrailMode(trailMode=>!trailMode)
+  }
+
   return (
     <div className="winery">
       <div className="winery-box">
@@ -52,11 +56,13 @@ function Catalog({ varietalSearchList }) {
             <span>SHENANDOAH</span> <span>VINEYARDS</span>
           </h3>
           <div className="push">
+            <button onClick={()=>toggleTrail()}>Start a Trail</button>
             <div className="winery-list-items">
               <WineryList
                 focusWine={focusWine}
                 renderedSearchList={renderedSearchList}
-              />
+              /> 
+             
             </div>
           </div>
         </div>
