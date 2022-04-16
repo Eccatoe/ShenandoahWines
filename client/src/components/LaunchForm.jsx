@@ -11,7 +11,7 @@ function LaunchForm({coords, setCoords, geojson}) {
     </option>
   ))
 
-function handleChange(e){
+function handleSelect(e){
     setSelection(e.target.value)
 }
 function handleSubmit(e){
@@ -35,12 +35,12 @@ console.log("geojson", geojson)
       <br />
       <span>or</span>
       <div>Make Your Own</div>
-      <form onSubmit={(e)=> handleSubmit(e)}>
-      <select value={selection} onChange={handleChange}>
+      <form onSubmit={handleSubmit}>
+      <select multiple={true} value={selection} onChange={(e)=>handleSelect(e)}>
         <option value="">Choose a Starting Point</option>
         {optionList}
       </select>
-      <input type="submit" placeholder="Add a Stop"/>
+      <input type="submit" value="Add a Stop"/>
       </form>
     </div>
   );

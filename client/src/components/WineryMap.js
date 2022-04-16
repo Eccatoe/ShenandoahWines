@@ -1,6 +1,5 @@
 import Map, { Source, Layer, Marker, Popup } from "react-map-gl";
 import { useNavigate } from "react-router-dom";
-import "mapbox-gl/dist/mapbox-gl.css";
 import MapControls from "./MapControls.jsx";
 
 function WineryMap({
