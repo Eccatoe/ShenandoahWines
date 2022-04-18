@@ -21,7 +21,6 @@ geojson}) {
   
 
 
-  console.log("features", geojson.features[0].geometry.coordinates);
 
   return (
     <div id="map">

@@ -23,12 +23,13 @@ function WineryPage() {
     const userSelections = winery.wines.filter((wine) =>
       menuSelections.includes(wine.name)
     );
+    console.log(23, userSelections)
 
     userSelections.forEach((s) => {
       setSelections([...selections, { wine_id: s.id }]);
     });
   }
-  console.log(winery)
+  console.log(selections)
 
   function handleAddToMyList(e) {
     e.preventDefault();

@@ -63,9 +63,7 @@ function Catalog({ varietalSearchList }) {
     <div className="winery">
       <div className="winery-box">
         <div className="winery-list">
-          <h3>
-            <span>SHENANDOAH</span> <span>VINEYARDS</span>
-          </h3>
+          
           <button className="start" onClick={() => toggleTrail()}>
             Start a Trail
           </button>
@@ -78,11 +76,15 @@ function Catalog({ varietalSearchList }) {
                   coords={coords}
                   setCoords={setCoords}
                 />
-              ) : (
+              ) : (<>
+              <h3>
+            <span>SHENANDOAH</span> <span>VINEYARDS</span>
+          </h3><div className="list-push">
                 <WineryList
                   focusWine={focusWine}
                   renderedSearchList={renderedSearchList}
-                />
+                /></div>
+              </>
               )}
             </div>
           </div>
