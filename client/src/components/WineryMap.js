@@ -33,7 +33,7 @@ function WineryMap({
           zoom: 7.4,
         }}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-        mapStyle="mapbox://styles/eccatoe2517/cl1zbrhfv003916l5alc88c87"
+        mapStyle="mapbox://styles/lcatoe/cl2584q14009b14qvkwbvstv2"
       >
         <MapControls />
         {renderedSearchList.map((winery) => (

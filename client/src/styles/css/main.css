@@ -702,8 +702,100 @@ h3 {
   color: #0b1118;
 }
 
-.my_list .tried {
-  background: white;
+.list-body {
+  max-height: 100vh;
+}
+
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 60px;
+}
+
+.list-header-1, .list-header-2 {
+  height: 100vh;
+  font-size: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.list-header-1 p, .list-header-2 p {
+  padding: 20px 0;
+}
+
+.list-header-2 {
+  text-align: right;
+}
+
+.list-container-1, .list-container-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 45vw;
+}
+
+.list-content-1, .list-content-2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.list-content-1 .expand, .list-content-2 .expand {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.list-content-1 .open, .list-content-2 .open {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.list-content-1 button, .list-content-2 button {
+  background: transparent;
+  border: none;
+  margin: 4px;
+}
+
+.list-content-1 {
+  text-align: right;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.list-content-1 .list-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.list-item {
+  border-bottom: 1px solid #0b1118;
+}
+
+.list .review {
+  border: 1px solid #0b1118;
 }
 
 .icon {

@@ -1,18 +1,20 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { WineryContext } from "./WineryContext";
-import heart from "../assets/heart-outline.svg";
+import heart from "../assets/heart.svg";
 import star from "../assets/star.svg";
-import bottle from "../assets/bottle.svg";
-import cheers from "../assets/cheers.svg";
+import add from "../assets/add.svg";
+import minus from "../assets/minus.svg";
+import expand from "../assets/expand.svg";
 
 function MyListItem({ drink, toggleFavorite, toggleTasted }) {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const { wineries } = useContext(WineryContext);
-  const { wine, review} = drink;
+  const { wine} = drink;
   const [userReview, setUserReview] = useState("");
   const [displayForm, setDisplayForm] = useState(false);
+  const [displayReview, setDisplayReview] = useState(false);
 
   function moveListItem(e) {
     if (e.currentTarget.value === "fave") {
@@ -25,6 +27,13 @@ function MyListItem({ drink, toggleFavorite, toggleTasted }) {
 
   function handleShowForm() {
     setDisplayForm((displayForm) => !displayForm);
+  }
+  function handleExpand(e){
+    if (userReview.length>0){
+      e.target.classList.toggle("open")
+      setDisplayReview(!displayReview)
+    }
+    
   }
 
   function handleChange(e) {
@@ -54,63 +63,68 @@ function MyListItem({ drink, toggleFavorite, toggleTasted }) {
     <div>
       {wine ? (
         <div>
-          <p>
-            {wine.name}</p><p onClick={()=>{navigate(`/wineries/${wineries.find((w) => w.id === wine.winery_id).id}`)}}> {wineries.find((w) => w.id === wine.winery_id)?.name}
+          <strong>{wine.name}</strong>
+          <p
+            onClick={() => {
+              navigate(
+                `/wineries/${wineries.find((w) => w.id === wine.winery_id).id}`
+              );
+            }}
+          >
+            {wineries.find((w) => w.id === wine.winery_id)?.name}
           </p>
-          <div style={{ display: displayForm ? "none" : "block" }}>
-            <p>{userReview}</p>
+          <button onClick={(e)=>handleExpand(e)}>
+              <img className="icon expand" src={expand} />
+            </button>
+            <div style={{ display: displayForm ? "none" : "block" }}>
+         <p className="review" style={{display: displayReview? "block":"none"}}>{userReview}</p>
           </div>
-
-          <div>
+          <div className="list-buttons">
+           
             <button
               value="move"
               style={{ display: drink.tasted ? "none" : "block" }}
               onClick={(e) => moveListItem(e)}
             >
-             Been There<img className="icon" src={bottle}></img>
+              <img className="icon" src={add}></img>
+            </button>
+
+            <button value="fave" onClick={(e) => moveListItem(e)}>
+              <img
+                className="icon"
+                src={heart}
+                style={{ background: drink.favorite ? "red" : "blue" }}
+              />
+            </button>
+
+            <button onClick={() => handleShowForm()}>
+              <img className="icon" src={star} />
+            </button>
+            <div style={{ display: displayForm ? "block" : "none" }}>
+              Jot down some Notes!
+              <br />
+              <form onSubmit={(e) => handlePatch(e)}>
+                <input
+                  type="text"
+                  name="review"
+                  value={userReview}
+                  onChange={(e) => handleChange(e)}
+                />
+                <input type="submit"></input>
+              </form>
+            </div>
+
+            <button value="trash">
+              <img className="icon" src={minus} />
             </button>
           </div>
-
-
-          <button value="fave" onClick={(e) => moveListItem(e)}>
-           Loved That<img
-              className="icon"
-              src={cheers}
-              style={{ background: drink.favorite ? "red" : "blue" }}
-            />
-          </button>
-
-          <button onClick={() => handleShowForm()}>
-            <img className="icon" src={star} />
-          </button>
-          <div style={{ display: displayForm ? "block" : "none" }}>
-            Jot down some Notes!
-            <br />
-            <form onSubmit={(e) => handlePatch(e)}>
-              <input
-                type="text"
-                name="review"
-                value={userReview}
-                onChange={(e) => handleChange(e)}
-              />
-              <input type="submit"></input>
-            </form>
-          </div>
-          
-          <button value="trash">
-            <img
-              className="icon"
-              src={heart}
-            />
-          </button>
-
         </div>
       ) : null}
     </div>
   );
   return (
     <>
-      <div className="page">{listBlock}</div>
+      <div className="list-item">{listBlock}</div>
     </>
   );
 }
