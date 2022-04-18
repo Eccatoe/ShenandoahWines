@@ -1,6 +1,7 @@
-import Map, { Source, Layer, Marker, Popup } from "react-map-gl";
+import Map, { Source, Layer, Marker, Popup, useMap} from "react-map-gl";
 import { useNavigate } from "react-router-dom";
 import MapControls from "./MapControls.jsx";
+
 
 function WineryMap({
   selectedWinery,
@@ -8,10 +9,10 @@ function WineryMap({
   renderedSearchList,
   handleClose,
   coords,
-geojson}) {
+  geojson,
+}) {
   const navigate = useNavigate();
-
-  
+  const {mymap}=useMap()
  
   const newLayer = {
     id: "rose",
@@ -68,7 +69,7 @@ geojson}) {
           </Popup>
         ) : null}
         <Source id="trail" type="geojson" data={geojson}>
-        <Layer {...newLayer} />
+          <Layer {...newLayer} />
         </Source>
       </Map>
     </div>

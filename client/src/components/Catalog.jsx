@@ -22,6 +22,7 @@ function Catalog({ varietalSearchList }) {
     ],
   }
 
+  console.log(mymap)
 
   const userSearchList = wineries.filter((winery) =>
     winery.name.toLowerCase().includes(searchText.toLowerCase())

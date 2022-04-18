@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { WineryContext } from "./WineryContext";
 import { useContext, useState } from "react";
 import minus from "../assets/minus.svg";
-
 function LaunchForm({ coords, setCoords, geojson }) {
   const { wineries } = useContext(WineryContext);
   const [trailSelections, setTrailSelections] = useState([]);
@@ -11,7 +10,6 @@ function LaunchForm({ coords, setCoords, geojson }) {
       {winery.name}
     </option>
   ));
-
   function handleSelect(e) {
     const selection = Array.from(
       e.target.selectedOptions,
@@ -21,7 +19,6 @@ function LaunchForm({ coords, setCoords, geojson }) {
     setCoords([...coords, [trailWinery.longitude, trailWinery.latitude]]);
     setTrailSelections([...trailSelections, [selection]]);
   }
-
   const trailLog = trailSelections.map((s) => (
     <div className="tour-form-log-item">
       <button className="remove" key={s.index}>
@@ -30,11 +27,9 @@ function LaunchForm({ coords, setCoords, geojson }) {
       <div>{s}</div>
     </div>
   ));
-
   function handleSubmit(e) {
     e.preventDefault();
   }
-
   return (
     <div className="tour-form">
       <div className="tour-form-choose">
@@ -53,9 +48,7 @@ function LaunchForm({ coords, setCoords, geojson }) {
         <input type="submit" value="Add a Stop" />
       </form>
       <div className="tour-form-log">{trailLog}</div>
-    
     </div>
   );
 }
-
 export default LaunchForm;
