@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
-import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import minus from "../assets/minus.svg";
+
 function LaunchForm({ coords, setCoords, geojson }) {
   const { wineries } = useContext(WineryContext);
+  const navigate = useNavigate();
   const [trailSelections, setTrailSelections] = useState([]);
   const [trailName, setTrailName] = useState("");
   const [showSelect, setShowSelect] = useState(false);
@@ -66,40 +68,53 @@ function LaunchForm({ coords, setCoords, geojson }) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    navigate("/trails");
   }
 
   const trailLog = trailSelections.map((s) => (
-    <div className="tour-form-log-item">
+    <div className="tf-log-item">
       <button className="remove" key={s.index}>
         <img src={minus} />
       </button>
       <div>{s}</div>
     </div>
   ));
-  console.log(80, trails?.length>0? trails[trails.length - 1].trail_stops : null)
+  console.log(
+    80,
+    trails?.length > 0 ? trails[trails.length - 1].trail_stops : null
+  );
   return (
-    <div className="tour-form">
-      <div className="tour-form-choose">
+    <div className="tf">
+      <div className="tf-choose">
         <div>Trails</div>
         <button>Rose</button>
         <button>Historic</button>
         <button>Randomize</button>
       </div>
-      <div>Make Your Own</div>
-      <form onSubmit={(e) => submitName(e)}>
-        Name your Trail
-        <input type="text" onChange={(e) => handleNameChange(e)}></input>
-        <input type="submit" value="All Set!"></input>
-      </form>
+      {showSelect? <h2>{trailName}</h2>: 
+      <form className="tf-name"onSubmit={(e) => submitName(e)}>
+        <div className="tf-header">Name your Trail</div>
+        <input
+          type="text"
+          className="tf-name-input"
+          onChange={(e) => handleNameChange(e)}
+        ></input>
+        <input type="submit" className="tf-btn" value="All Set!"></input>
+      </form>}
       {showSelect ? (
-        <form onSubmit={handleSubmit}>
-          <select multiple={true} onChange={(e) => handleSelect(e)}>
+        <form className="tf-stop" onSubmit={handleSubmit}>
+          <div className="tf-header">Add Your Stops</div>
+          <select
+            className="tf-stop-input"
+            multiple={true}
+            onChange={(e) => handleSelect(e)}
+          >
             {optionList}
           </select>
-          <input type="submit" value="Let's Go!" />
+          <input type="submit" className="tf-btn" value="Let's Go!" />
         </form>
       ) : null}
-      <div className="tour-form-log">{trailLog}</div>
+      <div className="tf-log">{trailLog}</div>
     </div>
   );
 }

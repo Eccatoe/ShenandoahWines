@@ -1,6 +1,6 @@
 class TrailsController < ApplicationController
     def create
-        trail=Trail.create(trail_params)
+        trail=Trail.create!(trail_params)
         render json: trail
     end
 

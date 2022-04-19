@@ -54,40 +54,41 @@ function Catalog({ varietalSearchList }) {
     setSelectedWinery(null);
   }
 
-  function toggleTrail() {
+  function toggleTrail(e) {
     setTrailMode((trailMode) => !trailMode);
+    e.target.classList.toggle("end");
   }
 
   return (
     <div className="winery">
       <div className="winery-box">
         <div className="winery-list">
-          <button className="start" onClick={() => toggleTrail()}>
-            Start a Trail
+          <button className="start" onClick={(e) => toggleTrail(e)}>
+            {trailMode ?"Back to Wineries" :  "Start a Trail" }
           </button>
 
-          <div className="push">
-            <div className="winery-list-items">
-              {trailMode ? (
+          <div className="winery-list-items">
+            {trailMode ? (
+              <div className="tour">
                 <LaunchForm
                   geojson={geojson}
                   coords={coords}
                   setCoords={setCoords}
                 />
-              ) : (
-                <>
-                  <h3>
-                    <span>SHENANDOAH</span> <span>VINEYARDS</span>
-                  </h3>
-                  <div className="list-push">
-                    <WineryList
-                      focusWine={focusWine}
-                      renderedSearchList={renderedSearchList}
-                    />
-                  </div>
-                </>
-              )}
-            </div>
+              </div>
+            ) : (
+              <>
+                <h3>
+                  <span>SHENANDOAH</span> <span>VINEYARDS</span>
+                </h3>
+                <div className="list-push">
+                  <WineryList
+                    focusWine={focusWine}
+                    renderedSearchList={renderedSearchList}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </div>
 

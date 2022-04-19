@@ -45,6 +45,7 @@ function WineryMap({
               onClick={(e) => {
                 e.preventDefault();
                 setSelectedWinery(winery);
+                console.log(e.target)
               }}
             ></button>
           </Marker>

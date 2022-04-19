@@ -20,16 +20,25 @@ function WineryPage() {
       e.target.selectedOptions,
       (item) => item.value
     );
-    const userSelections = winery.wines.filter((wine) =>
-      menuSelections.includes(wine.name)
+    const userSelections = winery.wines.find((wine) =>
+     menuSelections.includes(wine.name)
     );
-    console.log(23, userSelections)
 
-    userSelections.forEach((s) => {
-      setSelections([...selections, { wine_id: s.id }]);
-    });
+
+    // const log=(selections.map((s)=>s.wine_id))
+    // console.log(log.includes(userSelections.id))
+    const log=(selections.map((w)=>w.wine_id))
+
+    if(!log.includes(userSelections.id)){
+      setSelections([...selections, { wine_id: userSelections.id }]);
+    } else if (log.includes(userSelections.id)){
+      const remove=selections.find((s)=>s.wine_id===userSelections.id)
+      const removeIndex=(selections.indexOf(remove))
+
+      selections.splice(removeIndex, 1)
+    }
+console.log(selections)
   }
-  console.log(selections)
 
   function handleAddToMyList(e) {
     e.preventDefault();
