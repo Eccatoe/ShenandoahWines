@@ -19,8 +19,6 @@ function WineryMap({
     type: "line",
   };
 
-  
-
 
 
   return (

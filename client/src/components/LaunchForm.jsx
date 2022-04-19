@@ -7,7 +7,8 @@ function LaunchForm({ coords, setCoords, geojson }) {
   const [trailSelections, setTrailSelections] = useState([]);
   const [trailName, setTrailName] = useState("");
   const [showSelect, setShowSelect] = useState(false);
-  const [trails, setTrails]=useState([])
+  const [renderPage, setRenderPage] = useState(false);
+  const [trails, setTrails] = useState([]);
   const optionList = wineries.map((winery) => (
     <option key={winery.id} value={winery.name}>
       {winery.name}
@@ -18,12 +19,10 @@ function LaunchForm({ coords, setCoords, geojson }) {
     setTrailName(e.target.value);
   }
 
- 
-
-console.log(trails)
-  function handleName(e) {
+  function submitName(e) {
     e.preventDefault();
-    setShowSelect(true)
+    setShowSelect(true);
+    setRenderPage((renderPage) => !renderPage);
 
     fetch("/trails", {
       method: "POST",
@@ -41,9 +40,7 @@ console.log(trails)
     fetch("/trails")
       .then((r) => r.json())
       .then((data) => setTrails(data));
-  
-  }, []);
-  console.log(2, trails)
+  }, [renderPage, trailSelections]);
 
   function handleSelect(e) {
     const selection = Array.from(
@@ -53,7 +50,6 @@ console.log(trails)
     const trailWinery = wineries.find((w) => selection.includes(w.name));
     setCoords([...coords, [trailWinery.longitude, trailWinery.latitude]]);
     setTrailSelections([...trailSelections, [selection]]);
-    console.log(trailWinery);
     fetch("/trail_stops", {
       method: "POST",
       headers: {
@@ -62,10 +58,16 @@ console.log(trails)
       body: JSON.stringify({
         longitude: trailWinery.longitude,
         latitude: trailWinery.latitude,
+        trail_id: trails[trails.length - 1].id,
         winery_id: trailWinery.id,
       }),
     }).then((res) => console.log(res.ok));
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   const trailLog = trailSelections.map((s) => (
     <div className="tour-form-log-item">
       <button className="remove" key={s.index}>
@@ -74,9 +76,7 @@ console.log(trails)
       <div>{s}</div>
     </div>
   ));
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
+  console.log(80, trails?.length>0? trails[trails.length - 1].trail_stops : null)
   return (
     <div className="tour-form">
       <div className="tour-form-choose">
@@ -86,17 +86,19 @@ console.log(trails)
         <button>Randomize</button>
       </div>
       <div>Make Your Own</div>
-      <form onSubmit={(e) => handleName(e)}>
+      <form onSubmit={(e) => submitName(e)}>
         Name your Trail
         <input type="text" onChange={(e) => handleNameChange(e)}></input>
-        <input type="submit" value="Let's Go!"></input>
+        <input type="submit" value="All Set!"></input>
       </form>
-      <form onSubmit={handleSubmit}>
-        <select multiple={true} onChange={(e) => handleSelect(e)}>
-          {optionList}
-        </select>
-        <input type="submit" value="Add a Stop" />
-      </form>
+      {showSelect ? (
+        <form onSubmit={handleSubmit}>
+          <select multiple={true} onChange={(e) => handleSelect(e)}>
+            {optionList}
+          </select>
+          <input type="submit" value="Let's Go!" />
+        </form>
+      ) : null}
       <div className="tour-form-log">{trailLog}</div>
     </div>
   );
