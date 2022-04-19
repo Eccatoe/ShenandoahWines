@@ -1,4 +1,5 @@
 class TrailSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name
   has_one :user
 end
+

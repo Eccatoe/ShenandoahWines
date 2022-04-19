@@ -50,6 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_16_201131) do
   end
 
   create_table "trail_stops", force: :cascade do |t|
+    t.float "longitude"
+    t.float "latitude"
     t.integer "trail_id", null: false
     t.integer "winery_id", null: false
     t.datetime "created_at", null: false
@@ -59,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_16_201131) do
   end
 
   create_table "trails", force: :cascade do |t|
+    t.string "name"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

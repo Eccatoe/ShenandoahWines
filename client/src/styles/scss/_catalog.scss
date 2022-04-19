@@ -57,6 +57,11 @@
     overflow: scroll;
     width: 25vw;
     cursor: pointer;
+    .list-push{
+      position: relative;
+      margin-top: 200px;
+  
+    }
     h3 {
       position: fixed;
       font-size: 50px;
@@ -72,10 +77,8 @@
     }
 
     &-items {
-
       .tour-form {
         &-choose {
-          position: absolute;
           top: 12vh;
           background: $light;
           margin-left: 40vw;
@@ -107,7 +110,6 @@
     }
     &-items:first-child {
       margin-top: 30px;
-      height: 75vh;
       overflow: scroll;
     }
     &-item {

@@ -253,6 +253,11 @@ h3 {
   cursor: pointer;
 }
 
+.winery-list .list-push {
+  position: relative;
+  margin-top: 200px;
+}
+
 .winery-list h3 {
   position: fixed;
   font-size: 50px;
@@ -274,7 +279,6 @@ h3 {
 }
 
 .winery-list-items .tour-form-choose {
-  position: absolute;
   top: 12vh;
   background: #fdf2d4;
   margin-left: 40vw;
@@ -312,7 +316,6 @@ h3 {
 
 .winery-list-items:first-child {
   margin-top: 30px;
-  height: 75vh;
   overflow: scroll;
 }
 
