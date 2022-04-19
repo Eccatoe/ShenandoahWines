@@ -11,6 +11,9 @@ function MyList() {
       .then((drinks) => setDrinkList(drinks));
   }, []);
 
+
+
+
   function toggleFavorite(drinkId) {
     const updatedList = drinkList.map((drink) => {
       if (drink.id === drinkId) {
@@ -77,8 +80,8 @@ function MyList() {
           </h1>
         </div>
       </div>
-
       <Share />
+
     </div>
   );
 }

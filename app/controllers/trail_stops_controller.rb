@@ -2,8 +2,6 @@ class TrailStopsController < ApplicationController
 
     def create
        trail_stop=TrailStop.create!(trail_stop_params)
-       
-       
     end
 
     private
