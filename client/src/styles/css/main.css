@@ -851,11 +851,11 @@ h3 {
   background: #fdf2d4;
   padding: 0px;
   border: none;
-  height: 10px;
-  width: 10px;
+  height: 15px;
+  width: 15px;
   border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 9px #fdf2d4, 0px 0px 11px #fdf2d4, 0px 0px 5px #fdf2d4, 0px 0px 7px #fdf2d4;
-          box-shadow: 0px 0px 9px #fdf2d4, 0px 0px 11px #fdf2d4, 0px 0px 5px #fdf2d4, 0px 0px 7px #fdf2d4;
+  -webkit-box-shadow: 0px 0px 3px #fdf2d4, 0px 0px 5px #fdf2d4, 0px 0px 7px #fdf2d4;
+          box-shadow: 0px 0px 3px #fdf2d4, 0px 0px 5px #fdf2d4, 0px 0px 7px #fdf2d4;
 }
 
 .mapboxgl-ctrl-group > button {
@@ -918,7 +918,34 @@ h3 {
 }
 
 .list-body {
-  max-height: 100vh;
+  height: 100vh;
+  background: url(../assets/paper.jpg);
+  background-size: cover;
+}
+
+.list-body .stain {
+  height: 600px;
+  position: relative;
+  top: 50vh;
+  right: 7vw;
+  -webkit-filter: saturate(30%);
+          filter: saturate(30%);
+  -webkit-transform: rotate(-75deg);
+          transform: rotate(-75deg);
+}
+
+.list-body-content {
+  position: absolute;
+  top: 0vh;
+}
+
+.list-body-header {
+  text-align: center;
+  font-size: 30px;
+}
+
+.list-body-header p {
+  font-size: 20px;
 }
 
 .list {

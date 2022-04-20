@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MyListItem from "./MyListItem";
+import stain from "../assets/stain.png";
 import Share from "./Share";
 
 function MyList() {
@@ -10,9 +11,6 @@ function MyList() {
       .then((r) => r.json())
       .then((drinks) => setDrinkList(drinks));
   }, []);
-
-
-
 
   function toggleFavorite(drinkId) {
     const updatedList = drinkList.map((drink) => {
@@ -58,11 +56,13 @@ function MyList() {
 
   return (
     <div className="list-body">
-      <h1>Wine Journal</h1>
-      <p>
-        A space to take tasting notes, upload your own pictures, and log all the
-        fabulous Shenandoah wines you've tried!
-      </p>
+            <img src={stain} className="stain"></img>
+
+      <div className="list-body-content">
+      <div className="list-body-header">
+        <h1>WINE JOURNAL</h1>
+        <p>-SOMETHING TO REMEMBER THEM BY-</p>
+      </div>
       <div className="list">
         <div className="list-container-1">
           <h1 className="list-header-1">
@@ -72,7 +72,6 @@ function MyList() {
           <div className="list-content-1">{toTryListItem}</div>
         </div>
         <div className="list-container-2">
-          
           <div className="list-content-2">{triedListItem}</div>
           <h1 className="list-header-2">
             <p>BEEN</p>
@@ -81,7 +80,7 @@ function MyList() {
         </div>
       </div>
       <Share />
-
+      </div>
     </div>
   );
 }

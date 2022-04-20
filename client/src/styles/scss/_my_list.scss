@@ -1,9 +1,30 @@
 @import "config";
 @import "utilities";
 .list-body{
-max-height: 100vh;
-// overflow:hidden;
+height: 100vh;
+background: url(#{$paper-pic});
+background-size:cover;
+// position:absolute;
+
+.stain{
+  height: 600px;
+  position:relative;
+  top: 50vh;
+  right: 7vw;
+  filter: saturate(30%);
+  transform: rotate(-75deg)
 }
+&-content{
+  position:absolute;
+  top: 0vh;
+}
+&-header{
+  text-align:center;
+  font-size: 30px;
+  p{
+    font-size: 20px;
+  }
+}}
 .list {
   display: flex;
   justify-content: space-between;
