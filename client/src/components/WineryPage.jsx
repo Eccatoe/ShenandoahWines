@@ -23,12 +23,7 @@ function WineryPage() {
     const userSelections = winery.wines.find((wine) =>
      menuSelections.includes(wine.name)
     );
-
-
-    // const log=(selections.map((s)=>s.wine_id))
-    // console.log(log.includes(userSelections.id))
     const log=(selections.map((w)=>w.wine_id))
-
     if(!log.includes(userSelections.id)){
       setSelections([...selections, { wine_id: userSelections.id }]);
     } else if (log.includes(userSelections.id)){

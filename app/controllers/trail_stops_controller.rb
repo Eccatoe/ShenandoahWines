@@ -1,5 +1,9 @@
 class TrailStopsController < ApplicationController
 
+    def index
+        trail_stops=TrailStop.all
+        render json: trail_stops
+    end
     def create
        trail_stop=TrailStop.create!(trail_stop_params)
     end
