@@ -7,6 +7,10 @@ class TrailStopsController < ApplicationController
     def create
        trail_stop=TrailStop.create!(trail_stop_params)
     end
+    def destroy
+        trail_stop=TrailStop.find(params[:id])
+        trail_stop.destroy
+    end
 
     private
 
