@@ -32,12 +32,11 @@ function Varietals({ setVarietalSearchList }) {
     navigate("/wineries");
   }
   return (
-    <>
-      <div className="varietal-banner"></div>
-
+   
       <div className="varietal">
+        <div className="overlay"></div>
         <div className="varietal-list">
-          <h3>Virginia Varietals</h3>
+          <h3><span>VIRGINIA</span><span>VARIETALS</span> </h3>
 
           <div className="varietal-list-items">{singleVarietal}</div>
         </div>
@@ -46,19 +45,21 @@ function Varietals({ setVarietalSearchList }) {
             style={{ backgroundImage: `url(${picture})` }}
             className="varietal-info"
           >
-            <p>
-              <h3>{name}</h3>
+            <div className="content">
+              <h3>{name.toUpperCase()}</h3>
               <div>{tasting_notes}</div>
               <button value={name} onClick={handleFind}>
                 Find Wineries that grow {name}
                 <i class="ph-wine"></i>
               </button>
-            </p>
+            </div>
           </div>
         ) : (
           <div className="varietal-info">
             <p>
-              <h3>Varietal Spotlight: Norton</h3>
+              <h3><span>VARIETAL</span> 
+             <span>SPOTLIGHT:</span> 
+              <span>NORTON</span> </h3>
               <div>
                 The Shenandoah Valley is the largest AVA (American Viticultural
                 Area) in Virginia. It covers 2.4 million acres surrounding the
@@ -81,7 +82,7 @@ function Varietals({ setVarietalSearchList }) {
           </div>
         )}
       </div>
-    </>
+      
   );
 }
 

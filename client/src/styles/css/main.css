@@ -62,12 +62,33 @@ h3 {
 }
 
 .varietal {
+  background: url("https://images.unsplash.com/photo-1515779689357-8b2b205287d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") no-repeat;
+  background-size: cover;
+  color: #0b1118;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-right: 50px;
   height: 100vh;
   overflow: hidden;
+  padding: 5vh 0 60px 5vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.varietal .overlay {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #84a7da;
+  opacity: 0.3;
+  z-index: 0;
 }
 
 .varietal-list {
@@ -79,7 +100,10 @@ h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 90vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100vh;
   font-size: 24px;
   overflow: scroll;
   width: 25vw;
@@ -87,12 +111,20 @@ h3 {
 
 .varietal-list h3 {
   position: fixed;
-  font-size: 36px;
+  font-size: 50px;
   font-weight: 500px;
+  text-shadow: 0px 3px 1px #fdf2d4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .varietal-list-items {
-  margin-top: 60px;
+  margin: 15vh 30px 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,16 +151,23 @@ h3 {
           align-items: center;
   text-align: center;
   font-size: 22px;
-  background-size: 100vw;
-  background-repeat: no-repeat;
 }
 
 .varietal-info h3 {
   font-size: 80px;
   letter-spacing: 20px;
+  text-shadow: 0px 7px 0px #fdf2d4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: right;
 }
 
-.varietal-info p {
+.varietal-info .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -145,17 +184,15 @@ h3 {
           align-items: center;
   margin-top: 50px;
   padding: 0 70px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
   text-align: center;
 }
 
-.varietal-info p div {
+.varietal-info .content div {
   width: 50%;
   font-size: 26px;
 }
 
-.varietal-info p button {
+.varietal-info .content button {
   margin: 15px 0;
   font-size: 20px;
   border-radius: 4px;
@@ -168,18 +205,18 @@ h3 {
   transition: all 0.5s;
 }
 
-.varietal-info p button:after > * {
+.varietal-info .content button:after > * {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   opacity: 0;
 }
 
-.varietal-info p button:hover {
+.varietal-info .content button:hover {
   padding-right: 30px;
   padding-left: 10px;
 }
 
-.varietal-info p button:hover:after > * {
+.varietal-info .content button:hover:after > * {
   opacity: 1;
   right: 10px;
 }
@@ -242,8 +279,7 @@ h3 {
       grid-template-rows: repeat(5, 1fr) !important;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-image: url("https://images.unsplash.com/photo-1464638681273-0962e9b53566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  color: #fdf2d4;
+  background: #436929;
   overflow: hidden;
 }
 
@@ -278,9 +314,9 @@ h3 {
 
 .winery-box .search {
   position: fixed;
-  top: 5vh;
+  top: 1.5vh;
   width: 18%;
-  margin-left: 26vw;
+  margin-left: 53vw;
   z-index: 3;
   color: #fdf2d4;
 }
@@ -300,6 +336,7 @@ h3 {
 .winery-list .list-push {
   position: relative;
   margin-top: 200px;
+  background-clip: text;
 }
 
 .winery-list h3 {
@@ -314,12 +351,19 @@ h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-shadow: 0px 6px 0px #fdf2d4;
 }
 
 .winery-list .start {
   position: fixed;
   top: 18vh;
   width: 30vw;
+  border: 1px solid #fdf2d4;
+  color: #fdf2d4;
+}
+
+.winery-list .start:hover {
+  border: 2px solid #fdf2d4;
 }
 
 .winery-list .end {
@@ -328,24 +372,13 @@ h3 {
 
 .winery-list-items .tour .tf {
   position: absolute;
-  top: -10vh;
+  top: 13vh;
   height: 1px !important;
 }
 
-.winery-list-items .tour .tf-choose {
-  top: 12vh;
-  background: #fdf2d4;
-  margin-left: 40vw;
-  z-index: 3;
-  width: 40%;
+.winery-list-items .tour .tf h2 {
   color: #0b1118;
-}
-
-.winery-list-items .tour .tf-choose button {
-  color: #0b1118;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid #0b1118;
+  text-shadow: 0px 5px 0px #fdf2d4;
 }
 
 .winery-list-items .tour .tf-name {
@@ -369,17 +402,29 @@ h3 {
   background: transparent;
 }
 
+.winery-list-items .tour .tf input {
+  padding: 6px;
+  height: 30px;
+}
+
 .winery-list-items .tour .tf-stop-input {
   border: none;
   height: 60vh;
   outline: none !important;
+  color: #fdf2d4 !important;
 }
 
 .winery-list-items .tour .tf-log {
   position: absolute;
-  right: 3vw;
+  left: 31.5vw;
+  width: 12vw;
+  text-align: left;
   z-index: 4;
-  top: 22vh;
+  top: -24vh;
+  overflow: scroll;
+  height: 98vh;
+  padding: 10px;
+  color: #fdf2d4;
 }
 
 .winery-list-items .tour .tf-log-item-1 {
@@ -439,24 +484,36 @@ h3 {
   position: relative;
 }
 
+.winery-list-item:hover {
+  color: #fdf2d4;
+}
+
+.winery-list .false {
+  color: #fdf2d4;
+}
+
 #fade {
   height: 100vh;
-  width: 2vw;
-  background: #213414;
-  position: relative;
-  left: 18vw;
-  z-index: 3;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 5;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-area: 1 / 2/ 6 / 3;
-  -webkit-box-shadow: 0px -20px 20px #213414, 0px -20px 30px #213414, 0px 20px 20px #213414, -20px 20px 30px #213414;
-          box-shadow: 0px -20px 20px #213414, 0px -20px 30px #213414, 0px 20px 20px #213414, -20px 20px 30px #213414;
 }
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+::-webkit-input-placeholder {
+  color: #fdf2d4;
+}
+
+:-ms-input-placeholder {
+  color: #fdf2d4;
+}
+
+::-ms-input-placeholder {
+  color: #fdf2d4;
+}
+
+::placeholder {
+  color: #fdf2d4;
 }
 
 .icon {
@@ -751,7 +808,7 @@ h3 {
 
 .winery-page-title .name-div {
   font-size: 80px;
-  text-shadow: 0px 9px 2px #fdf2d4;
+  text-shadow: 0px 9px 0px #fdf2d4;
 }
 
 .winery-page .winery-blurb {
@@ -794,10 +851,6 @@ h3 {
 
 .winery-page .winery-blurb select:focus {
   outline: none !important;
-}
-
-.winery-page .winery-blurb .sel {
-  background: blue;
 }
 
 .winery-page .winery-blurb input {
@@ -883,16 +936,33 @@ h3 {
           box-shadow: 0px 0px 3px #fdf2d4, 0px 0px 5px #fdf2d4, 0px 0px 7px #fdf2d4;
 }
 
-.mapboxgl-ctrl-group > button {
-  position: relative !important;
-  padding: 0;
+.mapboxgl-ctrl-group {
+  background: #fdf2d4;
+  padding: 4px;
 }
 
-.mapboxgl-ctrl-icon,
-.mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow {
-  position: absolute !important;
-  top: -4px;
-  left: -4px;
+.mapboxgl-ctrl-zoom-in {
+  background: url(../assets/add.svg);
+}
+
+.mapboxgl-ctrl-zoom-out {
+  background: url(../assets/minus.svg);
+}
+
+.mapboxgl-ctrl-compass {
+  background: url(../assets/compass.svg);
+}
+
+.mapboxgl-ctrl-fullscreen {
+  background: url(../assets/full.svg);
+}
+
+.mapboxgl-ctrl-fullscreen {
+  background: url(../assets/full.svg);
+}
+
+.mapboxgl-ctrl-shrink {
+  background: url(../assets/shrink.svg);
 }
 
 .icon {
@@ -946,6 +1016,7 @@ h3 {
   height: 100vh;
   background: url(../assets/paper.jpg);
   background-size: cover;
+  overflow: hidden;
 }
 
 .list-body .stain {
@@ -967,6 +1038,7 @@ h3 {
 .list-body-header {
   text-align: center;
   font-size: 30px;
+  border-bottom: 2px solid #0b1118;
 }
 
 .list-body-header p {
@@ -980,7 +1052,7 @@ h3 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-right: 60px;
+  margin: 0px 45px;
 }
 
 .list-header-1, .list-header-2 {
@@ -1063,6 +1135,20 @@ h3 {
 
 .list .review {
   border: 1px solid #0b1118;
+}
+
+.share {
+  position: relative;
+}
+
+.share button {
+  margin-top: 10px;
+  width: 100px;
+}
+
+.share button img {
+  height: 31px;
+  width: 31px;
 }
 
 .icon {

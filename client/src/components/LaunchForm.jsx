@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
 import { useNavigate } from "react-router-dom";
-import line from "../assets/line.svg";
+import line from '../assets/line.svg'
 import minus from "../assets/minus.svg";
 
 function LaunchForm({ coords, setCoords, geojson }) {
@@ -16,26 +16,12 @@ function LaunchForm({ coords, setCoords, geojson }) {
   const [trailStops, setTrailStops] = useState([]);
 
   const optionList = wineries.map((winery) => (
-    <option onClick={(e)=>highlight(e)} key={winery.id} value={winery.name}>
+    <option onClick={(e)=>highlight(e)}key={winery.id} value={winery.name}>
       {winery.name}
     </option>
   ));
 
-  useEffect(() => {
-    fetch("/trails")
-      .then((r) => r.json())
-      .then((data) => setTrails(data));
-  }, [renderPage, trailSelections]);
-
-  useEffect(() => {
-    fetch("./trail_stops")
-      .then((r) => r.json())
-      .then((data) => setTrailStops(data));
-  }, [trailSelections]);
-  
-  function highlight(e){
-    e.target.classList.toggle("sel")
-  }
+  const highlight=(e)=>e.target.classList.toggle("sel")
   function handleNameChange(e) {
     setTrailName(e.target.value);
   }
@@ -57,13 +43,29 @@ function LaunchForm({ coords, setCoords, geojson }) {
     }).then((r) => r.json());
   }
 
+  useEffect(() => {
+    fetch("/trails")
+      .then((r) => r.json())
+      .then((data) => setTrails(data));
+  }, [renderPage, trailSelections]);
+
+
+  useEffect(() => {
+    fetch("./trail_stops")
+      .then((r) => r.json())
+      .then((data) => setTrailStops(data));
+  }, [trailSelections]);
+
+
 
   function handleSelect(e) {
+    console.log(e.target.selectedOptions);
     const selection = Array.from(
       e.target.selectedOptions,
       (item) => item.value
     );
-
+    console.log(54, selection);
+    
     const userWinery = wineries.find((w) => selection.includes(w.name));
     if (!trailSelections.flat().includes(userWinery)) {
       setTrailWinery(userWinery);
@@ -81,14 +83,6 @@ function LaunchForm({ coords, setCoords, geojson }) {
           winery_id: trailWinery.id,
         }),
       }).then((res) => console.log(res.ok));
-    } else if (trailSelections.flat().includes(userWinery))  {
-      const remove=trailStops.find((ts)=>userWinery.name===ts.winery_name)
-      fetch(`/trail_stops/${remove.id}`, {
-        method: "DELETE"
-      }).then((res) => console.log(res.ok));
-      // console.log(81, remove.id)
-      // console.log(trailWinery)
-      // console.log(83, trailSelections)
     }
   }
 
@@ -99,12 +93,12 @@ function LaunchForm({ coords, setCoords, geojson }) {
   function handleRemove(e) {
     e.currentTarget.parentNode.parentNode.remove();
     const itemToRemove = e.currentTarget.parentNode.textContent;
+    console.log(23, itemToRemove);
+    // const removeIndex=trailSelections.flat().find((s)=>s.name===itemToRemove)
+    // trailSelections.splice(removeIndex, 1)
   }
 
-  let trailId=trails.length>0? trails[trails.length - 1].id : null
-  const userStops=(trailStops.filter((ts)=>ts.trail.id===trailId))
-  console.log(102, userStops)
-  const trailLog = userStops.map((s) => (
+  const trailLog = trailSelections.flat().map((s) => (
     <div className="tf-log-item-1">
       <div className="tf-log-item-2">
         <button
@@ -112,23 +106,18 @@ function LaunchForm({ coords, setCoords, geojson }) {
           onClick={(e) => handleRemove(e)}
           key={s.id}
         >
+          {console.log(108, s)}
           <img className="minus" src={minus} />
         </button>
-        <div>{s.winery_name}</div>
+        <div>{s.name}</div>
       </div>
       <img className="line" src={line} />
     </div>
   ));
   return (
     <div className="tf">
-      <div className="tf-choose">
-        <div>Trails</div>
-        <button>Rose</button>
-        <button>Historic</button>
-        <button>Randomize</button>
-      </div>
       {showSelect ? (
-        <h2>{trailName}</h2>
+        <h2>{trailName.toUpperCase()}</h2>
       ) : (
         <form className="tf-name" onSubmit={(e) => submitName(e)}>
           <div className="tf-header">Name your Trail</div>

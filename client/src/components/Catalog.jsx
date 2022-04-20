@@ -12,6 +12,7 @@ function Catalog({ varietalSearchList }) {
   const [searchText, setSearchText] = useState("");
   const [trailMode, setTrailMode] = useState(false);
   const [coords, setCoords] = useState([]);
+
   const geojson = {
     type: "FeatureCollection",
     features: [
@@ -34,20 +35,22 @@ function Catalog({ varietalSearchList }) {
       (winery) => winery.name === e.target.textContent
     );
     if (e.target.classList[1] === "clicked") {
+      console.log(39, e.target.classList)
       setSelectedWinery(focus);
       mymap.easeTo({
         center: [focus.longitude, focus.latitude],
         duration: 1000,
       });
     } else {
-      handleClose();
+      console.log(46, e.target.classList[1])
+      handleClose(e);
     }
   }
 
-  function handleClose() {
+  function handleClose(e) {
     mymap.easeTo({ center: [-78.612, 38.35], duration: 1000 });
     setSelectedWinery(null);
-  }
+e.target.classList.remove("clicked")  }
 
   function handleSearch(e) {
     setSearchText(e.target.value);
@@ -64,7 +67,7 @@ function Catalog({ varietalSearchList }) {
       <div className="winery-box">
         <div className="winery-list">
           <button className="start" onClick={(e) => toggleTrail(e)}>
-            {trailMode ?"Back to Wineries" :  "Start a Trail" }
+            {trailMode ? "Back to Wineries" : "Start a Trail"}
           </button>
 
           <div className="winery-list-items">
@@ -74,6 +77,7 @@ function Catalog({ varietalSearchList }) {
                   geojson={geojson}
                   coords={coords}
                   setCoords={setCoords}
+
                 />
               </div>
             ) : (
@@ -83,6 +87,7 @@ function Catalog({ varietalSearchList }) {
                 </h3>
                 <div className="list-push">
                   <WineryList
+                    
                     focusWine={focusWine}
                     renderedSearchList={renderedSearchList}
                   />
@@ -111,6 +116,8 @@ function Catalog({ varietalSearchList }) {
         coords={coords}
         geojson={geojson}
         setCoords={setCoords}
+    
+
       />
     </div>
   );

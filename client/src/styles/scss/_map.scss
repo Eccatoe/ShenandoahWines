@@ -54,14 +54,29 @@
   box-shadow: 0px 0px 3px $light, 0px 0px 5px $light,
     0px 0px 7px $light;
 }
-.mapboxgl-ctrl-group > button {
 
-position: relative !important;  padding: 0;
+.mapboxgl-ctrl-group{
+background:$light;
+padding: 4px;
+}
+.mapboxgl-ctrl-zoom-in{
+background: url(#{$add});
+}
+.mapboxgl-ctrl-zoom-out{
+background: url(#{$minus});
+}
+.mapboxgl-ctrl-compass{
+background: url(#{$compass})
+}
+.mapboxgl-ctrl-fullscreen{
+background: url(#{$full});
+}
+.mapboxgl-ctrl-fullscreen{
+background: url(#{$full});
+}
 
+.mapboxgl-ctrl-shrink{
+background: url(#{$shrink});
 }
-.mapboxgl-ctrl-icon,
-.mapboxgl-ctrl-icon > .mapboxgl-ctrl-compass-arrow {
-   position: absolute !important;
-   top: -4px;
-   left: -4px;
-}
+
+

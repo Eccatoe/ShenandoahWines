@@ -62,6 +62,7 @@ function MyList() {
       <div className="list-body-header">
         <h1>WINE JOURNAL</h1>
         <p>-SOMETHING TO REMEMBER THEM BY-</p>
+        <Share />
       </div>
       <div className="list">
         <div className="list-container-1">
@@ -79,7 +80,6 @@ function MyList() {
           </h1>
         </div>
       </div>
-      <Share />
       </div>
     </div>
   );

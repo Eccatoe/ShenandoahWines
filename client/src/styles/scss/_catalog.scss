@@ -8,8 +8,7 @@
   grid-template-rows: repeat(5, 1fr) !important;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-image: url("https://images.unsplash.com/photo-1464638681273-0962e9b53566?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  color: $light;
+background:#436929;
   overflow: hidden;
 
   &-box {
@@ -30,9 +29,9 @@
     .search {
       @extend %text-field;
       position: fixed;
-      top: 5vh;
+      top: 1.5vh;
       width: 18%;
-      margin-left: 26vw;
+      margin-left: 53vw;
       z-index: 3;
       color: $light;
       &:focus {
@@ -45,12 +44,16 @@
     @extend %catalog-list;
     margin: 0px 130px 0px 20px;
     height: 90vh;
+ 
 
 
     cursor: pointer;
     .list-push {
       position: relative;
       margin-top: 200px;
+      background-clip:text
+      
+
     }
     h3 {
       position: fixed;
@@ -59,11 +62,20 @@
       padding-bottom: 25px;
       display: flex;
       flex-direction: column;
+      text-shadow: 0px 6px 0px $light;
+
+      
     }
     .start {
       position: fixed;
       top: 18vh;
       width: 30vw;
+      border: 1px solid $light;
+      color:$light;
+      &:hover{
+        border: 2px solid $light;
+      }
+     
     }
     .end {
       top: 4vh !important;
@@ -72,23 +84,14 @@
     &-items {
       .tour {
         .tf {
-          position:absolute;
-          top: -10vh;
-          height: 1px !important;
-          &-choose {
-            top: 12vh;
-            background: $light;
-            margin-left: 40vw;
-            z-index: 3;
-            width: 40%;
-            color: $dark;
-            button {
-              color: $dark;
-              width: 100%;
-              border: none;
-              border-bottom: 2px solid $dark;
-            }
+          h2{
+            color:$dark;
+            text-shadow: 0px 5px 0px $light;
+
           }
+          position:absolute;
+          top: 13vh;
+          height: 1px !important;
           &-name{
             display: flex;
             flex-direction: column;
@@ -105,19 +108,34 @@
           select {
             background: transparent;
           }
+          input{
+            padding:6px;
+            height: 30px;
+          }
 
           &-stop-input {
             @extend %catalog-list;
             border:none;
             height: 60vh;
             outline: none !important;
+            color:$light !important;
+ 
+
 
           }
           &-log{
             position:absolute;
-            right: 3vw;
+            left: 31.5vw;
+            width: 12vw;
+            text-align:left;
             z-index:4;
-            top: 22vh;
+            top: -24vh;
+            overflow:scroll;
+            height: 98vh;
+            padding: 10px;
+            color: $light;
+
+
             &-item-1{
               display: flex;
               flex-direction: column;
@@ -144,7 +162,7 @@
         }
       }
 
-     
+    
       .remove {
         width: 20px;
         height: 20px;
@@ -163,21 +181,21 @@
       margin: 0px 20px;
       display: inline-block;
       position: relative;
+      &:hover{
+        color: $light;
+      }
+    }
+    .false{
+      color:$light;
     }
   }
 }
 #fade {
-  height: 100vh;
-  width: 2vw;
-  background: $map-color;
-  position: relative;
-  left: 18vw;
-  z-index: 3;
-  grid-area: 1 / 2/ 6 / 3;
-
-  box-shadow: 0px -20px 20px $map-color, 0px -20px 30px $map-color,
-    0px 20px 20px $map-color, -20px 20px 30px $map-color;
+  height: 100vh
 }
 ::-webkit-scrollbar {
   display: none;
+}
+::placeholder{
+  color:$light;
 }

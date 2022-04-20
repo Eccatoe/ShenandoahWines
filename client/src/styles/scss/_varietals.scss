@@ -2,26 +2,48 @@
 @import "utilities";
 
 .varietal {
+  background: url("https://images.unsplash.com/photo-1515779689357-8b2b205287d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80") no-repeat;
+  background-size:cover;
+  color:$dark;
   display: flex;
   margin-right: 50px;
   height: 100vh;
   overflow: hidden;
+  padding: 5vh 0 60px 5vw;
+  align-items:center;
+  justify-content:space-between;
+.overlay{
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgb(132, 167, 218);
+  opacity: 0.3;
+  z-index:0;
+}
   &-list {
     width: 35%;
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    justify-content:space-between;
+    height: 100vh;
     font-size: 24px;
     overflow: scroll;
     width: 25vw;
+   
     h3 {
       @extend %head;
       position: fixed;
-      font-size: 36px;
+      font-size: 50px;
       font-weight: 500px;
+      text-shadow: 0px 3px 1px $light;
+      display: flex;
+      flex-direction:column;
+
     }
     &-items {
-      margin-top: 60px;
+      margin: 15vh 30px 0 0;
       display: flex;
       flex-direction: column;
       overflow: scroll;
@@ -36,14 +58,17 @@
     align-items: center;
     text-align: center;
     font-size: 22px;
-    background-size: 100vw;
-    background-repeat: no-repeat;
+
     h3 {
       @extend %head;
       font-size: 80px;
       letter-spacing: 20px;
+      text-shadow: 0px 7px 0px $light;
+      display: flex;
+      flex-direction:column;
+      text-align:right;
     }
-    p {
+    .content {
       display: flex;
       width: 100%;
       flex-direction: column;
@@ -51,7 +76,6 @@
       align-items: center;
       margin-top: 50px;
       padding: 0 70px;
-      backdrop-filter: blur(10px);
       text-align: center;
       div {
         width: 50%;

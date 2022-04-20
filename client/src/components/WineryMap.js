@@ -8,8 +8,7 @@ function WineryMap({
   setSelectedWinery,
   renderedSearchList,
   handleClose,
-  coords,
-  geojson,
+  geojson
 }) {
   const navigate = useNavigate();
   const {mymap}=useMap()

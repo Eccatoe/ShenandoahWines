@@ -27,142 +27,142 @@ red="https://i.imgur.com/56wiQ0r.jpeg"
 fruit="https://i.imgur.com/HlFZiYo.jpeg"
 Varietal.create(
 id: 1,
-picture: red,
+picture:"",
 name:  "Cabernet Franc", 
 tasting_notes: "Cabernet Franc is the parent grape of both Merlot and Cabernet Sauvignon. Complex reds result, with aromas of raspberry, bramble, and bell pepper (pyrazines)."
 )
 Varietal.create(
 id: 2,    
-picture: red,
+picture:"",
 name: "Cabernet Sauvignon", 
 tasting_notes: "The world's most popular red wine grape is a natural cross between Cabernet Franc and Sauvignon Blanc from Bordeaux, France. Cabernet Sauvignon is loved for its high concentration and age worthiness."
 )
 
 Varietal.create(
 id: 3,    
-picture: red,
+picture:"",
 name: "Carmine", 
 tasting_notes: "Carmine wines are dark red or crimson in color, and typically have herbaceous aromas and peppery notes. Carmine has strong, dry tannins and sour acidity."
 )
 Varietal.create(
 id: 4,    
-picture: red,
+picture:"",
 name:  "Chambourcin", 
 tasting_notes: "Noted for its distinctive dark coloring and herbaceous aroma, Chambourcin wines are often spicy, with notes of black cherry and plum, and a range of herbal characters."
 )
 Varietal.create(
 id: 5,    
-picture: white,
+picture:"",
 name: "Chardonnay", 
 tasting_notes: "One of the world's most popular grapes, Chardonnay is made in a wide range of styles from lean, sparkling Blanc de Blancs to rich, creamy white wines aged in oak."
 )
 Varietal.create(
 id: 6,    
-picture: red,
+picture:"",
 name:  "Gamay", 
 tasting_notes: "A fruity, floral and sometimes earthy light-bodied red that is the main variety planted in Beaujolais. Outside of France, Gamay has a tiny but devoted following."
 )
 
 Varietal.create(
 id: 7,    
-picture: white,
+picture:"",
 name:  "Gewurztraminer", 
 tasting_notes: "Treasured for its intense floral aromas, Gewürztraminer has thrived for centuries around Germany. Quality examples are ageworthy, but most are best enjoyed in their youth to preserve acidity."
 )
 Varietal.create(
 id: 8,    
-picture: red,
+picture:"",
 name:  "Grenache", 
 tasting_notes: "Grenache (aka Garnacha) produces rich, flavorful red wines and deep, ruby-tinted rosé. The French have championed this grape in the Southern Rhône Valley but it's original home is Spain!"
 )
 Varietal.create(
 id: 9,    
-picture: white,
+picture:"",
 name:  "Grüner Veltliner", 
 tasting_notes: "Austria's most important wine is produced in a myriad of styles, the most popular of which are lean, herbaceous, and peppery wines with mouth-watering acidity."
 )
 Varietal.create(
 id: 10,    
-picture: red,
+picture:"",
 name:  "Malbec", 
 tasting_notes: "Argentina's most important variety came by way of France, where it's commonly called Côt (sounds like “coat”). Wines are loved for their rich, dark fruit flavors and smooth chocolatey finish."
 )
 Varietal.create(
 id: 11,    
-picture: red,
+picture:"",
 name:  "Merlot", 
 tasting_notes: "Merlot is loved for it's boisterous black cherry flavors, supple tannins, and chocolatey finish. On the high end, it's often mistaken with Cabernet Sauvignon and commonly blended with it."
 )
 Varietal.create(
-picture: white,
+picture:"",
 id: 12,
 name:  "Moscato Bianco", 
 tasting_notes: "An ancient aromatic white variety originally from Greece that's available in many styles, from dry to sweet to still, sparkling, and fortified. Dry varietal wines show a range of citrus, floral and spice aromas, with a full, dry palate. Sparkling and slightly sparkling examples are typically sweeter and tend towards melon flavors, with sweet, grapey smells. Dessert wines are typically produced as vins doux naturels."
 )
 
 Varietal.create(
-picture: red,
+picture:"",
 id: 13,
 name:  "Mouvedre", 
 tasting_notes: "The grape variety likes warm, dry climates and has small, thick-skinned berries - the textbook combination for making wines with intense color and high tannin levels. In fact, it is the its mouth-drying tannins that earned the grape the French nickname Étrangle-Chien (the dog strangler)."
 )
 Varietal.create(
 id: 14,    
-picture: red,
+picture:"",
 name:  "Norton", 
 tasting_notes: "An American hybrid of Vitis vinifera and Vitis aestivalis that shows excellent promise for winemaking in America's midwest. Wines are often rich with both fruity and savory flavors."
 )
 Varietal.create(
 id: 15,    
-picture: white,
+picture:"",
 name:  "Petit Manseng", 
 tasting_notes: "Commonly vinified as a richly sweet wine with stonefruit characters such as peach and apricot, citrus and sweet spice."
 )
 Varietal.create(
 id: 16,    
-picture:red,
+picture:"",
 name:  "Petit Verdot", 
 tasting_notes: "Considered a minor blending grape in Bordeaux, Petit Verdot has shown promise as a single-varietal wine in warmer climates where it makes smooth full-bodied reds."
 )
 Varietal.create(
 id: 17,    
-picture: white,
+picture:"",
 name:  "Pinot Gris", 
 tasting_notes: "Pinot Gris (aka Pinot Grigio) is a pinkish grape mutation of Pinot Noir. It's famously known for zesty white wines, but can also be used for rosé. Look to Northern Italy, Oregon, and Alsace for benchmark examples."
 )
 Varietal.create(
 id: 18,    
-picture: red,
+picture:"",
 name:  "Pinot Noir", 
 tasting_notes: "Pinot Noir is the world's most popular light-bodied red wine. It's loved for its red fruit, flower, and spice aromas that are accentuated by a long, smooth finish.
 "
 )
 Varietal.create(
 id: 19,    
-picture: white,
+picture:"",
 name:  "Riesling", 
 tasting_notes: "An aromatic white variety that can produce white wines ranging in style from bone-dry to very sweet. Germany is the world's most important producer of Riesling."
 )
 Varietal.create(
 id: 20,    
-picture: white,
+picture:"",
 name:  "Roussane", 
 tasting_notes: "An intriguing, rare full-bodied white found mostly in Southern France where it's blended into white blends with Grenache Blanc, Marsanne and sometimes Viognier."
 )
 Varietal.create(
 id: 22,    
-picture: white,
+picture:"",
 name:  "Syrah", 
 tasting_notes: "A rich, powerful, and sometimes meaty red wine that originated in the Rhône Valley of France. Syrah is the most planted grape of Australia, where they call it Shiraz."
 )
 Varietal.create(
 id: 23,    
-picture: white,
+picture:"",
 name:  "Sauvignon Blanc", 
 tasting_notes: "A popular and unmistakable white wine that's loved for its “green” herbal flavors and racy acidity. Sauvignon Blanc grows nearly everywhere and thus, offers a variety of styles ranging from lean to bountiful."
 )
 Varietal.create(
-picture: white,
+picture:"",
     id: 24,
     name:  "Seyval Blanc", 
 
@@ -170,73 +170,73 @@ tasting_notes: "Seyval Blanc is produced as dry white wine. It is often touted a
 )
 Varietal.create(
 id: 25,    
-picture: red,
+picture:"",
 name:  "Tannat", 
 tasting_notes: "Tannat creates wines which are deep, dark, dry and rustic. It contains some of the highest polyphenols (antioxidants) of all red wines."
 )
 Varietal.create(
 id: 26,    
-picture: red,
+picture:"",
 name:  "Touriga Nacional", 
 tasting_notes: "An increasingly important red from Portugal that was originally used in Port wines and is now featured in single varietal wines and red blends from the Douro Valley."
 )
 Varietal.create(
 id: 27,    
-picture: white,
+picture:"",
 name:  "Traminette", 
 tasting_notes: "Traminette wines tend to be floral and spicy, and are made in both dry and off-dry styles. It is sometimes referred to as a winter-hardy version of Gewürztraminer, without the perfumed intensity of its parent."
 )
 Varietal.create(
 id: 28,    
-picture: white,
+picture:"",
 name:  "Vidal Blanc", 
 tasting_notes: "A French hybrid grape, known principally for its use in ice wine making in Canada. The vines are ideal for ice wine, as they are incredibly hardy and suited to harsh winters."
 )
 Varietal.create(
 id: 29,    
-picture: white,
+picture:"",
 name:  "Viognier", 
 tasting_notes: "A rich, oily white wine that originated in the Northern Rhône and is rapidly growing in popularity in California, Australia, and beyond. Wines are often age in oak to deliver Chardonnay-like richness."
 )
 Varietal.create(
 id: 30,    
-picture: red,
+picture:"",
 name:  "Zweigelt", 
 tasting_notes: "Austria's most planted red wine grape and is a cross between Blaufränkisch and St. Laurent (tastes like Pinot Noir). Resulting wines are bright, tart, and fruity."
 )
 Varietal.create(
 id: 31,    
-picture: blend,
+picture:"",
 name:  "Blend", 
 tasting_notes: ""
 )
 Varietal.create(
 id: 32,    
-picture: fruit,
+picture:"",
 name:  "Fruit", 
 tasting_notes: "There are few rules when it comes to fruit wine. If you can extract its juice, you can make wine out of it. While some varieties are more popular than others — cherry wine, for instance, is a much-loved favorite — there are so many fruit wines to discover."
 )
 Varietal.create(
 id: 33,    
-picture: red,
+picture:"",
 name:  "Marechal Foch", 
 tasting_notes: "Marechal Foch makes a deeply colored wine with earthy characters as well as some jammy, dark-fruit flavors."
 )
 Varietal.create(
     id: 34,    
-    picture: red,
+    picture:"",
     name:  "Marquette", 
     tasting_notes: "Marquette wines are typically medium bodied, with aromas of cherries, blackcurrants and blackberries. In better examples, more complex aromas such as tobacco and leather may also be exhibited, with spicy pepper notes on the finish."
 )
 Varietal.create(
     id: 35,    
-    picture: white,
+    picture:"",
     name:  "St. Pepin", 
     tasting_notes: "St. Pepin is used to produce both dry and sweet wines, and has proved well suited to producing ice wine from vineyards around Lake Wisconsin. The wines are typically low in acidity and fairly fruit driven, with Muscat-like floral characters."
 )
 Varietal.create(
     id: 36,    
-    picture: blend,
+    picture:"",
     name:  "Catawba", 
     tasting_notes: "Catawba can produce a medium bodied wine with moderate acidity and enough sugars to produce off-dry to dry styles of wine. Though the grape is technically considered a 'red wine' grape, Catawba actually produces rosés of varying shades of pink and white wines. The flavor of Catawba can have varying degrees of 'foxiness', which refers to earthy and musky aromas"
 )

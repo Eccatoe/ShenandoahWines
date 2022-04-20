@@ -1,19 +1,18 @@
-import { useCallback } from "react";
+import { useState } from "react";
 import { useMap } from "react-map-gl";
 
 function WineryList({ renderedSearchList, focusWine }) {
   const { mymap } = useMap();
   const wineryListItems = renderedSearchList.map((winery) => (
-    <div>
-      <div className="winery-list-item" key={winery.id}>
+      <div className="winery-list-item"  key={winery.id}>
         {winery.name}
         <br />
       </div>
-    </div>
   ));
 
   function handleFocus(e) {
-    e.target.classList.toggle("clicked");
+    e.target.classList.add("clicked");
+    console.log(16, e.target.classList)
     focusWine(e);
   }
 
