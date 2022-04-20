@@ -5,10 +5,10 @@ function TrailItem(trail_stops) {
 
   const formatTrail = Object.values(trail_stops)?.map((stop) =>
     stop.map((ts) => (
-      <>
-        <div>{ts.winery_name}</div>
-        <div>{ts.winery_address}</div>
-      </>
+      <div className="trails-list-item">
+        <h4>{ts.winery_name}</h4>
+        <span>{ts.winery_address}</span>
+      </div>
     ))
   );
 
