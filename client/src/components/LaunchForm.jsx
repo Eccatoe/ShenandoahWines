@@ -1,35 +1,32 @@
 import React, { useEffect, useContext, useState } from "react";
 import { WineryContext } from "./WineryContext";
 import { useNavigate } from "react-router-dom";
-import line from '../assets/line.svg'
+import AppAdapter from '../adapters/AppAdapter'
+import line from "../assets/line.svg";
 import minus from "../assets/minus.svg";
 
 function LaunchForm({ coords, setCoords, geojson }) {
   const { wineries } = useContext(WineryContext);
   const navigate = useNavigate();
-  const [trailSelections, setTrailSelections] = useState([]);
-  const [trailWinery, setTrailWinery] = useState({});
+  const [newStop, setNewStop] = useState({});
   const [trailName, setTrailName] = useState("");
   const [showSelect, setShowSelect] = useState(false);
-  const [renderPage, setRenderPage] = useState(false);
   const [trails, setTrails] = useState([]);
   const [trailStops, setTrailStops] = useState([]);
 
   const optionList = wineries.map((winery) => (
-    <option onClick={(e)=>highlight(e)}key={winery.id} value={winery.name}>
+    <option onClick={(e) => highlight(e)} key={winery.id} value={winery.id}>
       {winery.name}
     </option>
   ));
 
-  const highlight=(e)=>e.target.classList.toggle("sel")
+  const highlight = (e) => e.target.classList.toggle("sel");
   function handleNameChange(e) {
     setTrailName(e.target.value);
   }
-
   function submitName(e) {
     e.preventDefault();
     setShowSelect(true);
-    setRenderPage((renderPage) => !renderPage);
 
     fetch("/trails", {
       method: "POST",
@@ -44,46 +41,41 @@ function LaunchForm({ coords, setCoords, geojson }) {
   }
 
   useEffect(() => {
-    fetch("/trails")
-      .then((r) => r.json())
+    AppAdapter.getTrails()
       .then((data) => setTrails(data));
-  }, [renderPage, trailSelections]);
-
+  }, [trailName]);
 
   useEffect(() => {
-    fetch("./trail_stops")
-      .then((r) => r.json())
+    AppAdapter.getTrailStops()
       .then((data) => setTrailStops(data));
-  }, [trailSelections]);
-
-
+  }, [newStop]);
+console.log(trailStops)
 
   function handleSelect(e) {
-    console.log(e.target.selectedOptions);
     const selection = Array.from(
       e.target.selectedOptions,
       (item) => item.value
     );
-    console.log(54, selection);
-    
-    const userWinery = wineries.find((w) => selection.includes(w.name));
-    if (!trailSelections.flat().includes(userWinery)) {
-      setTrailWinery(userWinery);
-      setTrailSelections([...trailSelections, trailWinery]);
-      setCoords([...coords, [trailWinery.longitude, trailWinery.latitude]]);
-      fetch("/trail_stops", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          longitude: trailWinery.longitude,
-          latitude: trailWinery.latitude,
-          trail_id: trails[trails.length - 1].id,
-          winery_id: trailWinery.id,
-        }),
-      }).then((res) => console.log(res.ok));
-    }
+    console.log(selection);
+    const trailWinery = wineries?.find((w) =>
+      selection.includes(w.id.toString())
+    );
+    fetch("/trail_stops", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        longitude: trailWinery.longitude,
+        latitude: trailWinery.latitude,
+        trail_id: trails[trails.length - 1].id,
+        winery_id: trailWinery.id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => setNewStop(data));
+
+    setCoords([...coords, [trailWinery.longitude, trailWinery.latitude]]);
   }
 
   function handleSubmit(e) {
@@ -91,29 +83,27 @@ function LaunchForm({ coords, setCoords, geojson }) {
     navigate("/trails");
   }
   function handleRemove(e) {
-    e.currentTarget.parentNode.parentNode.remove();
-    const itemToRemove = e.currentTarget.parentNode.textContent;
-    console.log(23, itemToRemove);
-    // const removeIndex=trailSelections.flat().find((s)=>s.name===itemToRemove)
-    // trailSelections.splice(removeIndex, 1)
-  }
+    const remove=trailStops.find((ts)=>ts.id===parseInt(e.currentTarget.value))
+    console.log(88, e.currentTarget.parentNode.parentNode)
+    fetch(`/trail_stops/${remove.id}`, {
+      method: "DELETE"
+    })
+    }
 
-  const trailLog = trailSelections.flat().map((s) => (
+
+  const trailLog = trailStops?.filter((s) => (s.trail.id===trails[trails.length-1].id))
+  const trailFlow=trailLog.map((tl)=>(
     <div className="tf-log-item-1">
-      <div className="tf-log-item-2">
-        <button
-          className="remove"
-          onClick={(e) => handleRemove(e)}
-          key={s.id}
-        >
-          {console.log(108, s)}
-          <img className="minus" src={minus} />
-        </button>
-        <div>{s.name}</div>
-      </div>
-      <img className="line" src={line} />
+    <div className="tf-log-item-2">
+      <button value={tl.id} className="remove" onClick={(e) => handleRemove(e)} key={tl.id}>
+        <img className="minus" src={minus} />
+      </button>
+      <div>{tl.winery_name}</div>
     </div>
-  ));
+    <img className="line" src={line} />
+  </div>
+  ))
+  
   return (
     <div className="tf">
       {showSelect ? (
@@ -142,7 +132,7 @@ function LaunchForm({ coords, setCoords, geojson }) {
           <input type="submit" className="tf-btn" value="Let's Go!" />
         </form>
       ) : null}
-      <div className="tf-log">{trailLog}</div>
+      <div className="tf-log">{trailFlow}</div>
     </div>
   );
 }

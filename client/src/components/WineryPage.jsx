@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AppAdapter from "../adapters/AppAdapter";
 import arrow from '../assets/arrow.svg'
 
 function WineryPage() {

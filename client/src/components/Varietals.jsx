@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AppAdapter from "../adapters/AppAdapter.jsx";
 import VarietalItem from "./VarietalItem.jsx";
 
 function Varietals({ setVarietalSearchList }) {
@@ -21,8 +22,7 @@ function Varietals({ setVarietalSearchList }) {
     .splice(1, varietals.length);
 
   useEffect(() => {
-    fetch("/varietals")
-      .then((r) => r.json())
+    AppAdapter.getVarietals()
       .then((data) => setVarietals(data));
   }, []);
 

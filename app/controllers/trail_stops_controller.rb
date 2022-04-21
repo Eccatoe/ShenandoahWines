@@ -6,6 +6,7 @@ class TrailStopsController < ApplicationController
     end
     def create
        trail_stop=TrailStop.create!(trail_stop_params)
+       render json: trail_stop
     end
     def destroy
         trail_stop=TrailStop.find(params[:id])

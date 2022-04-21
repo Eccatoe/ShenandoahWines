@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MyListItem from "./MyListItem";
+import AppAdapter from "../adapters/AppAdapter";
 import stain from "../assets/stain.png";
 import Share from "./Share";
 
@@ -7,8 +8,7 @@ function MyList() {
   const [drinkList, setDrinkList] = useState([]);
 
   useEffect(() => {
-    fetch("/user_wines")
-      .then((r) => r.json())
+    AppAdapter.getUserWines()
       .then((drinks) => setDrinkList(drinks));
   }, []);
 

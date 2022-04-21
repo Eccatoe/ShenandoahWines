@@ -129,7 +129,7 @@ background:#436929;
             width: 12vw;
             text-align:left;
             z-index:4;
-            top: -24vh;
+            top: -12vh;
             overflow:scroll;
             height: 98vh;
             padding: 10px;
@@ -167,6 +167,7 @@ background:#436929;
         width: 20px;
         height: 20px;
         border: none;
+        cursor:pointer;
         .minus {
           width: 12px;
           margin-right: 6px;

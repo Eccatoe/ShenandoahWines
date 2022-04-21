@@ -420,7 +420,7 @@ h3 {
   width: 12vw;
   text-align: left;
   z-index: 4;
-  top: -24vh;
+  top: -12vh;
   overflow: scroll;
   height: 98vh;
   padding: 10px;
@@ -466,6 +466,7 @@ h3 {
   width: 20px;
   height: 20px;
   border: none;
+  cursor: pointer;
 }
 
 .winery-list-items .remove .minus {
