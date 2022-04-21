@@ -8,6 +8,9 @@ class TrailsController < ApplicationController
         trails=Trail.all
         render json: trails
     end
+    def destroy
+        
+    end
     private
 
     def trail_params

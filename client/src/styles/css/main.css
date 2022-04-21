@@ -414,6 +414,10 @@ h3 {
   color: #fdf2d4 !important;
 }
 
+.winery-list-items .tour .tf-stop-input .sel {
+  color: #0b1118;
+}
+
 .winery-list-items .tour .tf-log {
   position: absolute;
   left: 31.5vw;

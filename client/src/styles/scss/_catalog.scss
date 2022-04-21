@@ -119,7 +119,10 @@ background:#436929;
             height: 60vh;
             outline: none !important;
             color:$light !important;
- 
+
+            .sel{
+              color:$dark;
+            }
 
 
           }

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :trail_stops
-  resources :trails
-  resources :users
+  resources :trail_stops, only: [:index, :create, :destroy]
+  resources :trails, only: [:create, :index, :destroy]
+  # resources :users
   resources :user_wines
-  resources :varietals
-  resources :wineries
-  resources :wines
-  get '/rose', to: 'wines#rose'
+  resources :varietals, only: :index
+  resources :wineries, only: [:index, :show]
+  resources :wines, only: [:show, :index]
  
 end

@@ -84,13 +84,13 @@ console.log(trailStops)
   }
   function handleRemove(e) {
     const remove=trailStops.find((ts)=>ts.id===parseInt(e.currentTarget.value))
-    console.log(88, e.currentTarget.parentNode.parentNode)
+    e.currentTarget.parentNode.parentNode.remove()
     fetch(`/trail_stops/${remove.id}`, {
       method: "DELETE"
     })
     }
 
-
+function renderLog(){if(trailStops.length>0){
   const trailLog = trailStops?.filter((s) => (s.trail.id===trails[trails.length-1].id))
   const trailFlow=trailLog.map((tl)=>(
     <div className="tf-log-item-1">
@@ -102,7 +102,7 @@ console.log(trailStops)
     </div>
     <img className="line" src={line} />
   </div>
-  ))
+  ))}}
   
   return (
     <div className="tf">
@@ -132,7 +132,7 @@ console.log(trailStops)
           <input type="submit" className="tf-btn" value="Let's Go!" />
         </form>
       ) : null}
-      <div className="tf-log">{trailFlow}</div>
+      <div className="tf-log">{renderLog()}</div>
     </div>
   );
 }
